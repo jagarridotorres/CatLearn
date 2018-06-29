@@ -1,7 +1,7 @@
 import numpy as np
 from catlearn.optimize.warnings import *
 from catlearn.optimize.io import ase_traj_to_catlearn, store_results_neb
-from catlearn.optimize.ml_calculator import GPCalculator, train_ml_process
+from catlearn.optimize.ml_calculator import train_ml_process
 from catlearn.optimize.convergence import get_fmax
 from catlearn.optimize.get_real_values import eval_and_append
 from catlearn.optimize.catlearn_ase_calc import CatLearnASE
@@ -18,6 +18,7 @@ import copy
 import os
 from scipy.interpolate import CubicSpline
 from catlearn.optimize.io import array_to_ase
+import gptools
 
 
 class CatLearnNEB(object):
@@ -150,17 +151,12 @@ class CatLearnNEB(object):
 
         # Configure ML calculator.
         if self.ml_calc is None:
-            self.kdict = {'k1': {'type': 'gaussian', 'width': 0.5,
-                                 'dimension': 'single',
-                                 'bounds': ((0.05, 1.0), ),
-                                 'scaling': 1.0,
-                                 'scaling_bounds': ((1.0, 1.0), )}
-                          }
-
-            self.ml_calc = GPCalculator(
-                kernel_dict=self.kdict, opt_hyperparam=True, scale_data=False,
-                scale_optimizer=False, calc_uncertainty=True,
-                regularization=1e-4, regularization_bounds=((1e-6, 1e-3),))
+            self.n_dim = len(self.ind_mask_constr)
+            self.gp_bounds = [(1.0, 1.0)] + [(0.1, 1.0)] * self.n_dim
+            self.kernel = gptools.SquaredExponentialKernel(
+                                               param_bounds=self.gp_bounds,
+                                               num_dim=self.n_dim)
+            self.ml_calc = gptools.GaussianProcess(self.kernel)
 
         # Settings for the NEB.
         self.neb_method = neb_method
@@ -179,7 +175,6 @@ class CatLearnNEB(object):
                                         n_images=self.n_images,
                                         constraints=self.constraints,
                                         index_constraints=self.ind_mask_constr,
-                                        trained_process=None,
                                         ml_calculator=self.ml_calc,
                                         scaling_targets=self.scale_targets,
                                         iteration=self.iter
@@ -209,7 +204,6 @@ class CatLearnNEB(object):
                                         n_images=self.n_images,
                                         constraints=self.constraints,
                                         index_constraints=self.ind_mask_constr,
-                                        trained_process=None,
                                         ml_calculator=self.ml_calc,
                                         scaling_targets=self.scale_targets,
                                         iteration=self.iter
@@ -278,16 +272,22 @@ class CatLearnNEB(object):
             assert np.any(count_unique) < 2, msg
 
             print('Training a ML process...')
+
+            self.n_dim = len(self.ind_mask_constr)
+            self.gp_bounds = [(1.0, 1.0)] + [(0.1, 1.0)] * self.n_dim
+            self.kernel = gptools.Matern52Kernel(
+                                               param_bounds=self.gp_bounds,
+                                               num_dim=self.n_dim)
+            self.ml_calc = gptools.GaussianProcess(self.kernel)
             print('Number of training points:', len(self.list_targets))
-            process = train_ml_process(list_train=self.list_train,
+            ml_calc = train_ml_process(list_train=self.list_train,
                                        list_targets=self.list_targets,
                                        list_gradients=self.list_gradients,
                                        index_constraints=self.ind_mask_constr,
                                        ml_calculator=self.ml_calc,
-                                       scaling_targets=self.scale_targets)
+                                       scaling_targets=self.scale_targets,
+                                       opt_hyper=True)
 
-            trained_process = process['trained_process']
-            ml_calc = process['ml_calc']
             print('ML process trained.')
 
             # 2) Setup and run ML NEB:
@@ -316,12 +316,10 @@ class CatLearnNEB(object):
                                         n_images=self.n_images,
                                         constraints=self.constraints,
                                         index_constraints=self.ind_mask_constr,
-                                        trained_process=trained_process,
                                         ml_calculator=ml_calc,
                                         scaling_targets=self.scale_targets,
                                         iteration=self.iter
                                         )
-
             ml_neb = NEB(self.images, climb=False,
                          method=self.neb_method,
                          k=self.spring)
@@ -381,7 +379,7 @@ class CatLearnNEB(object):
                 if self.ase_calc.__dict__['name'] == 'mullerbrown':
                     get_plot_mullerbrown(images=self.images,
                                          interesting_point=interesting_point,
-                                         trained_process=trained_process,
+                                         ml_calc=ml_calc,
                                          list_train=self.list_train)
                     # get_plot_mullerbrown_p(images=self.images,
                     #                        interesting_point=interesting_point,
@@ -451,7 +449,7 @@ class CatLearnNEB(object):
 
 
 def create_ml_neb(is_endpoint, fs_endpoint, images_interpolation,
-                  n_images, constraints, index_constraints, trained_process,
+                  n_images, constraints, index_constraints,
                   ml_calculator, scaling_targets, iteration):
 
     # End-points of the NEB path:
@@ -476,8 +474,7 @@ def create_ml_neb(is_endpoint, fs_endpoint, images_interpolation,
         image.info['label'] = i
         image.info['uncertainty'] = 0.0
         image.info['iteration'] = iteration
-        image.set_calculator(CatLearnASE(trained_process=trained_process,
-                                         ml_calc=ml_calculator,
+        image.set_calculator(CatLearnASE(ml_calc=ml_calculator,
                                          index_constraints=index_constraints
                                          ))
         if images_interpolation is not None:
