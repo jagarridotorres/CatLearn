@@ -1,6 +1,6 @@
 import numpy as np
 from catlearn.optimize.warnings import *
-from catlearn.optimize.ml_calculator import GPCalculator, train_ml_process
+from catlearn.optimize.ml_calculator import train_ml_process
 from catlearn.optimize.io import backup_old_calcs, ase_traj_to_catlearn, \
                                  print_info
 from catlearn.optimize.constraints import create_mask_ase_constraints
@@ -14,7 +14,7 @@ from catlearn.optimize.convergence import converged, get_fmax
 from catlearn.optimize.catlearn_ase_calc import CatLearnASE
 import copy
 from catlearn.optimize.plots import get_plot_step
-
+import gptools
 
 class CatLearnMinimizer(object):
 
@@ -46,21 +46,6 @@ class CatLearnMinimizer(object):
         # Create new file to store warnings and errors:
         open('warnings_and_errors.txt', 'w')
 
-        # Configure ML calculator.
-        if self.ml_calc is None:
-            self.kdict = {'k1': {'type': 'gaussian', 'width': 0.5,
-                                 'dimension': 'single',
-                                 'bounds': ((0.05, 1.0), ),
-                                 'scaling': 1.0,
-                                 'scaling_bounds': ((1.0, 1.0), )},
-                          # 'k2': {'type': 'constant', 'const':100.0}
-                          }
-
-            self.ml_calc = GPCalculator(
-                kernel_dict=self.kdict, opt_hyperparam=True, scale_data=False,
-                scale_optimizer=False, calc_uncertainty=True,
-                regularization=1e-4, regularization_bounds=(1e-6, 1e-3),)
-            warning_kernel()
 
         self.ase_calc = ase_calc
 
@@ -115,6 +100,16 @@ class CatLearnMinimizer(object):
             if self.constraints is not None:
                 self.ind_mask_constr = create_mask_ase_constraints(
                     self.ase_ini, self.constraints)
+            # Configure ML calculator.
+            if self.ml_calc is None:
+                self.n_dim = len(self.ind_mask_constr)
+                self.gp_bounds = [(1.0, 1.0)] + [(0.1, 1.0)] * self.n_dim
+                self.kernel = gptools.SquaredExponentialKernel(
+                                               param_bounds=self.gp_bounds,
+                                               num_dim=self.n_dim)
+                self.ml_calc = gptools.GaussianProcess(self.kernel)
+
+
 
     def run(self, fmax=0.05, ml_algo='BFGS', max_iter=500,
             min_iter=0, ml_max_iter=250):
@@ -180,15 +175,22 @@ class CatLearnMinimizer(object):
             msg = 'Your training list contains 1 or more duplicated elements'
             assert np.any(count_unique) < 2, msg
             print('Training a ML process...')
+
+            self.n_dim = len(self.ind_mask_constr)
+            self.gp_bounds = [(1.0, 1.0)] + [(0.1, 1.0)] * self.n_dim
+            self.kernel = gptools.Matern52Kernel(
+                                               param_bounds=self.gp_bounds,
+                                               num_dim=self.n_dim)
+            self.ml_calc = gptools.GaussianProcess(self.kernel)
             print('Number of training points:', len(self.list_targets))
-            process = train_ml_process(list_train=self.list_train,
+            ml_calc = train_ml_process(list_train=self.list_train,
                                        list_targets=self.list_targets,
                                        list_gradients=self.list_gradients,
                                        index_constraints=self.ind_mask_constr,
                                        ml_calculator=self.ml_calc,
-                                       scaling_targets=scale_targets)
-            trained_process = process['trained_process']
-            ml_calc = process['ml_calc']
+                                       scaling_targets=scale_targets,
+                                       opt_hyper=True)
+
             print('ML process trained.')
 
             # 2) Setup and run optimization.
@@ -199,9 +201,8 @@ class CatLearnMinimizer(object):
                 guess.__dict__['_calc'].__dict__['results']['energy'] \
                 - scale_targets
             guess.set_calculator(CatLearnASE(
-                                    trained_process=trained_process,
                                     ml_calc=ml_calc,
-                                    kappa=2.0,
+                                    kappa=0.0,
                                     index_constraints=self.ind_mask_constr
                                          ))
             guess.info['iteration'] = self.iter
