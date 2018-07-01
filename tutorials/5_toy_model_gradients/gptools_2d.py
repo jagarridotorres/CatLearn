@@ -76,7 +76,7 @@ gradients = org_gradients
 # Gaussian Process.
 n_dim = np.shape(train)[1]
 
-parameters_bounds = [(1.0, 1.0)] + [(0.01, 1.0)] * n_dim
+parameters_bounds = [(1e-3, 1.0)] + [(0.01, 100.0)] * n_dim
 
 k = gptools.SquaredExponentialKernel(param_bounds=parameters_bounds,
                                      num_dim=n_dim)
@@ -84,14 +84,14 @@ gp = gptools.GaussianProcess(k)
 
 gp.add_data(train, target.flatten(), err_y=1e-6)
 
-
 for i in range(0, np.shape(gradients)[1]):
     g_i = gradients[:, i]
     n_i = np.zeros(np.shape(gradients))
     n_i[:, i] = 1.0
     gp.add_data(train, g_i, n=n_i, err_y=1e-3)
+gp.optimize_hyperparameters()
 
-gp.sample_hyperparameter_posterior(nsamp=15)
+# gp.sample_hyperparameter_posterior(nsamp=2)
 
 prediction, err_y_star = gp.predict(test)
 

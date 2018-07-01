@@ -270,13 +270,13 @@ class CatLearnNEB(object):
             kernel_selection = 'RationalQuadratic'
 
             if kernel_selection == 'RationalQuadratic':
-                gp_bounds = [(1e-6, 1e-3)] + [(0.0, 2.0)] + [(0.1, 1.0)] * \
+                gp_bounds = [(1e-6, 1e-3)] + [(1e-8, 1.0)] + [(1e-2, 1.0)] * \
                              n_dim
                 kernel = gptools.RationalQuadraticKernel(
                                                param_bounds=gp_bounds,
                                                num_dim=n_dim)
             if kernel_selection == 'Matern52':
-                gp_bounds = [(1e-6, 1e-3)] + [(0.1, 1.0)] * \
+                gp_bounds = [(1e-6, 1e-3)] + [(1e-2, 1.0)] * \
                              n_dim
                 kernel = gptools.Matern52Kernel(
                                                param_bounds=gp_bounds,
@@ -289,7 +289,7 @@ class CatLearnNEB(object):
                                        index_constraints=self.ind_mask_constr,
                                        ml_calculator=gp_calc,
                                        scaling_targets=self.scale_targets,
-                                       opt_hyper=True)
+                                       opt_hyper=False)
 
             print('ML process trained.')
 

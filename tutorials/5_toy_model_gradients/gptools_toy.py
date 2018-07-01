@@ -70,7 +70,6 @@ for i in range(0, np.shape(gradients)[1]):
 y_star, err_y_star = gp.predict(test)
 
 
-
 linex = np.linspace(0.0, 7.0, test_points)
 linex = np.reshape(linex, (1, np.shape(linex)[0]))
 linex = np.sort(linex)
