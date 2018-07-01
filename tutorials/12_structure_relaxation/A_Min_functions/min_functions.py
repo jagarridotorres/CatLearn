@@ -1,5 +1,5 @@
 from catlearn.optimize.catlearn_minimizer import CatLearnMinimizer
-from catlearn.optimize.functions_calc import Himmelblau
+from catlearn.optimize.functions_calc import Himmelblau, NoiseHimmelblau
 from ase import Atoms
 from ase.optimize import BFGS
 from ase.io import read
@@ -13,7 +13,7 @@ import numpy as np
 """
 
 # 0. Set calculator.
-ase_calculator = Himmelblau()
+ase_calculator = NoiseHimmelblau()
 
 # 1. Set common initial structure.
 common_initial = Atoms('C', positions=[(-1.5, -1.0, 0.0)])

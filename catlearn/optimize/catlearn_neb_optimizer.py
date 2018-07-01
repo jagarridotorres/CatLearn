@@ -149,15 +149,6 @@ class CatLearnNEB(object):
             self.ind_mask_constr = create_mask_ase_constraints(
                                                 self.ase_ini, self.constraints)
 
-        # Configure ML calculator.
-        if self.ml_calc is None:
-            self.n_dim = len(self.ind_mask_constr)
-            self.gp_bounds = [(1.0, 1.0)] + [(0.1, 1.0)] * self.n_dim
-            self.kernel = gptools.SquaredExponentialKernel(
-                                               param_bounds=self.gp_bounds,
-                                               num_dim=self.n_dim)
-            self.ml_calc = gptools.GaussianProcess(self.kernel)
-
         # Settings for the NEB.
         self.neb_method = neb_method
         self.spring = spring
@@ -175,7 +166,7 @@ class CatLearnNEB(object):
                                         n_images=self.n_images,
                                         constraints=self.constraints,
                                         index_constraints=self.ind_mask_constr,
-                                        ml_calculator=self.ml_calc,
+                                        ml_calculator=None,
                                         scaling_targets=self.scale_targets,
                                         iteration=self.iter
                                         )
@@ -273,18 +264,30 @@ class CatLearnNEB(object):
 
             print('Training a ML process...')
 
-            self.n_dim = len(self.ind_mask_constr)
-            self.gp_bounds = [(1.0, 1.0)] + [(0.1, 1.0)] * self.n_dim
-            self.kernel = gptools.Matern52Kernel(
-                                               param_bounds=self.gp_bounds,
-                                               num_dim=self.n_dim)
-            self.ml_calc = gptools.GaussianProcess(self.kernel)
+            # Configure ML calculator.
+            n_dim = len(self.ind_mask_constr)
+
+            kernel_selection = 'RationalQuadratic'
+
+            if kernel_selection == 'RationalQuadratic':
+                gp_bounds = [(1e-6, 1e-3)] + [(0.0, 2.0)] + [(0.1, 1.0)] * \
+                             n_dim
+                kernel = gptools.RationalQuadraticKernel(
+                                               param_bounds=gp_bounds,
+                                               num_dim=n_dim)
+            if kernel_selection == 'Matern52':
+                gp_bounds = [(1e-6, 1e-3)] + [(0.1, 1.0)] * \
+                             n_dim
+                kernel = gptools.Matern52Kernel(
+                                               param_bounds=gp_bounds,
+                                               num_dim=n_dim)
+            gp_calc = gptools.GaussianProcess(kernel)
             print('Number of training points:', len(self.list_targets))
             ml_calc = train_ml_process(list_train=self.list_train,
                                        list_targets=self.list_targets,
                                        list_gradients=self.list_gradients,
                                        index_constraints=self.ind_mask_constr,
-                                       ml_calculator=self.ml_calc,
+                                       ml_calculator=gp_calc,
                                        scaling_targets=self.scale_targets,
                                        opt_hyper=True)
 
