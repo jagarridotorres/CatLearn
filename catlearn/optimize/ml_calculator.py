@@ -63,6 +63,5 @@ def train_ml_process(list_train, list_targets, list_gradients,
         ml_calculator.add_data(list_train, g_i, n=n_i, err_y=1e-6)
 
     if opt_hyper is True:
-        ml_calculator.optimize_hyperparameters()
-        ml_calculator.sample_hyperparameter_posterior(nsamp=2)
+        ml_calculator.sample_hyperparameter_posterior(nsamp=5)
     return ml_calculator

@@ -222,7 +222,7 @@ class CatLearnNEB(object):
         self.path_distance = copy.deepcopy(self.d_start_end)
 
     def run(self, fmax=0.05, unc_convergence=0.010, max_iter=500,
-            ml_algo='MDMin', ml_max_iter=500, plot_neb_paths=False):
+            ml_algo='FIRE', ml_max_iter=500, plot_neb_paths=False):
 
         """Executing run will start the optimization process.
 
@@ -267,7 +267,7 @@ class CatLearnNEB(object):
             # Configure ML calculator.
             n_dim = len(self.ind_mask_constr)
 
-            kernel_selection = 'RationalQuadratic'
+            kernel_selection = 'Matern52'
 
             if kernel_selection == 'RationalQuadratic':
                 gp_bounds = [(1e-6, 1e-3)] + [(1e-8, 1.0)] + [(1e-2, 1.0)] * \
@@ -295,21 +295,7 @@ class CatLearnNEB(object):
 
             # 2) Setup and run ML NEB:
 
-            if self.iter > 0:
-
-                # Redistribute images along the path.
-
-                self.images = redistribute_images_path(
-                                              images=self.images,
-                                              d_images=s,
-                                              path_distance=self.path_distance,
-                                              n_images=self.n_images,
-                                              n_atoms=self.num_atoms
-                                              )
-
-                # If the previous run didn't converge use the initial path.
-                if neb_opt.__dict__['nsteps'] >= ml_max_iter-2:
-                    self.images = copy.deepcopy(self.initial_images)
+            self.images = copy.deepcopy(self.initial_images)
 
             starting_path = self.images
 
@@ -361,13 +347,12 @@ class CatLearnNEB(object):
                 energies_path.append(i.get_total_energy())
 
             # Select image with maximum uncertainty.
-            if self.iter % 2 == 0:
-                argmax_unc = np.argmax(self.uncertainty_path[1:-1])
-                interesting_point = self.images[1:-1][
-                                      argmax_unc].get_positions().flatten()
+            argmax_unc = np.argmax(self.uncertainty_path[1:-1])
+            interesting_point = self.images[1:-1][
+                                          argmax_unc].get_positions().flatten()
 
             # Select image with max. predicted value (absolute value).
-            if self.iter % 2 == 1:
+            if np.max(self.uncertainty_path[1:-1]) < unc_convergence:
                 argmax_unc = np.argmax(np.abs(energies_path[1:-1]))
                 interesting_point = self.images[1:-1][
                                           int(argmax_unc)].get_positions(
@@ -497,20 +482,3 @@ def create_ml_neb(is_endpoint, fs_endpoint, images_interpolation,
     imgs[-1].info['iteration'] = iteration
 
     return imgs
-
-
-def redistribute_images_path(images, d_images, path_distance, n_images,
-                             n_atoms):
-    x = d_images
-    y = []
-
-    for i in images:
-        y.append(i.get_positions().flatten())
-    cubic = CubicSpline(x, y)
-    lin_space = np.linspace(0, path_distance, n_images)
-    reag_pos = cubic(lin_space)
-
-    for i in range(0, len(images)):
-        pos = array_to_ase(reag_pos[i], n_atoms)
-        images[i].set_positions(pos)
-    return images
