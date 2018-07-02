@@ -20,10 +20,11 @@ from scipy.interpolate import CubicSpline
 from catlearn.optimize.io import array_to_ase
 
 
-class NEBOptimizer(object):
+class CatLearnNEB(object):
 
     def __init__(self, start, end, path=None, n_images=None, spring=None,
                  interpolation=None, neb_method='improvedtangent',
+                 mic=False,
                  ml_calc=None, ase_calc=None, inc_prev_calcs=False,
                  stabilize=False, restart=False):
         """ Nudged elastic band (NEB) setup.
@@ -162,7 +163,7 @@ class NEBOptimizer(object):
             self.ml_calc = GPCalculator(
                 kernel_dict=self.kdict, opt_hyperparam=True, scale_data=False,
                 scale_optimizer=False, calc_uncertainty=True,
-                regularization=1e-5, regularization_bounds=(1e-5, 1e-5))
+                regularization=1e-4, regularization_bounds=(1e-5, 1e-3))
 
         # Settings for the NEB.
         self.neb_method = neb_method
@@ -197,10 +198,10 @@ class NEBOptimizer(object):
         if path is not None:
             images_path = read(path, ':')
 
-            if not np.array_equal(images_path[0].get_positions.flatten(),
+            if not np.array_equal(images_path[0].get_positions().flatten(),
                                   is_pos):
                 images_path.insert(0, self.initial_endpoint)
-            if not np.array_equal(images_path[-1].get_positions.flatten(),
+            if not np.array_equal(images_path[-1].get_positions().flatten(),
                                   fs_pos):
                 images_path.append(self.final_endpoint)
 
@@ -237,7 +238,7 @@ class NEBOptimizer(object):
         self.path_distance = copy.deepcopy(self.d_start_end)
 
     def run(self, fmax=0.05, unc_convergence=0.010, max_iter=500,
-            ml_algo='MDMin', ml_max_iter=500, plot_neb_paths=False):
+            ml_algo='FIRE', ml_max_iter=500, plot_neb_paths=False):
 
         """Executing run will start the optimization process.
 
@@ -292,21 +293,7 @@ class NEBOptimizer(object):
 
             # 2) Setup and run ML NEB:
 
-            if self.iter > 0:
-
-                # Redistribute images along the path.
-
-                self.images = redistribute_images_path(
-                                              images=self.images,
-                                              d_images=s,
-                                              path_distance=self.path_distance,
-                                              n_images=self.n_images,
-                                              n_atoms=self.num_atoms
-                                              )
-
-                # If the previous run didn't converge use the initial path.
-                if neb_opt.__dict__['nsteps'] >= ml_max_iter-2:
-                    self.images = copy.deepcopy(self.initial_images)
+            self.images = copy.deepcopy(self.initial_images)
 
             starting_path = self.images
 
@@ -360,13 +347,12 @@ class NEBOptimizer(object):
                 energies_path.append(i.get_total_energy())
 
             # Select image with maximum uncertainty.
-            if self.iter % 2 == 0:
-                argmax_unc = np.argmax(self.uncertainty_path[1:-1])
-                interesting_point = self.images[1:-1][
-                                      argmax_unc].get_positions().flatten()
+            argmax_unc = np.argmax(self.uncertainty_path[1:-1])
+            interesting_point = self.images[1:-1][
+                                  argmax_unc].get_positions().flatten()
 
             # Select image with max. predicted value (absolute value).
-            if self.iter % 2 == 1:
+            if np.max(self.uncertainty_path[1:-1]) < unc_convergence:
                 argmax_unc = np.argmax(np.abs(energies_path[1:-1]))
                 interesting_point = self.images[1:-1][
                                           int(argmax_unc)].get_positions(
@@ -497,19 +483,3 @@ def create_ml_neb(is_endpoint, fs_endpoint, images_interpolation,
     imgs[-1].info['iteration'] = iteration
 
     return imgs
-
-def redistribute_images_path(images, d_images, path_distance, n_images,
-                             n_atoms):
-    x = d_images
-    y = []
-
-    for i in images:
-        y.append(i.get_positions().flatten())
-    cubic = CubicSpline(x, y)
-    lin_space = np.linspace(0, path_distance, n_images)
-    reag_pos = cubic(lin_space)
-
-    for i in range(0, len(images)):
-        pos = array_to_ase(reag_pos[i], n_atoms)
-        images[i].set_positions(pos)
-    return images
