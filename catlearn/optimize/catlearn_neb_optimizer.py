@@ -12,7 +12,7 @@ from ase.io.trajectory import TrajectoryWriter
 from ase.neb import NEB
 from ase.neb import NEBTools
 from ase.io import read, write
-from ase.optimize import MDMin, FIRE
+from ase.optimize import MDMin, FIRE, BFGS, LBFGS
 from scipy.spatial import distance
 import copy
 import os
@@ -24,7 +24,7 @@ import gptools
 class CatLearnNEB(object):
 
     def __init__(self, start, end, path=None, n_images=None, spring=None,
-                 interpolation=None, mic=False, neb_method='improvedtangent',
+                 interpolation=None, mic=False, neb_method='aseneb',
                  ml_calc=None, ase_calc=None, inc_prev_calcs=False,
                  stabilize=False, restart=False):
         """ Nudged elastic band (NEB) setup.
@@ -216,13 +216,13 @@ class CatLearnNEB(object):
 
         # Stabilize spring constant:
         if self.spring is None:
-            self.spring = np.sqrt((self.n_images-1) / self.d_start_end)
+            self.spring = np.sqrt((self.n_images-1)) / self.d_start_end
 
         # Get path distance:
         self.path_distance = copy.deepcopy(self.d_start_end)
 
     def run(self, fmax=0.05, unc_convergence=0.010, max_iter=500,
-            ml_algo='FIRE', ml_max_iter=500, plot_neb_paths=False):
+            ml_algo='LBFGS', ml_max_iter=200, plot_neb_paths=False):
 
         """Executing run will start the optimization process.
 
@@ -267,10 +267,10 @@ class CatLearnNEB(object):
             # Configure ML calculator.
             n_dim = len(self.ind_mask_constr)
 
-            kernel_selection = 'Matern52'
+            kernel_selection = 'RationalQuadratic'
 
             if kernel_selection == 'RationalQuadratic':
-                gp_bounds = [(1e-6, 1e-3)] + [(1e-8, 1.0)] + [(1e-2, 1.0)] * \
+                gp_bounds = [(1e-6, 1e-3)] + [(1e-8, 0.5)] + [(1e-2, 0.5)] * \
                              n_dim
                 kernel = gptools.RationalQuadraticKernel(
                                                param_bounds=gp_bounds,
@@ -279,6 +279,12 @@ class CatLearnNEB(object):
                 gp_bounds = [(1e-6, 1e-3)] + [(1e-2, 1.0)] * \
                              n_dim
                 kernel = gptools.Matern52Kernel(
+                                               param_bounds=gp_bounds,
+                                               num_dim=n_dim)
+            if kernel_selection == 'SQE':
+                gp_bounds = [(1e-6, 1e-3)] + [(1e-2, 0.5)] * \
+                             n_dim
+                kernel = gptools.SquaredExponentialKernel(
                                                param_bounds=gp_bounds,
                                                num_dim=n_dim)
             gp_calc = gptools.GaussianProcess(kernel)
@@ -313,7 +319,10 @@ class CatLearnNEB(object):
                          method=self.neb_method,
                          k=self.spring)
 
-            neb_opt = eval(ml_algo)(ml_neb, dt=0.1)
+            if ml_algo == 'FIRE' or ml_algo == 'MDMin':
+                neb_opt = eval(ml_algo)(ml_neb, dt=0.1)
+            if ml_algo == 'BFGS' or ml_algo =='LBFGS':
+                neb_opt = eval(ml_algo)(ml_neb)
 
             print('Starting ML NEB optimization...')
             neb_opt.run(fmax=fmax,
@@ -325,7 +334,11 @@ class CatLearnNEB(object):
                          method=self.neb_method,
                          k=self.spring)
 
-            neb_opt = eval(ml_algo)(ml_neb, dt=0.1)
+            if ml_algo == 'FIRE' or ml_algo == 'MDMin':
+                neb_opt = eval(ml_algo)(ml_neb, dt=0.1)
+            if ml_algo == 'BFGS' or ml_algo =='LBFGS':
+                neb_opt = eval(ml_algo)(ml_neb)
+
             neb_opt.run(fmax=fmax, steps=ml_max_iter)
             print('ML NEB optimized.')
 
