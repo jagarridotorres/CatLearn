@@ -59,19 +59,31 @@ class CatLearnASE(Calculator):
         # Attach uncertainty to Atoms object.
         atoms.info['uncertainty'] = uncertainty
 
+
+
         # Get forces:
+        # gradients = np.zeros(len(pos_flatten))
+        # for i in range(len(self.ind_constraints)):
+        #     index_force = self.ind_constraints[i]
+        #     pos = copy.deepcopy(test_point)
+        #     pos[0][i] = pos_flatten[index_force] + self.fs
+        #     f_pos = pred_energy_test(test=pos)[0]
+        #     pos = copy.deepcopy(test_point)
+        #     pos[0][i] = pos_flatten[index_force] - self.fs
+        #     f_neg = pred_energy_test(test=pos)[0]
+        #     gradients[index_force] = (-f_neg + f_pos) / (2.0 * self.fs)
+        #
+        # forces = np.reshape(-gradients, (self.atoms.get_number_of_atoms(), 3))
+
+        # print(forces)
         gradients = np.zeros(len(pos_flatten))
         for i in range(len(self.ind_constraints)):
+            n_i = [0] * len(self.ind_constraints)
+            n_i[i] = 1
             index_force = self.ind_constraints[i]
-            pos = copy.deepcopy(test_point)
-            pos[0][i] = pos_flatten[index_force] + self.fs
-            f_pos = pred_energy_test(test=pos)[0]
-            pos = copy.deepcopy(test_point)
-            pos[0][i] = pos_flatten[index_force] - self.fs
-            f_neg = pred_energy_test(test=pos)[0]
-            gradients[index_force] = (-f_neg + f_pos) / (2.0 * self.fs)
-
+            gradients[index_force] = self.ml_calc.predict(test_point, n=n_i)[0]
         forces = np.reshape(-gradients, (self.atoms.get_number_of_atoms(), 3))
+
 
         # Results:
         self.results['energy'] = energy

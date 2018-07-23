@@ -267,17 +267,16 @@ class CatLearnNEB(object):
             # Configure ML calculator.
             n_dim = len(self.ind_mask_constr)
 
-            kernel_selection = 'RationalQuadratic'
+            kernel_selection = 'Matern52'
 
             if kernel_selection == 'RationalQuadratic':
-                gp_bounds = [(1e-6, 1e-3)] + [(1e-8, 0.5)] + [(1e-2, 0.5)] * \
+                gp_bounds = [(1e-6, 1e-3)] + [(1e-8, 1.0)] + [(1e-2, 1.0)] * \
                              n_dim
                 kernel = gptools.RationalQuadraticKernel(
                                                param_bounds=gp_bounds,
                                                num_dim=n_dim)
             if kernel_selection == 'Matern52':
-                gp_bounds = [(1e-6, 1e-3)] + [(1e-2, 1.0)] * \
-                             n_dim
+                gp_bounds = [(1e-6, 1e-3)] + [(1e-2, 1.0)] * n_dim
                 kernel = gptools.Matern52Kernel(
                                                param_bounds=gp_bounds,
                                                num_dim=n_dim)
