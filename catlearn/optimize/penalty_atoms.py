@@ -19,7 +19,7 @@ def penalty_too_far_atoms(list_train, test, max_step, c_max_crit=1e2):
     return penalty
 
 
-def penalty_too_far_atoms_v2(list_train, test, max_step, penalty_constant):
+def penalty_too_far_atoms_v2(list_train, test, max_step, penalty_constant=1e3):
     d_test_list_train = distance.cdist([test], list_train, 'euclidean')
     closest_train = (list_train[np.argmin(d_test_list_train)])
     test = array_to_atoms(test)

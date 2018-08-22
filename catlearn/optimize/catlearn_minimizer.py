@@ -11,7 +11,7 @@ from catlearn.optimize.gp_calculator import GPCalculator
 from ase.data import covalent_radii
 from ase.io.trajectory import TrajectoryReader
 from ase.io import Trajectory, read, write
-
+from ase.optimize.sciopt import *
 
 class CatLearnOptimizer(object):
 
@@ -166,9 +166,9 @@ class CatLearnOptimizer(object):
                 self.ase_ini, self.constraints)
 
 
-    def run(self, fmax=1e-2, e_max=1e-15, max_iter=None, min_iter=None,
-            max_step=None, min_step=None, i_step=None, i_ase_step=None,
-            ml_algo=None, max_memory=None):
+    def run(self, fmax=1e-2, e_max=1e-15, max_iter=1000, min_iter=None,
+            max_step=0.2, min_step=None, i_step=None, i_ase_step=None,
+            ml_algo='CG', max_memory=50):
 
         """Executing run will start the optimization process.
 
@@ -248,11 +248,11 @@ class CatLearnOptimizer(object):
             self.i_step = 1e-4
 
         if self.ml_algo is None:
-            self.ml_algo = 'L-BFGS-B'
+            self.ml_algo = 'Powell'
             warning_ml_algo(self)
 
         if self.ase is True and self.i_ase_step is None:
-            self.i_ase_step = 'BFGS'
+            self.i_ase_step = 'SciPyFminCG'
 
         if self.i_ase_step is not None:
             warning_first_step_ase(self)

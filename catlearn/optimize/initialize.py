@@ -9,6 +9,7 @@ from catlearn.optimize.catlearn_ase_calc import CatLearn_ASE
 from catlearn.optimize.get_real_values import *
 from ase.io import read, write
 from catlearn.optimize.constraints import *
+from ase.optimize.sciopt import *
 
 
 def initialize(self):

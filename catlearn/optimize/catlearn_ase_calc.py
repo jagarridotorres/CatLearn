@@ -93,36 +93,7 @@ class CatLearn_ASE(Calculator):
                         p_i = 0.0
                     penalty_max += p_i
 
-            # Penalty too close atoms:
-            ############# Under test ######################################
-            # pos_atoms = atoms.get_positions()
-            # cov_radii_atoms = covalent_radii[atoms.get_atomic_numbers()]/2
-            #
-            # penalty_min = 0.0
-            # for i in range(0, len(pos_atoms)):
-            #     for j in range(i+1, len(pos_atoms)-1):
-            #         d_i_j = distance.euclidean(pos_atoms[i], pos_atoms[j])
-            #         sum_of_radii = cov_radii_atoms[i] + cov_radii_atoms[j]
-            #         if d_i_j <= sum_of_radii:
-            #             p_min_i = 0.0
-            #             a_c = 10.0
-            #             c_c = 2.0
-            #             d_c = 1.0
-            #             p_min_i = (a_c * ((d_i_j-sum_of_radii)**2)) / (c_c*(
-            #                        d_i_j-sum_of_radii) + d_c)
-            #         if d_i_j > sum_of_radii:
-            #             p_min_i = 0.0
-            #         penalty_min += p_min_i
-            # if penalty_min != 0.0:
-            #     print('Stopped because atoms are too close', penalty_min)
-            #     from ase.visualize import view
-            #
-            #     view(atoms)
-            #     exit()
-            # print(penalty_min)
-            ############# Under test ######################################
-
-            pred_value = pred_value[0][0] + penalty_max #+ penalty_min
+            pred_value = pred_value[0][0] + penalty_max
 
             return pred_value
 

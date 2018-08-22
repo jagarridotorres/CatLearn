@@ -1,0 +1,4209 @@
+
+  ___ ___ ___ _ _ _  
+ |   |   |_  | | | | 
+ | | | | | . | | | | 
+ |__ |  _|___|_____|  1.4.0
+ |___|_|             
+
+User:   jagt@dhcp-visitor-enr-119-145.slac.stanford.edu
+Date:   Tue Aug 21 14:33:57 2018
+Arch:   x86_64
+Pid:    89945
+Python: 2.7.14
+gpaw:   /Users/jagt/Library/Python/2.7/lib/python/site-packages/gpaw
+_gpaw:  /Users/jagt/Library/Python/2.7/lib/python/site-packages/_gpaw.so
+ase:    /Users/jagt/Library/Python/2.7/lib/python/site-packages/ase (version 3.16.2)
+numpy:  /Users/jagt/Library/Python/2.7/lib/python/site-packages/numpy (version 1.14.5)
+scipy:  /Users/jagt/Library/Python/2.7/lib/python/site-packages/scipy (version 1.1.0)
+units:  Angstrom and eV
+cores:  1
+
+Input parameters:
+  basis: dzp
+  kpts: {density: 2.0}
+  mode: lcao
+
+Atoms have been detected. Using ASE...
+System changes: positions, numbers, cell, pbc, initial_charges, initial_magmoms 
+
+Initialize ...
+
+Au-setup:
+  name: Gold
+  id: a44207148b704df7bec07bf25e8feca8
+  Z: 79
+  valence: 11
+  core: 68
+  charge: 0.0
+  file: /Users/jagt//bin/gpaw-setups-0.9.20000/Au.LDA.gz
+  cutoffs: 1.32(comp), 2.33(filt), 2.81(core), lmax=2
+  valence states:
+                energy  radius
+    6s(1.00)    -6.048   1.323
+    6p(0.00)    -0.888   1.323
+    5d(10.00)    -7.129   1.323
+    *s          21.163   1.323
+    *p          26.323   1.323
+    *d          20.082   1.323
+
+  LCAO basis set for Au:
+    Name: dzp
+    File: /Users/jagt//bin/gpaw-setups-0.9.20000/Au.dzp.basis.gz
+    Number of radial functions: 5
+    Number of spherical harmonics: 15
+      l=0, rc=8.5938 Bohr: 6s-sz confined orbital
+      l=2, rc=5.9219 Bohr: 5d-sz confined orbital
+      l=0, rc=4.9844 Bohr: 6s-dz split-valence wave
+      l=2, rc=3.5156 Bohr: 5d-dz split-valence wave
+      l=1, rc=8.5938 Bohr: p-type Gaussian polarization
+
+C-setup:
+  name: Carbon
+  id: d60576a1f549371a163e72552ca58787
+  Z: 6
+  valence: 4
+  core: 2
+  charge: 0.0
+  file: /Users/jagt//bin/gpaw-setups-0.9.20000/C.LDA.gz
+  cutoffs: 0.64(comp), 1.14(filt), 1.14(core), lmax=2
+  valence states:
+                energy  radius
+    2s(2.00)   -13.639   0.635
+    2p(2.00)    -5.414   0.635
+    *s          13.573   0.635
+    *p          21.797   0.635
+    *d           0.000   0.635
+
+  LCAO basis set for C:
+    Name: dzp
+    File: /Users/jagt//bin/gpaw-setups-0.9.20000/C.dzp.basis.gz
+    Number of radial functions: 5
+    Number of spherical harmonics: 13
+      l=0, rc=5.5469 Bohr: 2s-sz confined orbital
+      l=1, rc=6.6719 Bohr: 2p-sz confined orbital
+      l=0, rc=3.0312 Bohr: 2s-dz split-valence wave
+      l=1, rc=3.7500 Bohr: 2p-dz split-valence wave
+      l=2, rc=6.6719 Bohr: d-type Gaussian polarization
+
+O-setup:
+  name: Oxygen
+  id: 9b9d51c344dea68c822856295a461509
+  Z: 8
+  valence: 6
+  core: 2
+  charge: 0.0
+  file: /Users/jagt//bin/gpaw-setups-0.9.20000/O.LDA.gz
+  cutoffs: 0.67(comp), 1.17(filt), 0.83(core), lmax=2
+  valence states:
+                energy  radius
+    2s(2.00)   -23.752   0.688
+    2p(4.00)    -9.195   0.598
+    *s           3.459   0.688
+    *p          18.016   0.598
+    *d           0.000   0.619
+
+  LCAO basis set for O:
+    Name: dzp
+    File: /Users/jagt//bin/gpaw-setups-0.9.20000/O.dzp.basis.gz
+    Number of radial functions: 5
+    Number of spherical harmonics: 13
+      l=0, rc=4.3438 Bohr: 2s-sz confined orbital
+      l=1, rc=5.3906 Bohr: 2p-sz confined orbital
+      l=0, rc=2.2969 Bohr: 2s-dz split-valence wave
+      l=1, rc=2.8906 Bohr: 2p-dz split-valence wave
+      l=2, rc=5.3906 Bohr: d-type Gaussian polarization
+
+Reference energy: -4133555.294089
+
+Spin-paired calculation
+
+Occupation numbers:
+  Fermi-Dirac: width=0.1000 eV
+
+Convergence criteria:
+  Maximum total energy change: 0.0005 eV / electron
+  Maximum integral of absolute density change: 0.0001 electrons
+  Maximum integral of absolute eigenstate change: 4e-08 eV^2
+  Maximum number of iterations: 333
+
+Symmetries present (total): 1
+
+  ( 1  0  0)
+  ( 0  1  0)
+  ( 0  0  1)
+
+9 k-points: 3 x 3 x 1 Monkhorst-Pack grid
+5 k-points in the irreducible part of the Brillouin zone
+       k-points in crystal coordinates                weights
+   0:     0.00000000    0.00000000    0.00000000          1/9
+   1:     0.00000000    0.33333333    0.00000000          2/9
+   2:     0.33333333   -0.33333333    0.00000000          2/9
+   3:     0.33333333    0.00000000    0.00000000          2/9
+   4:     0.33333333    0.33333333    0.00000000          2/9
+
+Wave functions: LCAO
+  Diagonalizer: Serial LAPACK
+  Atomic Correction: dense with blas
+  Datatype: complex
+ 
+
+Eigensolver
+   LCAO using direct dense diagonalizer 
+
+Densities:
+  Coarse grid: 28*24*80 grid
+  Fine grid: 56*48*160 grid
+  Total Charge: 0.000000 
+
+Density mixing:
+  Method: separate
+  Backend: pulay
+  Linear mixing parameter: 0.05
+  Mixing with 5 old densities
+  Damping of long wave oscillations: 50 
+
+Hamiltonian:
+  XC and Coulomb potentials evaluated on a 56*48*160 grid
+  Using the LDA Exchange-Correlation functional
+  Interpolation: tri-quintic (5. degree polynomial)
+  Poisson solver: Jacobi solver with 4 multi-grid levels
+    Coarsest grid: 7 x 6 x 20 points
+    Stencil: 6*3+1=19 point O(h^6) finite-difference Laplacian
+    Max iterations: 1000
+    Tolerance: 2.000000e-10 
+
+Memory estimate:
+  Process memory now: 101.78 MiB
+  Calculator: 98.66 MiB
+    Density: 56.67 MiB
+      Arrays: 10.59 MiB
+      Localized functions: 42.03 MiB
+      Mixer: 4.05 MiB
+    Hamiltonian: 17.95 MiB
+      Arrays: 6.93 MiB
+      XC: 0.00 MiB
+      Poisson: 7.90 MiB
+      vbar: 3.13 MiB
+    Wavefunctions: 24.03 MiB
+      C [qnM]: 0.89 MiB
+      S, T [2 x qmm]: 3.25 MiB
+      P [aqMi]: 0.12 MiB
+      TCI: 0.00 MiB
+      BasisFunctions: 19.77 MiB
+      Eigensolver: 0.00 MiB
+
+Total number of cores used: 1
+
+Number of atoms: 10
+Number of atomic orbitals: 146
+Number of bands in calculation: 80
+Bands to converge: occupied states only
+Number of valence electrons: 98
+
+... initialized
+
+Initializing position-dependent things.
+
+Density initialized from atomic densities
+    .-------------.  
+   /|             |  
+  / |             |  
+ *  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |  O          |  
+ |  |             |  
+ |  |CAu     Au   |  
+ |  |             |  
+ Au |  AAu    Au  |  
+ |  |             |  
+ |Au|    Au       |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  .-------------.  
+ | /             /   
+ |/             /    
+ *-------------*     
+
+Positions:
+   0 Au     0.000000    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   1 Au     2.884996    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   2 Au     1.442498    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   3 Au     4.327494    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   4 Au     0.000000    0.000000    8.355589    ( 0.0000,  0.0000,  0.0000)
+   5 Au     2.884996    0.000000    8.355589    ( 0.0000,  0.0000,  0.0000)
+   6 Au     1.442498    2.498480    8.355589    ( 0.0000,  0.0000,  0.0000)
+   7 Au     4.327494    2.498480    8.355589    ( 0.0000,  0.0000,  0.0000)
+   8 C      1.442498    0.000000    9.855589    ( 0.0000,  0.0000,  0.0000)
+   9 O      1.442498   -1.100000    9.855589    ( 0.0000,  0.0000,  0.0000)
+
+Unit cell:
+           periodic     x           y           z      points  spacing
+  1. axis:    yes    5.769991    0.000000    0.000000    28     0.2061
+  2. axis:    yes    0.000000    4.996959    0.000000    24     0.2082
+  3. axis:    no     0.000000    0.000000   15.855589    80     0.1982
+
+  Lengths:   5.769991   4.996959  15.855589
+  Angles:   90.000000  90.000000  90.000000
+
+Effective grid spacing dv^(1/3) = 0.2041
+
+                     log10-error:    total        iterations:
+           time      wfs    density  energy       fermi  poisson
+iter:   1  14:34:07          +inf   -43.624831    2      145    
+iter:   2  14:34:13         -1.22   -42.062518    32     68     
+iter:   3  14:34:20         -1.28   -39.535843    33     94     
+iter:   4  14:34:26         -1.52   -38.809437    33     76     
+iter:   5  14:34:30         -1.82   -38.677347    3      40     
+iter:   6  14:34:36         -1.94   -38.554502    33     70     
+iter:   7  14:34:40         -2.25   -38.539432    3      36     
+iter:   8  14:34:44         -2.26   -38.502752    4      36     
+iter:   9  14:34:47         -2.68   -38.499932    3      13     
+iter:  10  14:34:51         -2.77   -38.494885    3      13     
+iter:  11  14:34:53         -3.01   -38.495833    3      7      
+iter:  12  14:34:56         -3.25   -38.495607    2      8      
+iter:  13  14:34:59         -3.35   -38.496069    2      7      
+iter:  14  14:35:02         -3.47   -38.497678    3      6      
+iter:  15  14:35:05         -3.64   -38.497069    2      5      
+iter:  16  14:35:07         -3.63   -38.495906    2      4      
+iter:  17  14:35:10         -3.73   -38.495356    2      4      
+iter:  18  14:35:13         -3.89   -38.494745    2      3      
+iter:  19  14:35:15         -3.95   -38.495375    2      3      
+iter:  20  14:35:18         -3.99   -38.496399    2      4      
+iter:  21  14:35:20         -4.29   -38.495704    2      2      
+
+Converged after 21 iterations.
+
+Dipole moment: (-3.411965, 3.794304, 0.146345) |e|*Ang
+
+Energy contributions relative to reference atoms: (reference = -4133555.294089)
+
+Kinetic:        +16.948452
+Potential:      -14.141047
+External:        +0.000000
+XC:             -42.458959
+Entropy (-ST):   -0.126093
+Local:           +1.218897
+--------------------------
+Free energy:    -38.558751
+Extrapolated:   -38.495704
+
+Fermi level: -4.85495
+
+Warning: Showing only first 2 kpts
+ Kpt  Band  Eigenvalues  Occupancy
+  0    47     -5.04161    0.19246
+  0    48     -4.60611    0.01704
+  0    49     -3.55996    0.00000
+  0    50     -3.32065    0.00000
+
+  1    47     -5.86655    0.44443
+  1    48     -4.93221    0.30404
+  1    49     -4.59681    0.03127
+  1    50     -3.91282    0.00004
+
+
+('Energy of the geometry evaluated (eV):', -38.49570406066559)
+
+Forces in eV/Ang:
+  0 Au   -0.08260    0.03384   -0.27465
+  1 Au    0.08260    0.03384   -0.27465
+  2 Au    0.00000   -0.00661   -0.68755
+  3 Au   -0.00000    0.07179   -0.13400
+  4 Au   -2.98623    1.58395   -1.53646
+  5 Au    2.98623    1.58395   -1.53646
+  6 Au   -0.00000   -2.72548   -2.59146
+  7 Au    0.00000   -0.11535    0.32621
+  8 C     0.00000   12.37241    0.55315
+  9 O     0.00000  -12.69360    6.21316
+
+('Forces of the geometry evaluated (eV/Angst):\n', array([[ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [-2.98622658e+00,  1.58395180e+00, -1.53645988e+00],
+       [ 2.98622707e+00,  1.58395180e+00, -1.53645998e+00],
+       [-7.13525972e-07, -2.72548043e+00, -2.59145802e+00],
+       [ 1.59601159e-06, -1.15354138e-01,  3.26208455e-01],
+       [ 1.99255629e-06,  1.23724089e+01,  5.53151669e-01],
+       [ 1.70288004e-06, -1.26935973e+01,  6.21316289e+00]]))
++--------+------------+-------------------+--------------------+--------------------+------------+
+| Method | Iterations | Func. evaluations |   Function value   |        fmax        | Converged? |
++--------+------------+-------------------+--------------------+--------------------+------------+
+| Eval.  |     0      |         1         | -38.49570406066559 | 14.132614947542113 |   False    |
++--------+------------+-------------------+--------------------+--------------------+------------+
+             Step     Time          Energy         fmax
+*Force-consistent energies used in optimization.
+SciPyFminCG:    0 14:35:32      -38.558751*      14.1326
+System changes: positions 
+
+Initializing position-dependent things.
+
+Density initialized from wave functions
+    .-------------.  
+   /|             |  
+  / |             |  
+ *  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |  O          |  
+ |  |             |  
+ |  |C       Au   |  
+ |  | Au          |  
+ |  |  AAu    AAu |  
+ |  |             |  
+ |Au|    Au       |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  .-------------.  
+ | /             /   
+ |/             /    
+ *-------------*     
+
+Positions:
+   0 Au     0.000000    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   1 Au     2.884996    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   2 Au     1.442498    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   3 Au     4.327494    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   4 Au    -0.042660    0.022628    8.333640    ( 0.0000,  0.0000,  0.0000)
+   5 Au     2.927656    0.022628    8.333640    ( 0.0000,  0.0000,  0.0000)
+   6 Au     1.442498    2.459544    8.318568    ( 0.0000,  0.0000,  0.0000)
+   7 Au     4.327494    2.496832    8.360249    ( 0.0000,  0.0000,  0.0000)
+   8 C      1.442498    0.176749    9.863491    ( 0.0000,  0.0000,  0.0000)
+   9 O      1.442498   -1.281337    9.944349    ( 0.0000,  0.0000,  0.0000)
+
+Unit cell:
+           periodic     x           y           z      points  spacing
+  1. axis:    yes    5.769991    0.000000    0.000000    28     0.2061
+  2. axis:    yes    0.000000    4.996959    0.000000    24     0.2082
+  3. axis:    no     0.000000    0.000000   15.855589    80     0.1982
+
+  Lengths:   5.769991   4.996959  15.855589
+  Angles:   90.000000  90.000000  90.000000
+
+Effective grid spacing dv^(1/3) = 0.2041
+
+                     log10-error:    total        iterations:
+           time      wfs    density  energy       fermi  poisson
+iter:   1  14:35:37          +inf   -44.890645    33     50     
+iter:   2  14:35:41         -1.28   -41.075931    4      32     
+iter:   3  14:35:46         -1.47   -39.707200    3      45     
+iter:   4  14:35:50         -1.68   -39.261690    4      52     
+iter:   5  14:35:56         -1.84   -39.047197    4      61     
+iter:   6  14:36:00         -2.11   -38.927533    3      35     
+iter:   7  14:36:03         -2.38   -38.928914    2      9      
+iter:   8  14:36:06         -2.40   -38.919231    3      12     
+iter:   9  14:36:09         -2.75   -38.921020    3      14     
+iter:  10  14:36:11         -2.90   -38.919930    2      5      
+iter:  11  14:36:14         -2.97   -38.916704    2      7      
+iter:  12  14:36:17         -3.27   -38.915564    2      4      
+iter:  13  14:36:19         -3.45   -38.915537    2      4      
+iter:  14  14:36:22         -3.56   -38.915874    1      3      
+iter:  15  14:36:24         -3.60   -38.915901    2      5      
+iter:  16  14:36:27         -4.05   -38.915593    2      3      
+
+Converged after 16 iterations.
+
+Dipole moment: (-1.690778, -1.390802, -0.187523) |e|*Ang
+
+Energy contributions relative to reference atoms: (reference = -4133555.294089)
+
+Kinetic:        -25.071070
+Potential:      +19.728248
+External:        +0.000000
+XC:             -34.686165
+Entropy (-ST):   -0.135298
+Local:           +1.181042
+--------------------------
+Free energy:    -38.983242
+Extrapolated:   -38.915593
+
+Fermi level: -5.43078
+
+Warning: Showing only first 2 kpts
+ Kpt  Band  Eigenvalues  Occupancy
+  0    47     -5.53173    0.16287
+  0    48     -5.28226    0.04103
+  0    49     -4.56456    0.00004
+  0    50     -4.20736    0.00000
+
+  1    47     -6.21273    0.44427
+  1    48     -5.51552    0.31112
+  1    49     -5.24716    0.06111
+  1    50     -4.66354    0.00021
+
+
+
+Forces in eV/Ang:
+  0 Au   -0.07499    0.07491   -0.44100
+  1 Au    0.07505    0.07476   -0.43756
+  2 Au    0.00181   -0.05419   -0.57263
+  3 Au    0.00090    0.05799   -0.16857
+  4 Au   -0.92918    0.44155    0.15460
+  5 Au    0.92431    0.44197    0.15379
+  6 Au    0.00273   -0.92509   -1.32311
+  7 Au    0.00199    0.18587    0.29282
+  8 C    -0.00182   -6.42212   -0.13046
+  9 O     0.00315    6.18725    2.45880
+
+SciPyFminCG:    1 14:36:39      -38.983242*       6.6579
+('Energy of the geometry evaluated (eV):', -38.91559301849234)
+('Forces of the geometry evaluated (eV/Angst):\n', array([[ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [-9.29180241e-01,  4.41546439e-01,  1.54596934e-01],
+       [ 9.24309957e-01,  4.41974427e-01,  1.53792457e-01],
+       [ 2.73442065e-03, -9.25085467e-01, -1.32310971e+00],
+       [ 1.99299521e-03,  1.85867403e-01,  2.92816482e-01],
+       [-1.82128881e-03, -6.42211551e+00, -1.30457001e-01],
+       [ 3.14862677e-03,  6.18725278e+00,  2.45879917e+00]]))
++----------+------------+-------------------+--------------------+--------------------+------------+
+|  Method  | Iterations | Func. evaluations |   Function value   |        fmax        | Converged? |
++----------+------------+-------------------+--------------------+--------------------+------------+
+|  Eval.   |     0      |         1         | -38.49570406066559 | 14.132614947542113 |   False    |
+| CatLearn |     1      |         2         | -38.91559301849234 | 6.657912598794426  |   False    |
++----------+------------+-------------------+--------------------+--------------------+------------+
+Training a ML process...
+('Number of training points:', 2)
+Hyperparameter optimization is switched on.
+('Optimized Hyperparameters: ',       fun: array([103.98371999])
+ hess_inv: <3x3 LbfgsInvHessProduct with dtype=float64>
+      jac: array([ 7.00804605e+00, -1.13686838e-05, -1.06696689e+01])
+  message: 'CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH'
+     nfev: 36
+      nit: 7
+   status: 0
+  success: True
+        x: array([1.        , 0.19548732, 0.01      ]))
+('Log marginal likelihood: ', -103.98371999321864)
+ML process trained.
+Starting ML optimization...
+             Step     Time          Energy         fmax
+SciPyFminCG:    0 14:36:39       -0.461352        6.6591
+SciPyFminCG:    1 14:36:39       -1.486853        2.5667
+SciPyFminCG:    2 14:36:39       -1.553882        0.4600
+SciPyFminCG:    3 14:36:39       -1.557656        0.2084
+SciPyFminCG:    4 14:36:39       -1.558352        0.1124
+SciPyFminCG:    5 14:36:39       -1.558525        0.0407
+SciPyFminCG:    6 14:36:39       -1.558539        0.0121
+ML optimized.
+System changes: positions 
+
+Initializing position-dependent things.
+
+Density initialized from wave functions
+    .-------------.  
+   /|             |  
+  / |             |  
+ *  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |  O          |  
+ |  |             |  
+ |  |C       Au   |  
+ |  | Au          |  
+ |  |  AAu    AAu |  
+ |  |             |  
+ |Au|    Au       |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  .-------------.  
+ | /             /   
+ |/             /    
+ *-------------*     
+
+Positions:
+   0 Au     0.000000    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   1 Au     2.884996    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   2 Au     1.442498    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   3 Au     4.327494    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   4 Au    -0.048342    0.024956    8.339170    ( 0.0000,  0.0000,  0.0000)
+   5 Au     2.933272    0.024962    8.339159    ( 0.0000,  0.0000,  0.0000)
+   6 Au     1.442534    2.453330    8.306733    ( 0.0000,  0.0000,  0.0000)
+   7 Au     4.327520    2.499575    8.363426    ( 0.0000,  0.0000,  0.0000)
+   8 C      1.442474    0.063041    9.860501    ( 0.0000,  0.0000,  0.0000)
+   9 O      1.442540   -1.170043    9.963191    ( 0.0000,  0.0000,  0.0000)
+
+Unit cell:
+           periodic     x           y           z      points  spacing
+  1. axis:    yes    5.769991    0.000000    0.000000    28     0.2061
+  2. axis:    yes    0.000000    4.996959    0.000000    24     0.2082
+  3. axis:    no     0.000000    0.000000   15.855589    80     0.1982
+
+  Lengths:   5.769991   4.996959  15.855589
+  Angles:   90.000000  90.000000  90.000000
+
+Effective grid spacing dv^(1/3) = 0.2041
+
+                     log10-error:    total        iterations:
+           time      wfs    density  energy       fermi  poisson
+iter:   1  14:36:44          +inf   -41.676233    4      53     
+iter:   2  14:36:48         -1.71   -40.846594    4      27     
+iter:   3  14:36:52         -1.85   -40.217208    4      49     
+iter:   4  14:36:56         -2.07   -40.162590    3      30     
+iter:   5  14:37:01         -2.20   -40.124833    4      59     
+iter:   6  14:37:05         -2.35   -40.076188    3      35     
+iter:   7  14:37:08         -2.81   -40.074279    3      13     
+iter:   8  14:37:11         -2.87   -40.072524    2      6      
+iter:   9  14:37:15         -3.15   -40.071155    2      5      
+iter:  10  14:37:18         -3.24   -40.067991    3      8      
+iter:  11  14:37:21         -3.52   -40.069893    2      3      
+iter:  12  14:37:24         -3.61   -40.070467    2      4      
+iter:  13  14:37:27         -3.76   -40.070148    2      6      
+iter:  14  14:37:29         -3.85   -40.070776    2      3      
+iter:  15  14:37:32         -3.97   -40.070142    2      2      
+iter:  16  14:37:35         -4.00   -40.069912    2      3      
+
+Converged after 16 iterations.
+
+Dipole moment: (-1.667903, 0.093601, -0.003090) |e|*Ang
+
+Energy contributions relative to reference atoms: (reference = -4133555.294089)
+
+Kinetic:        -11.644290
+Potential:       +8.349230
+External:        +0.000000
+XC:             -37.916923
+Entropy (-ST):   -0.125860
+Local:           +1.205001
+--------------------------
+Free energy:    -40.132842
+Extrapolated:   -40.069912
+
+Fermi level: -5.11191
+
+Warning: Showing only first 2 kpts
+ Kpt  Band  Eigenvalues  Occupancy
+  0    47     -5.30181    0.19328
+  0    48     -4.88721    0.02125
+  0    49     -4.01263    0.00000
+  0    50     -3.73817    0.00000
+
+  1    47     -6.07297    0.44441
+  1    48     -5.19981    0.31405
+  1    49     -4.88262    0.04076
+  1    50     -4.31175    0.00015
+
+
+('Energy of the geometry evaluated (eV):', -40.06991202829284)
+
+Forces in eV/Ang:
+  0 Au   -0.13940    0.06702   -0.46379
+  1 Au    0.13947    0.06700   -0.46383
+  2 Au   -0.00003    0.00262   -0.55269
+  3 Au   -0.00003    0.01064   -0.23262
+  4 Au   -1.21705    0.60233   -0.28639
+  5 Au    1.21746    0.60246   -0.28665
+  6 Au   -0.00011   -0.84784   -1.09858
+  7 Au   -0.00007    0.17612    0.33066
+  8 C    -0.00007   -1.68255   -0.06317
+  9 O    -0.00015    0.95387    3.14649
+
+('Forces of the geometry evaluated (eV/Angst):\n', array([[ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [-1.21705165e+00,  6.02325673e-01, -2.86388126e-01],
+       [ 1.21745754e+00,  6.02455178e-01, -2.86646909e-01],
+       [-1.14558249e-04, -8.47837004e-01, -1.09858082e+00],
+       [-6.70267795e-05,  1.76124309e-01,  3.30659112e-01],
+       [-7.14448339e-05, -1.68254828e+00, -6.31749010e-02],
+       [-1.48025739e-04,  9.53870730e-01,  3.14648835e+00]]))
+('Number of iterations:', 2)
+('Max. force of the last image evaluated (eV/Angstrom):', 3.2878957314928465)
+('Energy of the last image evaluated (eV):', -40.06991202829284)
+('Converged:', False)
++----------+------------+-------------------+--------------------+--------------------+------------+
+|  Method  | Iterations | Func. evaluations |   Function value   |        fmax        | Converged? |
++----------+------------+-------------------+--------------------+--------------------+------------+
+|  Eval.   |     0      |         1         | -38.49570406066559 | 14.132614947542113 |   False    |
+| CatLearn |     1      |         2         | -38.91559301849234 | 6.657912598794426  |   False    |
+| CatLearn |     2      |         3         | -40.06991202829284 | 3.2878957314928465 |   False    |
++----------+------------+-------------------+--------------------+--------------------+------------+
+Training a ML process...
+('Number of training points:', 3)
+Hyperparameter optimization is switched on.
+('Optimized Hyperparameters: ',       fun: array([135.86661954])
+ hess_inv: <3x3 LbfgsInvHessProduct with dtype=float64>
+      jac: array([ 5.46422712e+00,  3.97903932e-05, -1.03459996e+01])
+  message: 'CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH'
+     nfev: 32
+      nit: 6
+   status: 0
+  success: True
+        x: array([1.        , 0.22745738, 0.01      ]))
+('Log marginal likelihood: ', -135.8666195431402)
+ML process trained.
+Starting ML optimization...
+             Step     Time          Energy         fmax
+SciPyFminCG:    0 14:37:47       -1.665404        3.2809
+SciPyFminCG:    1 14:37:47       -2.069803        1.0557
+SciPyFminCG:    2 14:37:47       -2.081372        0.1149
+SciPyFminCG:    3 14:37:47       -2.081619        0.0406
+SciPyFminCG:    4 14:37:47       -2.081650        0.0148
+ML optimized.
+System changes: positions 
+
+Initializing position-dependent things.
+
+Density initialized from wave functions
+    .-------------.  
+   /|             |  
+  / |             |  
+ *  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |  O          |  
+ |  |             |  
+ |  |C       Au   |  
+ |  | Au          |  
+ |  |  AAu    AAu |  
+ |  |             |  
+ |Au|    Au       |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  .-------------.  
+ | /             /   
+ |/             /    
+ *-------------*     
+
+Positions:
+   0 Au     0.000000    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   1 Au     2.884996    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   2 Au     1.442498    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   3 Au     4.327494    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   4 Au    -0.092872    0.047060    8.327834    ( 0.0000,  0.0000,  0.0000)
+   5 Au     2.977825    0.047070    8.327815    ( 0.0000,  0.0000,  0.0000)
+   6 Au     1.442526    2.422482    8.267291    ( 0.0000,  0.0000,  0.0000)
+   7 Au     4.327515    2.505743    8.375287    ( 0.0000,  0.0000,  0.0000)
+   8 C      1.442474    0.015125    9.858571    ( 0.0000,  0.0000,  0.0000)
+   9 O      1.442530   -1.148726   10.077681    ( 0.0000,  0.0000,  0.0000)
+
+Unit cell:
+           periodic     x           y           z      points  spacing
+  1. axis:    yes    5.769991    0.000000    0.000000    28     0.2061
+  2. axis:    yes    0.000000    4.996959    0.000000    24     0.2082
+  3. axis:    no     0.000000    0.000000   15.855589    80     0.1982
+
+  Lengths:   5.769991   4.996959  15.855589
+  Angles:   90.000000  90.000000  90.000000
+
+Effective grid spacing dv^(1/3) = 0.2041
+
+                     log10-error:    total        iterations:
+           time      wfs    density  energy       fermi  poisson
+iter:   1  14:37:52          +inf   -40.831756    4      42     
+iter:   2  14:37:56         -2.04   -40.656657    3      23     
+iter:   3  14:37:59         -2.19   -40.533536    3      33     
+iter:   4  14:38:03         -2.41   -40.525669    3      29     
+iter:   5  14:38:07         -2.52   -40.518447    3      32     
+iter:   6  14:38:11         -2.63   -40.511943    2      20     
+iter:   7  14:38:13         -3.08   -40.512283    2      8      
+iter:   8  14:38:16         -3.17   -40.510471    3      13     
+iter:   9  14:38:19         -3.35   -40.510189    2      10     
+iter:  10  14:38:22         -3.71   -40.510358    2      3      
+iter:  11  14:38:25         -3.78   -40.510269    2      4      
+iter:  12  14:38:27         -3.95   -40.510366    2      2      
+iter:  13  14:38:30         -3.98   -40.510669    2      4      
+iter:  14  14:38:32         -4.28   -40.510782    2      2      
+
+Converged after 14 iterations.
+
+Dipole moment: (-0.220934, 0.378044, 0.043036) |e|*Ang
+
+Energy contributions relative to reference atoms: (reference = -4133555.294089)
+
+Kinetic:         -9.385346
+Potential:       +6.098394
+External:        +0.000000
+XC:             -38.345746
+Entropy (-ST):   -0.131109
+Local:           +1.187472
+--------------------------
+Free energy:    -40.576337
+Extrapolated:   -40.510782
+
+Fermi level: -5.04190
+
+Warning: Showing only first 2 kpts
+ Kpt  Band  Eigenvalues  Occupancy
+  0    47     -5.28404    0.20410
+  0    48     -4.78592    0.01595
+  0    49     -3.82840    0.00000
+  0    50     -3.59935    0.00000
+
+  1    47     -6.08856    0.44443
+  1    48     -5.13465    0.31848
+  1    49     -4.80152    0.03684
+  1    50     -4.26164    0.00018
+
+
+('Energy of the geometry evaluated (eV):', -40.51078180268129)
+
+Forces in eV/Ang:
+  0 Au   -0.23206    0.08742   -0.66017
+  1 Au    0.23213    0.08743   -0.66026
+  2 Au   -0.00004    0.05860   -0.47988
+  3 Au    0.00000   -0.09094   -0.41055
+  4 Au   -0.17453    0.12208    0.16300
+  5 Au    0.17472    0.12208    0.16298
+  6 Au   -0.00012   -0.06557   -0.28736
+  7 Au   -0.00004    0.39572    0.35600
+  8 C    -0.00012    0.97932   -0.57737
+  9 O     0.00001   -1.62126    2.44904
+
+('Forces of the geometry evaluated (eV/Angst):\n', array([[ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [-1.74529783e-01,  1.22076348e-01,  1.63001642e-01],
+       [ 1.74716540e-01,  1.22079232e-01,  1.62979236e-01],
+       [-1.17866180e-04, -6.55666145e-02, -2.87357056e-01],
+       [-4.34311985e-05,  3.95717406e-01,  3.55998552e-01],
+       [-1.15356964e-04,  9.79315910e-01, -5.77371566e-01],
+       [ 1.33662801e-05, -1.62125820e+00,  2.44904008e+00]]))
+('Number of iterations:', 3)
+('Max. force of the last image evaluated (eV/Angstrom):', 2.9370521727608514)
+('Energy of the last image evaluated (eV):', -40.51078180268129)
+('Converged:', False)
++----------+------------+-------------------+--------------------+--------------------+------------+
+|  Method  | Iterations | Func. evaluations |   Function value   |        fmax        | Converged? |
++----------+------------+-------------------+--------------------+--------------------+------------+
+|  Eval.   |     0      |         1         | -38.49570406066559 | 14.132614947542113 |   False    |
+| CatLearn |     1      |         2         | -38.91559301849234 | 6.657912598794426  |   False    |
+| CatLearn |     2      |         3         | -40.06991202829284 | 3.2878957314928465 |   False    |
+| CatLearn |     3      |         4         | -40.51078180268129 | 2.9370521727608514 |   False    |
++----------+------------+-------------------+--------------------+--------------------+------------+
+Training a ML process...
+('Number of training points:', 4)
+Hyperparameter optimization is switched on.
+('Optimized Hyperparameters: ',       fun: array([165.90691195])
+ hess_inv: <3x3 LbfgsInvHessProduct with dtype=float64>
+      jac: array([ 4.85776468e+00, -9.66338121e-05,  1.13686838e-05])
+  message: 'CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH'
+     nfev: 36
+      nit: 7
+   status: 0
+  success: True
+        x: array([1.        , 0.24437997, 0.00860351]))
+('Log marginal likelihood: ', -165.90691194636872)
+ML process trained.
+Starting ML optimization...
+             Step     Time          Energy         fmax
+SciPyFminCG:    0 14:38:45       -2.126801        2.9257
+SciPyFminCG:    1 14:38:45       -2.282503        1.4607
+SciPyFminCG:    2 14:38:45       -2.312909        0.5847
+SciPyFminCG:    3 14:38:45       -2.318793        0.3100
+SciPyFminCG:    4 14:38:45       -2.320981        0.0658
+SciPyFminCG:    5 14:38:45       -2.321144        0.0225
+SciPyFminCG:    6 14:38:45       -2.321161        0.0082
+ML optimized.
+System changes: positions 
+
+Initializing position-dependent things.
+
+Density initialized from wave functions
+    .-------------.  
+   /|             |  
+  / |             |  
+ *  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |  O          |  
+ |  |             |  
+ |  |C       Au   |  
+ |  | Au          |  
+ |  |  AAu    AAu |  
+ |  |             |  
+ |Au|    Au       |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  .-------------.  
+ | /             /   
+ |/             /    
+ *-------------*     
+
+Positions:
+   0 Au     0.000000    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   1 Au     2.884996    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   2 Au     1.442498    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   3 Au     4.327494    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   4 Au    -0.106546    0.055081    8.332739    ( 0.0000,  0.0000,  0.0000)
+   5 Au     2.991504    0.055092    8.332716    ( 0.0000,  0.0000,  0.0000)
+   6 Au     1.442524    2.414980    8.249703    ( 0.0000,  0.0000,  0.0000)
+   7 Au     4.327515    2.521541    8.390522    ( 0.0000,  0.0000,  0.0000)
+   8 C      1.442467    0.030323    9.836704    ( 0.0000,  0.0000,  0.0000)
+   9 O      1.442532   -1.192030   10.186843    ( 0.0000,  0.0000,  0.0000)
+
+Unit cell:
+           periodic     x           y           z      points  spacing
+  1. axis:    yes    5.769991    0.000000    0.000000    28     0.2061
+  2. axis:    yes    0.000000    4.996959    0.000000    24     0.2082
+  3. axis:    no     0.000000    0.000000   15.855589    80     0.1982
+
+  Lengths:   5.769991   4.996959  15.855589
+  Angles:   90.000000  90.000000  90.000000
+
+Effective grid spacing dv^(1/3) = 0.2041
+
+                     log10-error:    total        iterations:
+           time      wfs    density  energy       fermi  poisson
+iter:   1  14:38:49          +inf   -41.194448    3      40     
+iter:   2  14:38:53         -1.81   -40.732187    3      26     
+iter:   3  14:38:57         -2.11   -40.604477    3      32     
+iter:   4  14:39:01         -2.39   -40.585209    3      33     
+iter:   5  14:39:05         -2.52   -40.576497    3      32     
+iter:   6  14:39:08         -2.67   -40.566086    2      16     
+iter:   7  14:39:11         -3.02   -40.564772    2      13     
+iter:   8  14:39:14         -3.17   -40.567014    2      6      
+iter:   9  14:39:16         -3.56   -40.566379    2      4      
+iter:  10  14:39:19         -3.58   -40.565856    2      4      
+iter:  11  14:39:22         -3.64   -40.564599    2      6      
+iter:  12  14:39:24         -4.00   -40.564592    2      2      
+iter:  13  14:39:27         -4.04   -40.564256    2      8      
+
+Converged after 13 iterations.
+
+Dipole moment: (0.312466, -0.707918, -0.049192) |e|*Ang
+
+Energy contributions relative to reference atoms: (reference = -4133555.294089)
+
+Kinetic:        -22.018384
+Potential:      +16.373824
+External:        +0.000000
+XC:             -36.029460
+Entropy (-ST):   -0.139633
+Local:           +1.179581
+--------------------------
+Free energy:    -40.634073
+Extrapolated:   -40.564256
+
+Fermi level: -5.19804
+
+Warning: Showing only first 2 kpts
+ Kpt  Band  Eigenvalues  Occupancy
+  0    47     -5.49862    0.21174
+  0    48     -4.95608    0.01815
+  0    49     -4.10799    0.00000
+  0    50     -3.91295    0.00000
+
+  1    47     -6.21956    0.44443
+  1    48     -5.28279    0.31113
+  1    49     -5.01659    0.06226
+  1    50     -4.52557    0.00053
+
+
+('Energy of the geometry evaluated (eV):', -40.5642561161567)
+
+Forces in eV/Ang:
+  0 Au   -0.27408    0.08594   -0.69681
+  1 Au    0.27414    0.08595   -0.69691
+  2 Au   -0.00004    0.07369   -0.46387
+  3 Au    0.00001   -0.08547   -0.39694
+  4 Au    0.30568   -0.09190    0.44774
+  5 Au   -0.30557   -0.09193    0.44780
+  6 Au   -0.00009    0.34491    0.22524
+  7 Au   -0.00007    0.38474    0.28536
+  8 C     0.00022   -4.51210    0.70330
+  9 O    -0.00043    3.78846   -0.00323
+
+('Forces of the geometry evaluated (eV/Angst):\n', array([[ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 3.05676659e-01, -9.19037277e-02,  4.47735060e-01],
+       [-3.05573892e-01, -9.19273265e-02,  4.47798051e-01],
+       [-9.07616299e-05,  3.44911136e-01,  2.25242715e-01],
+       [-6.83803119e-05,  3.84735802e-01,  2.85358073e-01],
+       [ 2.24460371e-04, -4.51209530e+00,  7.03304933e-01],
+       [-4.25300577e-04,  3.78845836e+00, -3.23034110e-03]]))
+('Number of iterations:', 4)
+('Max. force of the last image evaluated (eV/Angstrom):', 4.5665787906107695)
+('Energy of the last image evaluated (eV):', -40.5642561161567)
+('Converged:', False)
++----------+------------+-------------------+--------------------+--------------------+------------+
+|  Method  | Iterations | Func. evaluations |   Function value   |        fmax        | Converged? |
++----------+------------+-------------------+--------------------+--------------------+------------+
+|  Eval.   |     0      |         1         | -38.49570406066559 | 14.132614947542113 |   False    |
+| CatLearn |     1      |         2         | -38.91559301849234 | 6.657912598794426  |   False    |
+| CatLearn |     2      |         3         | -40.06991202829284 | 3.2878957314928465 |   False    |
+| CatLearn |     3      |         4         | -40.51078180268129 | 2.9370521727608514 |   False    |
+| CatLearn |     4      |         5         | -40.5642561161567  | 4.5665787906107695 |   False    |
++----------+------------+-------------------+--------------------+--------------------+------------+
+Training a ML process...
+('Number of training points:', 5)
+Hyperparameter optimization is switched on.
+('Optimized Hyperparameters: ',       fun: array([196.55410768])
+ hess_inv: <3x3 LbfgsInvHessProduct with dtype=float64>
+      jac: array([ 5.58447084e+00,  3.69482223e-05, -4.36953087e+00])
+  message: 'CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH'
+     nfev: 24
+      nit: 4
+   status: 0
+  success: True
+        x: array([1.        , 0.24674604, 0.01      ]))
+('Log marginal likelihood: ', -196.55410768436772)
+ML process trained.
+Starting ML optimization...
+             Step     Time          Energy         fmax
+SciPyFminCG:    0 14:39:39       -2.156832        4.5489
+SciPyFminCG:    1 14:39:39       -2.347573        1.7452
+SciPyFminCG:    2 14:39:39       -2.493219        0.4772
+SciPyFminCG:    3 14:39:39       -2.504702        0.0809
+SciPyFminCG:    4 14:39:39       -2.504810        0.0313
+SciPyFminCG:    5 14:39:39       -2.504845        0.0215
+SciPyFminCG:    6 14:39:39       -2.504853        0.0093
+ML optimized.
+System changes: positions 
+
+Initializing position-dependent things.
+
+Density initialized from wave functions
+    .-------------.  
+   /|             |  
+  / |             |  
+ *  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |  O          |  
+ |  |             |  
+ |  |             |  
+ |  |        Au   |  
+ |  | Au          |  
+ |  |  AAu    AAu |  
+ |  |             |  
+ |Au|    Au       |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  .-------------.  
+ | /             /   
+ |/             /    
+ *-------------*     
+
+Positions:
+   0 Au     0.000000    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   1 Au     2.884996    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   2 Au     1.442498    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   3 Au     4.327494    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   4 Au    -0.103564    0.057001    8.354654    ( 0.0000,  0.0000,  0.0000)
+   5 Au     2.988530    0.057012    8.354633    ( 0.0000,  0.0000,  0.0000)
+   6 Au     1.442517    2.423648    8.244468    ( 0.0000,  0.0000,  0.0000)
+   7 Au     4.327512    2.551466    8.415333    ( 0.0000,  0.0000,  0.0000)
+   8 C      1.442467   -0.062164    9.830141    ( 0.0000,  0.0000,  0.0000)
+   9 O      1.442522   -1.150198   10.297097    ( 0.0000,  0.0000,  0.0000)
+
+Unit cell:
+           periodic     x           y           z      points  spacing
+  1. axis:    yes    5.769991    0.000000    0.000000    28     0.2061
+  2. axis:    yes    0.000000    4.996959    0.000000    24     0.2082
+  3. axis:    no     0.000000    0.000000   15.855589    80     0.1982
+
+  Lengths:   5.769991   4.996959  15.855589
+  Angles:   90.000000  90.000000  90.000000
+
+Effective grid spacing dv^(1/3) = 0.2041
+
+                     log10-error:    total        iterations:
+           time      wfs    density  energy       fermi  poisson
+iter:   1  14:39:46          +inf  -116.886192    37     96     
+iter:   2  14:39:51         -0.85   -65.301211    35     42     
+iter:   3  14:39:57         -1.14   -45.796083    3      75     
+iter:   4  14:40:02         -1.48   -43.730593    33     70     
+iter:   5  14:40:07         -1.54   -42.722046    4      51     
+iter:   6  14:40:12         -1.69   -41.705130    30     77     
+iter:   7  14:40:17         -1.81   -41.226271    3      55     
+iter:   8  14:40:23         -2.03   -41.052729    33     69     
+iter:   9  14:40:27         -2.16   -40.999791    3      38     
+iter:  10  14:40:32         -2.30   -40.972473    4      58     
+iter:  11  14:40:35         -2.54   -40.963475    3      12     
+iter:  12  14:40:38         -2.63   -40.960099    2      17     
+iter:  13  14:40:41         -2.80   -40.957554    3      21     
+iter:  14  14:40:44         -2.90   -40.956533    3      13     
+iter:  15  14:40:47         -3.25   -40.957100    3      10     
+iter:  16  14:40:50         -3.24   -40.955096    2      7      
+iter:  17  14:40:52         -3.51   -40.954304    2      4      
+iter:  18  14:40:55         -3.66   -40.953674    2      4      
+iter:  19  14:40:58         -3.85   -40.953757    3      8      
+iter:  20  14:41:00         -4.08   -40.954099    2      3      
+
+Converged after 20 iterations.
+
+Dipole moment: (0.156621, 2.916264, 0.041189) |e|*Ang
+
+Energy contributions relative to reference atoms: (reference = -4133555.294089)
+
+Kinetic:        -20.922503
+Potential:      +15.879763
+External:        +0.000000
+XC:             -37.024855
+Entropy (-ST):   -0.154292
+Local:           +1.190643
+--------------------------
+Free energy:    -41.031245
+Extrapolated:   -40.954099
+
+Fermi level: -5.06821
+
+Warning: Showing only first 2 kpts
+ Kpt  Band  Eigenvalues  Occupancy
+  0    47     -5.42738    0.21626
+  0    48     -4.77543    0.01129
+  0    49     -3.88928    0.00000
+  0    50     -3.73073    0.00000
+
+  1    47     -6.16375    0.44444
+  1    48     -5.15241    0.31062
+  1    49     -4.87654    0.05699
+  1    50     -4.28997    0.00019
+
+
+('Energy of the geometry evaluated (eV):', -40.95409869138851)
+
+Forces in eV/Ang:
+  0 Au   -0.34457    0.04493   -0.64277
+  1 Au    0.34462    0.04495   -0.64285
+  2 Au   -0.00003    0.13474   -0.45680
+  3 Au    0.00001   -0.05579   -0.32600
+  4 Au    0.20034    0.03684    0.31439
+  5 Au   -0.20031    0.03681    0.31449
+  6 Au   -0.00006    0.25077    0.24124
+  7 Au   -0.00007    0.12365    0.21241
+  8 C    -0.00002   -0.05801   -0.57919
+  9 O     0.00001   -0.56485    1.52828
+
+('Forces of the geometry evaluated (eV/Angst):\n', array([[ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 2.00335615e-01,  3.68350487e-02,  3.14385515e-01],
+       [-2.00305078e-01,  3.68051068e-02,  3.14491797e-01],
+       [-5.61199810e-05,  2.50768955e-01,  2.41242826e-01],
+       [-7.05555703e-05,  1.23645741e-01,  2.12406251e-01],
+       [-2.29769912e-05, -5.80101143e-02, -5.79190625e-01],
+       [ 8.21695459e-06, -5.64848477e-01,  1.52827558e+00]]))
+('Number of iterations:', 5)
+('Max. force of the last image evaluated (eV/Angstrom):', 1.6293188880958767)
+('Energy of the last image evaluated (eV):', -40.95409869138851)
+('Converged:', False)
++----------+------------+-------------------+--------------------+--------------------+------------+
+|  Method  | Iterations | Func. evaluations |   Function value   |        fmax        | Converged? |
++----------+------------+-------------------+--------------------+--------------------+------------+
+|  Eval.   |     0      |         1         | -38.49570406066559 | 14.132614947542113 |   False    |
+| CatLearn |     1      |         2         | -38.91559301849234 | 6.657912598794426  |   False    |
+| CatLearn |     2      |         3         | -40.06991202829284 | 3.2878957314928465 |   False    |
+| CatLearn |     3      |         4         | -40.51078180268129 | 2.9370521727608514 |   False    |
+| CatLearn |     4      |         5         | -40.5642561161567  | 4.5665787906107695 |   False    |
+| CatLearn |     5      |         6         | -40.95409869138851 | 1.6293188880958767 |   False    |
++----------+------------+-------------------+--------------------+--------------------+------------+
+Training a ML process...
+('Number of training points:', 6)
+Hyperparameter optimization is switched on.
+('Optimized Hyperparameters: ',       fun: array([225.23098201])
+ hess_inv: <3x3 LbfgsInvHessProduct with dtype=float64>
+      jac: array([ 5.51472681e+00, -1.44950718e-04,  5.11590770e-05])
+  message: 'CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH'
+     nfev: 36
+      nit: 6
+   status: 0
+  success: True
+        x: array([1.       , 0.2577055, 0.0093269]))
+('Log marginal likelihood: ', -225.23098201152723)
+ML process trained.
+Starting ML optimization...
+             Step     Time          Energy         fmax
+SciPyFminCG:    0 14:41:12       -2.545870        1.6188
+SciPyFminCG:    1 14:41:12       -2.596769        1.5314
+SciPyFminCG:    2 14:41:12       -2.630017        0.4288
+SciPyFminCG:    3 14:41:12       -2.633375        0.1752
+SciPyFminCG:    4 14:41:12       -2.634095        0.0663
+SciPyFminCG:    5 14:41:12       -2.634155        0.0312
+SciPyFminCG:    6 14:41:12       -2.634179        0.0240
+SciPyFminCG:    7 14:41:12       -2.634185        0.0034
+ML optimized.
+System changes: positions 
+
+Initializing position-dependent things.
+
+Density initialized from wave functions
+    .-------------.  
+   /|             |  
+  / |             |  
+ *  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |  O          |  
+ |  |             |  
+ |  |             |  
+ |  |        Au   |  
+ |  | Au          |  
+ |  |  AAu    AAu |  
+ |  |             |  
+ |Au|    Au       |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  .-------------.  
+ | /             /   
+ |/             /    
+ *-------------*     
+
+Positions:
+   0 Au     0.000000    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   1 Au     2.884996    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   2 Au     1.442498    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   3 Au     4.327494    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   4 Au    -0.097927    0.059478    8.369854    ( 0.0000,  0.0000,  0.0000)
+   5 Au     2.982896    0.059488    8.369836    ( 0.0000,  0.0000,  0.0000)
+   6 Au     1.442514    2.432796    8.249676    ( 0.0000,  0.0000,  0.0000)
+   7 Au     4.327509    2.562691    8.428540    ( 0.0000,  0.0000,  0.0000)
+   8 C      1.442466   -0.091591    9.809579    ( 0.0000,  0.0000,  0.0000)
+   9 O      1.442521   -1.154112   10.377013    ( 0.0000,  0.0000,  0.0000)
+
+Unit cell:
+           periodic     x           y           z      points  spacing
+  1. axis:    yes    5.769991    0.000000    0.000000    28     0.2061
+  2. axis:    yes    0.000000    4.996959    0.000000    24     0.2082
+  3. axis:    no     0.000000    0.000000   15.855589    80     0.1982
+
+  Lengths:   5.769991   4.996959  15.855589
+  Angles:   90.000000  90.000000  90.000000
+
+Effective grid spacing dv^(1/3) = 0.2041
+
+                     log10-error:    total        iterations:
+           time      wfs    density  energy       fermi  poisson
+iter:   1  14:41:16          +inf   -41.124235    3      22     
+iter:   2  14:41:19         -2.46   -41.104630    3      16     
+iter:   3  14:41:22         -2.61   -41.092659    3      21     
+iter:   4  14:41:26         -2.80   -41.089666    3      20     
+iter:   5  14:41:28         -2.96   -41.089351    3      7      
+iter:   6  14:41:31         -3.08   -41.085662    2      12     
+iter:   7  14:41:34         -3.54   -41.086301    2      8      
+iter:   8  14:41:37         -3.72   -41.086357    2      6      
+iter:   9  14:41:39         -4.00   -41.085910    2      3      
+iter:  10  14:41:42         -4.04   -41.085668    1      2      
+
+Converged after 10 iterations.
+
+Dipole moment: (-0.000286, 3.955473, 0.016552) |e|*Ang
+
+Energy contributions relative to reference atoms: (reference = -4133555.294089)
+
+Kinetic:        -28.227873
+Potential:      +22.158755
+External:        +0.000000
+XC:             -36.105904
+Entropy (-ST):   -0.162985
+Local:           +1.170846
+--------------------------
+Free energy:    -41.167161
+Extrapolated:   -41.085668
+
+Fermi level: -5.11660
+
+Warning: Showing only first 2 kpts
+ Kpt  Band  Eigenvalues  Occupancy
+  0    47     -5.52914    0.21869
+  0    48     -4.79895    0.00890
+  0    49     -3.98236    0.00000
+  0    50     -3.87220    0.00000
+
+  1    47     -6.21392    0.44444
+  1    48     -5.19440    0.30455
+  1    49     -4.96115    0.07753
+  1    50     -4.32263    0.00016
+
+
+('Energy of the geometry evaluated (eV):', -41.085667906267275)
+
+Forces in eV/Ang:
+  0 Au   -0.34745    0.02797   -0.59159
+  1 Au    0.34749    0.02799   -0.59166
+  2 Au   -0.00002    0.14317   -0.47047
+  3 Au    0.00001   -0.01428   -0.24093
+  4 Au    0.07141    0.04500    0.29110
+  5 Au   -0.07143    0.04498    0.29123
+  6 Au   -0.00004    0.24713    0.29341
+  7 Au   -0.00007    0.03726    0.17917
+  8 C     0.00018   -1.69023    0.27735
+  9 O    -0.00006    1.16497    0.59912
+
+('Forces of the geometry evaluated (eV/Angst):\n', array([[ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 7.14094206e-02,  4.49967216e-02,  2.91104445e-01],
+       [-7.14294719e-02,  4.49786251e-02,  2.91234859e-01],
+       [-4.15312007e-05,  2.47133352e-01,  2.93409508e-01],
+       [-6.64048012e-05,  3.72608470e-02,  1.79166735e-01],
+       [ 1.80396612e-04, -1.69023199e+00,  2.77353166e-01],
+       [-5.86557021e-05,  1.16497399e+00,  5.99121263e-01]]))
+('Number of iterations:', 6)
+('Max. force of the last image evaluated (eV/Angstrom):', 1.7128365315330853)
+('Energy of the last image evaluated (eV):', -41.085667906267275)
+('Converged:', False)
++----------+------------+-------------------+---------------------+--------------------+------------+
+|  Method  | Iterations | Func. evaluations |    Function value   |        fmax        | Converged? |
++----------+------------+-------------------+---------------------+--------------------+------------+
+|  Eval.   |     0      |         1         |  -38.49570406066559 | 14.132614947542113 |   False    |
+| CatLearn |     1      |         2         |  -38.91559301849234 | 6.657912598794426  |   False    |
+| CatLearn |     2      |         3         |  -40.06991202829284 | 3.2878957314928465 |   False    |
+| CatLearn |     3      |         4         |  -40.51078180268129 | 2.9370521727608514 |   False    |
+| CatLearn |     4      |         5         |  -40.5642561161567  | 4.5665787906107695 |   False    |
+| CatLearn |     5      |         6         |  -40.95409869138851 | 1.6293188880958767 |   False    |
+| CatLearn |     6      |         7         | -41.085667906267275 | 1.7128365315330853 |   False    |
++----------+------------+-------------------+---------------------+--------------------+------------+
+Training a ML process...
+('Number of training points:', 7)
+Hyperparameter optimization is switched on.
+('Optimized Hyperparameters: ',       fun: array([240.8406484])
+ hess_inv: <3x3 LbfgsInvHessProduct with dtype=float64>
+      jac: array([2.94946290e+00, 1.06581410e-03, 1.72803993e-03])
+  message: 'CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH'
+     nfev: 44
+      nit: 7
+   status: 0
+  success: True
+        x: array([1.        , 0.26635571, 0.00675483]))
+('Log marginal likelihood: ', -240.8406483976092)
+ML process trained.
+Starting ML optimization...
+             Step     Time          Energy         fmax
+SciPyFminCG:    0 14:41:54       -2.635020        1.6961
+SciPyFminCG:    1 14:41:54       -2.679343        1.6839
+SciPyFminCG:    2 14:41:54       -2.812535        0.9309
+SciPyFminCG:    3 14:41:54       -2.829421        0.1257
+SciPyFminCG:    4 14:41:54       -2.829838        0.0729
+SciPyFminCG:    5 14:41:54       -2.829999        0.0397
+SciPyFminCG:    6 14:41:54       -2.830022        0.0124
+ML optimized.
+System changes: positions 
+
+Initializing position-dependent things.
+
+Density initialized from wave functions
+    .-------------.  
+   /|             |  
+  / |             |  
+ *  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |  O          |  
+ |  |             |  
+ |  |             |  
+ |  |        Au   |  
+ |  | Au          |  
+ |  |  AAu    AAu |  
+ |  |             |  
+ |Au|    Au       |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  .-------------.  
+ | /             /   
+ |/             /    
+ *-------------*     
+
+Positions:
+   0 Au     0.000000    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   1 Au     2.884996    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   2 Au     1.442498    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   3 Au     4.327494    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   4 Au    -0.092595    0.065331    8.397900    ( 0.0000,  0.0000,  0.0000)
+   5 Au     2.977564    0.065339    8.397891    ( 0.0000,  0.0000,  0.0000)
+   6 Au     1.442510    2.451712    8.266473    ( 0.0000,  0.0000,  0.0000)
+   7 Au     4.327504    2.575718    8.451056    ( 0.0000,  0.0000,  0.0000)
+   8 C      1.442474   -0.188449    9.803349    ( 0.0000,  0.0000,  0.0000)
+   9 O      1.442519   -1.115346   10.493042    ( 0.0000,  0.0000,  0.0000)
+
+Unit cell:
+           periodic     x           y           z      points  spacing
+  1. axis:    yes    5.769991    0.000000    0.000000    28     0.2061
+  2. axis:    yes    0.000000    4.996959    0.000000    24     0.2082
+  3. axis:    no     0.000000    0.000000   15.855589    80     0.1982
+
+  Lengths:   5.769991   4.996959  15.855589
+  Angles:   90.000000  90.000000  90.000000
+
+Effective grid spacing dv^(1/3) = 0.2041
+
+                     log10-error:    total        iterations:
+           time      wfs    density  energy       fermi  poisson
+iter:   1  14:41:58          +inf   -41.367788    3      38     
+iter:   2  14:42:01         -2.29   -41.332775    3      18     
+iter:   3  14:42:05         -2.39   -41.302342    4      25     
+iter:   4  14:42:09         -2.55   -41.306144    4      40     
+iter:   5  14:42:13         -2.67   -41.298682    3      23     
+iter:   6  14:42:16         -2.85   -41.295958    2      19     
+iter:   7  14:42:19         -3.14   -41.296116    3      11     
+iter:   8  14:42:21         -3.40   -41.296665    3      8      
+iter:   9  14:42:24         -3.71   -41.296446    2      4      
+iter:  10  14:42:27         -3.79   -41.296441    2      5      
+iter:  11  14:42:29         -3.80   -41.296279    2      12     
+iter:  12  14:42:32         -3.52   -41.295191    2      12     
+iter:  13  14:42:35         -3.83   -41.295277    1      5      
+iter:  14  14:42:38         -4.25   -41.295516    2      8      
+
+Converged after 14 iterations.
+
+Dipole moment: (-0.202709, 6.690386, 0.067692) |e|*Ang
+
+Energy contributions relative to reference atoms: (reference = -4133555.294089)
+
+Kinetic:        -30.509582
+Potential:      +24.541183
+External:        +0.000000
+XC:             -36.433644
+Entropy (-ST):   -0.165516
+Local:           +1.189284
+--------------------------
+Free energy:    -41.378274
+Extrapolated:   -41.295516
+
+Fermi level: -5.07581
+
+Warning: Showing only first 2 kpts
+ Kpt  Band  Eigenvalues  Occupancy
+  0    47     -5.51259    0.21944
+  0    48     -4.66665    0.00365
+  0    49     -3.88214    0.00000
+  0    50     -3.81737    0.00000
+
+  1    47     -6.20525    0.44444
+  1    48     -5.16403    0.31435
+  1    49     -4.90244    0.06672
+  1    50     -4.06492    0.00002
+
+
+('Energy of the geometry evaluated (eV):', -41.29551622320998)
+
+Forces in eV/Ang:
+  0 Au   -0.35967    0.00246   -0.48092
+  1 Au    0.35970    0.00246   -0.48096
+  2 Au   -0.00001    0.15275   -0.42440
+  3 Au   -0.00001    0.02446   -0.12400
+  4 Au   -0.05277    0.07371    0.18133
+  5 Au    0.05280    0.07370    0.18137
+  6 Au   -0.00005    0.11369    0.14707
+  7 Au   -0.00005   -0.03623    0.12347
+  8 C    -0.00002    1.52044   -1.86992
+  9 O     0.00007   -1.80774    2.93508
+
+('Forces of the geometry evaluated (eV/Angst):\n', array([[ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [-5.27726607e-02,  7.37069457e-02,  1.81332816e-01],
+       [ 5.27952267e-02,  7.36981620e-02,  1.81370561e-01],
+       [-4.58267498e-05,  1.13694968e-01,  1.47073563e-01],
+       [-4.86090941e-05, -3.62257095e-02,  1.23474380e-01],
+       [-1.72083527e-05,  1.52044014e+00, -1.86991698e+00],
+       [ 6.87495973e-05, -1.80774348e+00,  2.93507751e+00]]))
+('Number of iterations:', 7)
+('Max. force of the last image evaluated (eV/Angstrom):', 3.4471171297468053)
+('Energy of the last image evaluated (eV):', -41.29551622320998)
+('Converged:', False)
++----------+------------+-------------------+---------------------+--------------------+------------+
+|  Method  | Iterations | Func. evaluations |    Function value   |        fmax        | Converged? |
++----------+------------+-------------------+---------------------+--------------------+------------+
+|  Eval.   |     0      |         1         |  -38.49570406066559 | 14.132614947542113 |   False    |
+| CatLearn |     1      |         2         |  -38.91559301849234 | 6.657912598794426  |   False    |
+| CatLearn |     2      |         3         |  -40.06991202829284 | 3.2878957314928465 |   False    |
+| CatLearn |     3      |         4         |  -40.51078180268129 | 2.9370521727608514 |   False    |
+| CatLearn |     4      |         5         |  -40.5642561161567  | 4.5665787906107695 |   False    |
+| CatLearn |     5      |         6         |  -40.95409869138851 | 1.6293188880958767 |   False    |
+| CatLearn |     6      |         7         | -41.085667906267275 | 1.7128365315330853 |   False    |
+| CatLearn |     7      |         8         |  -41.29551622320998 | 3.4471171297468053 |   False    |
++----------+------------+-------------------+---------------------+--------------------+------------+
+Training a ML process...
+('Number of training points:', 8)
+Hyperparameter optimization is switched on.
+('Optimized Hyperparameters: ',       fun: array([266.20524634])
+ hess_inv: <3x3 LbfgsInvHessProduct with dtype=float64>
+      jac: array([-0.40498094, -0.00820819,  0.02688694])
+  message: 'CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH'
+     nfev: 44
+      nit: 6
+   status: 0
+  success: True
+        x: array([1.        , 0.27321732, 0.00648246]))
+('Log marginal likelihood: ', -266.20524634108995)
+ML process trained.
+Starting ML optimization...
+             Step     Time          Energy         fmax
+SciPyFminCG:    0 14:42:50       -2.869956        3.4307
+SciPyFminCG:    1 14:42:50       -2.964990        2.2923
+SciPyFminCG:    2 14:42:50       -3.111992        2.3074
+SciPyFminCG:    3 14:42:50       -3.156192        0.1782
+SciPyFminCG:    4 14:42:50       -3.156970        0.0269
+SciPyFminCG:    5 14:42:50       -3.156988        0.0141
+ML optimized.
+System changes: positions 
+
+Initializing position-dependent things.
+
+Density initialized from wave functions
+    .-------------.  
+   /|             |  
+  / |             |  
+ *  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |  O          |  
+ |  |             |  
+ |  |             |  
+ |  |        Au   |  
+ |  | Au          |  
+ |  |  AAu    AAu |  
+ |  |             |  
+ |Au|    Au       |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  .-------------.  
+ | /             /   
+ |/             /    
+ *-------------*     
+
+Positions:
+   0 Au     0.000000    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   1 Au     2.884996    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   2 Au     1.442498    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   3 Au     4.327494    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   4 Au    -0.091075    0.070817    8.420967    ( 0.0000,  0.0000,  0.0000)
+   5 Au     2.976046    0.070825    8.420966    ( 0.0000,  0.0000,  0.0000)
+   6 Au     1.442505    2.469131    8.286678    ( 0.0000,  0.0000,  0.0000)
+   7 Au     4.327498    2.577958    8.466483    ( 0.0000,  0.0000,  0.0000)
+   8 C      1.442483   -0.229087    9.748221    ( 0.0000,  0.0000,  0.0000)
+   9 O      1.442517   -1.116310   10.640140    ( 0.0000,  0.0000,  0.0000)
+
+Unit cell:
+           periodic     x           y           z      points  spacing
+  1. axis:    yes    5.769991    0.000000    0.000000    28     0.2061
+  2. axis:    yes    0.000000    4.996959    0.000000    24     0.2082
+  3. axis:    no     0.000000    0.000000   15.855589    80     0.1982
+
+  Lengths:   5.769991   4.996959  15.855589
+  Angles:   90.000000  90.000000  90.000000
+
+Effective grid spacing dv^(1/3) = 0.2041
+
+                     log10-error:    total        iterations:
+           time      wfs    density  energy       fermi  poisson
+iter:   1  14:42:56          +inf   -42.969804    3      58     
+iter:   2  14:42:59         -1.64   -41.826106    4      32     
+iter:   3  14:43:04         -1.94   -41.440242    3      48     
+iter:   4  14:43:08         -2.26   -41.383843    3      43     
+iter:   5  14:43:12         -2.34   -41.356329    3      44     
+iter:   6  14:43:16         -2.46   -41.351345    3      34     
+iter:   7  14:43:20         -2.61   -41.332632    3      22     
+iter:   8  14:43:22         -3.11   -41.331774    3      5      
+iter:   9  14:43:25         -3.42   -41.332525    2      4      
+iter:  10  14:43:27         -3.50   -41.334591    2      5      
+iter:  11  14:43:30         -3.77   -41.333985    2      3      
+iter:  12  14:43:33         -3.86   -41.333387    2      5      
+iter:  13  14:43:35         -3.95   -41.333239    2      2      
+iter:  14  14:43:38         -3.98   -41.333030    2      6      
+iter:  15  14:43:40         -3.98   -41.333499    2      3      
+iter:  16  14:43:43         -4.20   -41.333378    2      5      
+
+Converged after 16 iterations.
+
+Dipole moment: (-0.148370, 6.907216, -0.065424) |e|*Ang
+
+Energy contributions relative to reference atoms: (reference = -4133555.294089)
+
+Kinetic:        -45.965834
+Potential:      +37.354404
+External:        +0.000000
+XC:             -33.820619
+Entropy (-ST):   -0.167722
+Local:           +1.182533
+--------------------------
+Free energy:    -41.417239
+Extrapolated:   -41.333378
+
+Fermi level: -5.34670
+
+Warning: Showing only first 2 kpts
+ Kpt  Band  Eigenvalues  Occupancy
+  0    47     -5.86738    0.22101
+  0    48     -4.84735    0.00150
+  0    49     -4.35784    0.00001
+  0    50     -4.22810    0.00000
+
+  1    47     -6.44079    0.44444
+  1    48     -5.43957    0.31859
+  1    49     -5.25715    0.12888
+  1    50     -4.23458    0.00001
+
+
+('Energy of the geometry evaluated (eV):', -41.33337813393336)
+
+Forces in eV/Ang:
+  0 Au   -0.32494   -0.00106   -0.39934
+  1 Au    0.32496   -0.00106   -0.39937
+  2 Au   -0.00000    0.13035   -0.41641
+  3 Au   -0.00001    0.05258   -0.04928
+  4 Au   -0.21420    0.04131    0.12435
+  5 Au    0.21425    0.04131    0.12434
+  6 Au   -0.00004    0.15230    0.16762
+  7 Au   -0.00003   -0.03589    0.02783
+  8 C     0.00020   -4.24895    3.44609
+  9 O    -0.00014    3.83087   -2.64862
+
+('Forces of the geometry evaluated (eV/Angst):\n', array([[ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [-2.14199249e-01,  4.13130162e-02,  1.24352482e-01],
+       [ 2.14248295e-01,  4.13085919e-02,  1.24340954e-01],
+       [-3.60167185e-05,  1.52295456e-01,  1.67622117e-01],
+       [-2.53657125e-05, -3.58942326e-02,  2.78274150e-02],
+       [ 1.95587022e-04, -4.24895052e+00,  3.44608808e+00],
+       [-1.38163731e-04,  3.83086723e+00, -2.64862262e+00]]))
+('Number of iterations:', 8)
+('Max. force of the last image evaluated (eV/Angstrom):', 5.470749820261449)
+('Energy of the last image evaluated (eV):', -41.33337813393336)
+('Converged:', False)
++----------+------------+-------------------+---------------------+--------------------+------------+
+|  Method  | Iterations | Func. evaluations |    Function value   |        fmax        | Converged? |
++----------+------------+-------------------+---------------------+--------------------+------------+
+|  Eval.   |     0      |         1         |  -38.49570406066559 | 14.132614947542113 |   False    |
+| CatLearn |     1      |         2         |  -38.91559301849234 | 6.657912598794426  |   False    |
+| CatLearn |     2      |         3         |  -40.06991202829284 | 3.2878957314928465 |   False    |
+| CatLearn |     3      |         4         |  -40.51078180268129 | 2.9370521727608514 |   False    |
+| CatLearn |     4      |         5         |  -40.5642561161567  | 4.5665787906107695 |   False    |
+| CatLearn |     5      |         6         |  -40.95409869138851 | 1.6293188880958767 |   False    |
+| CatLearn |     6      |         7         | -41.085667906267275 | 1.7128365315330853 |   False    |
+| CatLearn |     7      |         8         |  -41.29551622320998 | 3.4471171297468053 |   False    |
+| CatLearn |     8      |         9         |  -41.33337813393336 | 5.470749820261449  |   False    |
++----------+------------+-------------------+---------------------+--------------------+------------+
+Training a ML process...
+('Number of training points:', 9)
+Hyperparameter optimization is switched on.
+('Optimized Hyperparameters: ',       fun: array([300.00931138])
+ hess_inv: <3x3 LbfgsInvHessProduct with dtype=float64>
+      jac: array([-3.05767003e+00, -1.02886588e-03, -8.52651283e-05])
+  message: 'CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH'
+     nfev: 44
+      nit: 6
+   status: 0
+  success: True
+        x: array([1.        , 0.27395785, 0.00646115]))
+('Log marginal likelihood: ', -300.0093113808226)
+ML process trained.
+Starting ML optimization...
+             Step     Time          Energy         fmax
+SciPyFminCG:    0 14:43:55       -2.918163        5.4558
+SciPyFminCG:    1 14:43:55       -3.115910        1.2006
+SciPyFminCG:    2 14:43:55       -3.208419        0.6613
+SciPyFminCG:    3 14:43:55       -3.217476        0.4149
+SciPyFminCG:    4 14:43:55       -3.219644        0.1300
+SciPyFminCG:    5 14:43:55       -3.219952        0.0679
+SciPyFminCG:    6 14:43:55       -3.220040        0.0497
+SciPyFminCG:    7 14:43:55       -3.220066        0.0157
+ML optimized.
+System changes: positions 
+
+Initializing position-dependent things.
+
+Density initialized from wave functions
+    .-------------.  
+   /|             |  
+  / |             |  
+ *  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |  O          |  
+ |  |             |  
+ |  |             |  
+ |  |        Au   |  
+ |  | Au          |  
+ |  |  AAu    AAu |  
+ |  |             |  
+ |Au|    Au       |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  .-------------.  
+ | /             /   
+ |/             /    
+ *-------------*     
+
+Positions:
+   0 Au     0.000000    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   1 Au     2.884996    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   2 Au     1.442498    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   3 Au     4.327494    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   4 Au    -0.096891    0.076811    8.439969    ( 0.0000,  0.0000,  0.0000)
+   5 Au     2.981864    0.076817    8.439973    ( 0.0000,  0.0000,  0.0000)
+   6 Au     1.442501    2.485081    8.306557    ( 0.0000,  0.0000,  0.0000)
+   7 Au     4.327493    2.575196    8.477021    ( 0.0000,  0.0000,  0.0000)
+   8 C      1.442493   -0.332792    9.771816    ( 0.0000,  0.0000,  0.0000)
+   9 O      1.442514   -1.051255   10.705434    ( 0.0000,  0.0000,  0.0000)
+
+Unit cell:
+           periodic     x           y           z      points  spacing
+  1. axis:    yes    5.769991    0.000000    0.000000    28     0.2061
+  2. axis:    yes    0.000000    4.996959    0.000000    24     0.2082
+  3. axis:    no     0.000000    0.000000   15.855589    80     0.1982
+
+  Lengths:   5.769991   4.996959  15.855589
+  Angles:   90.000000  90.000000  90.000000
+
+Effective grid spacing dv^(1/3) = 0.2041
+
+                     log10-error:    total        iterations:
+           time      wfs    density  energy       fermi  poisson
+iter:   1  14:44:00          +inf   -42.046760    4      51     
+iter:   2  14:44:03         -2.04   -41.883814    3      23     
+iter:   3  14:44:08         -2.18   -41.752060    4      42     
+iter:   4  14:44:12         -2.44   -41.740163    3      36     
+iter:   5  14:44:16         -2.57   -41.741467    3      39     
+iter:   6  14:44:19         -2.65   -41.731728    2      20     
+iter:   7  14:44:22         -3.11   -41.731514    3      10     
+iter:   8  14:44:25         -3.18   -41.730854    2      8      
+iter:   9  14:44:27         -3.45   -41.730522    2      7      
+iter:  10  14:44:30         -3.58   -41.730671    2      3      
+iter:  11  14:44:33         -3.61   -41.730959    2      5      
+iter:  12  14:44:36         -3.63   -41.730307    2      11     
+iter:  13  14:44:38         -3.57   -41.730622    2      4      
+iter:  14  14:44:41         -3.68   -41.730217    2      3      
+iter:  15  14:44:43         -3.70   -41.730530    2      5      
+iter:  16  14:44:46         -3.84   -41.730435    2      5      
+iter:  17  14:44:49         -3.88   -41.729892    2      6      
+iter:  18  14:44:51         -3.85   -41.730088    2      3      
+iter:  19  14:44:54         -4.08   -41.730242    2      8      
+
+Converged after 19 iterations.
+
+Dipole moment: (-0.019311, 6.811270, 0.026165) |e|*Ang
+
+Energy contributions relative to reference atoms: (reference = -4133555.294089)
+
+Kinetic:        -43.990276
+Potential:      +36.000357
+External:        +0.000000
+XC:             -34.837603
+Entropy (-ST):   -0.152701
+Local:           +1.173629
+--------------------------
+Free energy:    -41.806593
+Extrapolated:   -41.730242
+
+Fermi level: -5.25742
+
+Warning: Showing only first 2 kpts
+ Kpt  Band  Eigenvalues  Occupancy
+  0    47     -5.72256    0.22012
+  0    48     -4.69716    0.00082
+  0    49     -4.10456    0.00000
+  0    50     -4.02417    0.00000
+
+  1    47     -6.38188    0.44444
+  1    48     -5.37371    0.33860
+  1    49     -5.09262    0.07172
+  1    50     -3.90368    0.00000
+
+
+('Energy of the geometry evaluated (eV):', -41.73024246166579)
+
+Forces in eV/Ang:
+  0 Au   -0.31171   -0.02134   -0.34477
+  1 Au    0.31172   -0.02134   -0.34478
+  2 Au    0.00000    0.13868   -0.39000
+  3 Au   -0.00002    0.05880   -0.05691
+  4 Au    0.02611    0.01951    0.15795
+  5 Au   -0.02597    0.01953    0.15785
+  6 Au   -0.00004    0.02967    0.02219
+  7 Au   -0.00000   -0.00527   -0.01446
+  8 C    -0.00004   -0.63479   -0.30980
+  9 O    -0.00007    0.38238    1.10253
+
+('Forces of the geometry evaluated (eV/Angst):\n', array([[ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 2.61084407e-02,  1.95072662e-02,  1.57948820e-01],
+       [-2.59740062e-02,  1.95251676e-02,  1.57850907e-01],
+       [-3.75409072e-05,  2.96651749e-02,  2.21945288e-02],
+       [-2.04341955e-06, -5.26960335e-03, -1.44555275e-02],
+       [-3.61941007e-05, -6.34792271e-01, -3.09802476e-01],
+       [-7.05006661e-05,  3.82375496e-01,  1.10253446e+00]]))
+('Number of iterations:', 9)
+('Max. force of the last image evaluated (eV/Angstrom):', 1.1669589826457716)
+('Energy of the last image evaluated (eV):', -41.73024246166579)
+('Converged:', False)
++----------+------------+-------------------+---------------------+--------------------+------------+
+|  Method  | Iterations | Func. evaluations |    Function value   |        fmax        | Converged? |
++----------+------------+-------------------+---------------------+--------------------+------------+
+|  Eval.   |     0      |         1         |  -38.49570406066559 | 14.132614947542113 |   False    |
+| CatLearn |     1      |         2         |  -38.91559301849234 | 6.657912598794426  |   False    |
+| CatLearn |     2      |         3         |  -40.06991202829284 | 3.2878957314928465 |   False    |
+| CatLearn |     3      |         4         |  -40.51078180268129 | 2.9370521727608514 |   False    |
+| CatLearn |     4      |         5         |  -40.5642561161567  | 4.5665787906107695 |   False    |
+| CatLearn |     5      |         6         |  -40.95409869138851 | 1.6293188880958767 |   False    |
+| CatLearn |     6      |         7         | -41.085667906267275 | 1.7128365315330853 |   False    |
+| CatLearn |     7      |         8         |  -41.29551622320998 | 3.4471171297468053 |   False    |
+| CatLearn |     8      |         9         |  -41.33337813393336 | 5.470749820261449  |   False    |
+| CatLearn |     9      |         10        |  -41.73024246166579 | 1.1669589826457716 |   False    |
++----------+------------+-------------------+---------------------+--------------------+------------+
+Training a ML process...
+('Number of training points:', 10)
+Hyperparameter optimization is switched on.
+('Optimized Hyperparameters: ',       fun: array([322.43149108])
+ hess_inv: <3x3 LbfgsInvHessProduct with dtype=float64>
+      jac: array([-5.41674581e+00,  4.76347850e-03, -4.34283720e-03])
+  message: 'CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH'
+     nfev: 48
+      nit: 7
+   status: 0
+  success: True
+        x: array([1.        , 0.28127533, 0.00539963]))
+('Log marginal likelihood: ', -322.4314910774795)
+ML process trained.
+Starting ML optimization...
+             Step     Time          Energy         fmax
+SciPyFminCG:    0 14:45:06       -3.273708        1.1594
+SciPyFminCG:    1 14:45:06       -3.329594        1.6687
+SciPyFminCG:    2 14:45:06       -3.343627        1.1314
+SciPyFminCG:    3 14:45:06       -3.356327        0.3145
+SciPyFminCG:    4 14:45:06       -3.357990        0.2384
+SciPyFminCG:    5 14:45:06       -3.358570        0.1349
+SciPyFminCG:    6 14:45:06       -3.358826        0.0800
+SciPyFminCG:    7 14:45:06       -3.358883        0.0072
+ML optimized.
+System changes: positions 
+
+Initializing position-dependent things.
+
+Density initialized from wave functions
+    .-------------.  
+   /|             |  
+  / |             |  
+ *  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |  O          |  
+ |  |  C          |  
+ |  |             |  
+ |  |        Au   |  
+ |  | Au          |  
+ |  |  AAu    AAu |  
+ |  |             |  
+ |Au|    Au       |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  .-------------.  
+ | /             /   
+ |/             /    
+ *-------------*     
+
+Positions:
+   0 Au     0.000000    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   1 Au     2.884996    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   2 Au     1.442498    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   3 Au     4.327494    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   4 Au    -0.096833    0.079669    8.453887    ( 0.0000,  0.0000,  0.0000)
+   5 Au     2.981810    0.079676    8.453891    ( 0.0000,  0.0000,  0.0000)
+   6 Au     1.442498    2.493047    8.316068    ( 0.0000,  0.0000,  0.0000)
+   7 Au     4.327491    2.574356    8.481399    ( 0.0000,  0.0000,  0.0000)
+   8 C      1.442497   -0.395643    9.761912    ( 0.0000,  0.0000,  0.0000)
+   9 O      1.442510   -1.012684   10.776731    ( 0.0000,  0.0000,  0.0000)
+
+Unit cell:
+           periodic     x           y           z      points  spacing
+  1. axis:    yes    5.769991    0.000000    0.000000    28     0.2061
+  2. axis:    yes    0.000000    4.996959    0.000000    24     0.2082
+  3. axis:    no     0.000000    0.000000   15.855589    80     0.1982
+
+  Lengths:   5.769991   4.996959  15.855589
+  Angles:   90.000000  90.000000  90.000000
+
+Effective grid spacing dv^(1/3) = 0.2041
+
+                     log10-error:    total        iterations:
+           time      wfs    density  energy       fermi  poisson
+iter:   1  14:45:10          +inf   -41.888528    2      24     
+iter:   2  14:45:13         -2.53   -41.877859    3      14     
+iter:   3  14:45:16         -2.63   -41.864577    3      27     
+iter:   4  14:45:20         -2.83   -41.862403    3      26     
+iter:   5  14:45:23         -2.94   -41.860415    3      14     
+iter:   6  14:45:26         -3.06   -41.856491    3      13     
+iter:   7  14:45:29         -3.38   -41.857344    2      12     
+iter:   8  14:45:32         -3.23   -41.856801    2      13     
+iter:   9  14:45:34         -3.80   -41.856816    2      4      
+iter:  10  14:45:37         -3.84   -41.856793    2      3      
+iter:  11  14:45:39         -4.08   -41.856914    2      3      
+
+Converged after 11 iterations.
+
+Dipole moment: (-0.003612, 6.181393, -0.005142) |e|*Ang
+
+Energy contributions relative to reference atoms: (reference = -4133555.294089)
+
+Kinetic:        -47.922025
+Potential:      +39.317737
+External:        +0.000000
+XC:             -34.346530
+Entropy (-ST):   -0.144068
+Local:           +1.165937
+--------------------------
+Free energy:    -41.928948
+Extrapolated:   -41.856914
+
+Fermi level: -5.33507
+
+Warning: Showing only first 2 kpts
+ Kpt  Band  Eigenvalues  Occupancy
+  0    47     -5.78398    0.21975
+  0    48     -4.74603    0.00061
+  0    49     -4.17846    0.00000
+  0    50     -4.07551    0.00000
+
+  1    47     -6.45269    0.44444
+  1    48     -5.45730    0.34332
+  1    49     -5.15374    0.06233
+  1    50     -3.86603    0.00000
+
+
+('Energy of the geometry evaluated (eV):', -41.85691448931581)
+
+Forces in eV/Ang:
+  0 Au   -0.29916   -0.03376   -0.28152
+  1 Au    0.29916   -0.03376   -0.28153
+  2 Au    0.00000    0.13380   -0.34990
+  3 Au   -0.00001    0.07071   -0.01999
+  4 Au    0.04735    0.00475    0.16350
+  5 Au   -0.04723    0.00476    0.16341
+  6 Au   -0.00003    0.04180    0.09639
+  7 Au    0.00001    0.00449   -0.03055
+  8 C    -0.00004   -1.07663    0.48131
+  9 O    -0.00000    0.93964    0.03137
+
+('Forces of the geometry evaluated (eV/Angst):\n', array([[ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 4.73498509e-02,  4.74939416e-03,  1.63502261e-01],
+       [-4.72305154e-02,  4.76291414e-03,  1.63411387e-01],
+       [-2.97948622e-05,  4.17998247e-02,  9.63871590e-02],
+       [ 5.61712871e-06,  4.48974395e-03, -3.05456947e-02],
+       [-4.00289379e-05, -1.07663173e+00,  4.81311255e-01],
+       [-1.63145162e-06,  9.39638706e-01,  3.13696522e-02]]))
+('Number of iterations:', 10)
+('Max. force of the last image evaluated (eV/Angstrom):', 1.1793203171685553)
+('Energy of the last image evaluated (eV):', -41.85691448931581)
+('Converged:', False)
++----------+------------+-------------------+---------------------+--------------------+------------+
+|  Method  | Iterations | Func. evaluations |    Function value   |        fmax        | Converged? |
++----------+------------+-------------------+---------------------+--------------------+------------+
+|  Eval.   |     0      |         1         |  -38.49570406066559 | 14.132614947542113 |   False    |
+| CatLearn |     1      |         2         |  -38.91559301849234 | 6.657912598794426  |   False    |
+| CatLearn |     2      |         3         |  -40.06991202829284 | 3.2878957314928465 |   False    |
+| CatLearn |     3      |         4         |  -40.51078180268129 | 2.9370521727608514 |   False    |
+| CatLearn |     4      |         5         |  -40.5642561161567  | 4.5665787906107695 |   False    |
+| CatLearn |     5      |         6         |  -40.95409869138851 | 1.6293188880958767 |   False    |
+| CatLearn |     6      |         7         | -41.085667906267275 | 1.7128365315330853 |   False    |
+| CatLearn |     7      |         8         |  -41.29551622320998 | 3.4471171297468053 |   False    |
+| CatLearn |     8      |         9         |  -41.33337813393336 | 5.470749820261449  |   False    |
+| CatLearn |     9      |         10        |  -41.73024246166579 | 1.1669589826457716 |   False    |
+| CatLearn |     10     |         11        |  -41.85691448931581 | 1.1793203171685553 |   False    |
++----------+------------+-------------------+---------------------+--------------------+------------+
+Training a ML process...
+('Number of training points:', 11)
+Hyperparameter optimization is switched on.
+('Optimized Hyperparameters: ',       fun: array([332.08216731])
+ hess_inv: <3x3 LbfgsInvHessProduct with dtype=float64>
+      jac: array([-1.14803470e+01, -1.56319402e-03,  1.07434062e-03])
+  message: 'CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH'
+     nfev: 52
+      nit: 8
+   status: 0
+  success: True
+        x: array([1.        , 0.28936883, 0.00428725]))
+('Log marginal likelihood: ', -332.0821673144401)
+ML process trained.
+Starting ML optimization...
+             Step     Time          Energy         fmax
+SciPyFminCG:    0 14:45:51       -3.385634        1.1702
+SciPyFminCG:    1 14:45:51       -3.408329        0.9825
+SciPyFminCG:    2 14:45:51       -3.457800        0.7579
+SciPyFminCG:    3 14:45:51       -3.467531        0.1313
+SciPyFminCG:    4 14:45:51       -3.467702        0.0344
+SciPyFminCG:    5 14:45:51       -3.467710        0.0311
+SciPyFminCG:    6 14:45:51       -3.467719        0.0024
+ML optimized.
+System changes: positions 
+
+Initializing position-dependent things.
+
+Density initialized from wave functions
+    .-------------.  
+   /|             |  
+  / |             |  
+ *  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |  O          |  
+ |  |  C          |  
+ |  |             |  
+ |  |        Au   |  
+ |  | Au          |  
+ |  |  AAu    AAu |  
+ |  |             |  
+ |Au|    Au       |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  .-------------.  
+ | /             /   
+ |/             /    
+ *-------------*     
+
+Positions:
+   0 Au     0.000000    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   1 Au     2.884996    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   2 Au     1.442498    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   3 Au     4.327494    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   4 Au    -0.093400    0.081434    8.470293    ( 0.0000,  0.0000,  0.0000)
+   5 Au     2.978386    0.081441    8.470294    ( 0.0000,  0.0000,  0.0000)
+   6 Au     1.442495    2.500410    8.327243    ( 0.0000,  0.0000,  0.0000)
+   7 Au     4.327489    2.574802    8.483540    ( 0.0000,  0.0000,  0.0000)
+   8 C      1.442497   -0.471132    9.769108    ( 0.0000,  0.0000,  0.0000)
+   9 O      1.442509   -0.957540   10.827640    ( 0.0000,  0.0000,  0.0000)
+
+Unit cell:
+           periodic     x           y           z      points  spacing
+  1. axis:    yes    5.769991    0.000000    0.000000    28     0.2061
+  2. axis:    yes    0.000000    4.996959    0.000000    24     0.2082
+  3. axis:    no     0.000000    0.000000   15.855589    80     0.1982
+
+  Lengths:   5.769991   4.996959  15.855589
+  Angles:   90.000000  90.000000  90.000000
+
+Effective grid spacing dv^(1/3) = 0.2041
+
+                     log10-error:    total        iterations:
+           time      wfs    density  energy       fermi  poisson
+iter:   1  14:45:55          +inf   -41.990978    3      27     
+iter:   2  14:45:58         -2.59   -41.984409    2      9      
+iter:   3  14:46:01         -2.65   -41.975004    3      21     
+iter:   4  14:46:04         -2.85   -41.974272    2      17     
+iter:   5  14:46:07         -3.07   -41.973439    2      9      
+iter:   6  14:46:10         -3.12   -41.976712    2      19     
+iter:   7  14:46:13         -2.97   -41.977803    2      3      
+iter:   8  14:46:16         -2.97   -41.973306    2      17     
+iter:   9  14:46:18         -3.93   -41.973794    2      4      
+iter:  10  14:46:21         -4.02   -41.973762    2      4      
+
+Converged after 10 iterations.
+
+Dipole moment: (-0.130355, 5.420533, 0.015751) |e|*Ang
+
+Energy contributions relative to reference atoms: (reference = -4133555.294089)
+
+Kinetic:        -48.873635
+Potential:      +40.315887
+External:        +0.000000
+XC:             -34.523138
+Entropy (-ST):   -0.132784
+Local:           +1.173517
+--------------------------
+Free energy:    -42.040154
+Extrapolated:   -41.973762
+
+Fermi level: -5.34071
+
+Warning: Showing only first 2 kpts
+ Kpt  Band  Eigenvalues  Occupancy
+  0    47     -5.74417    0.21836
+  0    48     -4.74605    0.00058
+  0    49     -4.09261    0.00000
+  0    50     -4.01822    0.00000
+
+  1    47     -6.45809    0.44444
+  1    48     -5.46492    0.34486
+  1    49     -5.11411    0.04177
+  1    50     -3.77114    0.00000
+
+
+('Energy of the geometry evaluated (eV):', -41.97376234462328)
+
+Forces in eV/Ang:
+  0 Au   -0.29371   -0.05409   -0.24715
+  1 Au    0.29371   -0.05409   -0.24716
+  2 Au    0.00000    0.13888   -0.34870
+  3 Au   -0.00001    0.08910   -0.01841
+  4 Au    0.04226    0.01907    0.12198
+  5 Au   -0.04222    0.01907    0.12194
+  6 Au   -0.00001    0.01958    0.13647
+  7 Au    0.00001   -0.01658   -0.05293
+  8 C    -0.00002   -0.03181   -1.35022
+  9 O     0.00004   -0.08462    1.90025
+
+('Forces of the geometry evaluated (eV/Angst):\n', array([[ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 4.22584995e-02,  1.90702337e-02,  1.21975401e-01],
+       [-4.22204030e-02,  1.90669207e-02,  1.21935296e-01],
+       [-1.09627603e-05,  1.95833678e-02,  1.36468113e-01],
+       [ 6.12327445e-06, -1.65804486e-02, -5.29324053e-02],
+       [-1.66789728e-05, -3.18142948e-02, -1.35021728e+00],
+       [ 3.69226578e-05, -8.46163312e-02,  1.90025246e+00]]))
+('Number of iterations:', 11)
+('Max. force of the last image evaluated (eV/Angstrom):', 1.9021354681304017)
+('Energy of the last image evaluated (eV):', -41.97376234462328)
+('Converged:', False)
++----------+------------+-------------------+---------------------+--------------------+------------+
+|  Method  | Iterations | Func. evaluations |    Function value   |        fmax        | Converged? |
++----------+------------+-------------------+---------------------+--------------------+------------+
+|  Eval.   |     0      |         1         |  -38.49570406066559 | 14.132614947542113 |   False    |
+| CatLearn |     1      |         2         |  -38.91559301849234 | 6.657912598794426  |   False    |
+| CatLearn |     2      |         3         |  -40.06991202829284 | 3.2878957314928465 |   False    |
+| CatLearn |     3      |         4         |  -40.51078180268129 | 2.9370521727608514 |   False    |
+| CatLearn |     4      |         5         |  -40.5642561161567  | 4.5665787906107695 |   False    |
+| CatLearn |     5      |         6         |  -40.95409869138851 | 1.6293188880958767 |   False    |
+| CatLearn |     6      |         7         | -41.085667906267275 | 1.7128365315330853 |   False    |
+| CatLearn |     7      |         8         |  -41.29551622320998 | 3.4471171297468053 |   False    |
+| CatLearn |     8      |         9         |  -41.33337813393336 | 5.470749820261449  |   False    |
+| CatLearn |     9      |         10        |  -41.73024246166579 | 1.1669589826457716 |   False    |
+| CatLearn |     10     |         11        |  -41.85691448931581 | 1.1793203171685553 |   False    |
+| CatLearn |     11     |         12        |  -41.97376234462328 | 1.9021354681304017 |   False    |
++----------+------------+-------------------+---------------------+--------------------+------------+
+Training a ML process...
+('Number of training points:', 12)
+Hyperparameter optimization is switched on.
+('Optimized Hyperparameters: ',       fun: array([344.87651055])
+ hess_inv: <3x3 LbfgsInvHessProduct with dtype=float64>
+      jac: array([-1.47027606e+01,  2.77395884e-03,  4.54178917e-03])
+  message: 'CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH'
+     nfev: 48
+      nit: 7
+   status: 0
+  success: True
+        x: array([1.        , 0.29216508, 0.00439888]))
+('Log marginal likelihood: ', -344.87651054770316)
+ML process trained.
+Starting ML optimization...
+             Step     Time          Energy         fmax
+SciPyFminCG:    0 14:46:33       -3.513687        1.8753
+SciPyFminCG:    1 14:46:33       -3.544732        1.4363
+SciPyFminCG:    2 14:46:33       -3.692489        1.6256
+SciPyFminCG:    3 14:46:33       -3.711173        0.5229
+SciPyFminCG:    4 14:46:33       -3.711566        0.4466
+SciPyFminCG:    5 14:46:33       -3.713868        0.1128
+SciPyFminCG:    6 14:46:33       -3.714221        0.1013
+SciPyFminCG:    7 14:46:33       -3.714347        0.0314
+SciPyFminCG:    8 14:46:33       -3.714359        0.0119
+ML optimized.
+System changes: positions 
+
+Initializing position-dependent things.
+
+Density initialized from wave functions
+    .-------------.  
+   /|             |  
+  / |             |  
+ *  |             |  
+ |  |             |  
+ |  |             |  
+ |  |  O          |  
+ |  |             |  
+ |  |  C          |  
+ |  |             |  
+ |  | Au     Au   |  
+ |  |             |  
+ |  |  AAu    AAu |  
+ |  |             |  
+ |Au|    Au       |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  .-------------.  
+ | /             /   
+ |/             /    
+ *-------------*     
+
+Positions:
+   0 Au     0.000000    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   1 Au     2.884996    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   2 Au     1.442498    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   3 Au     4.327494    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   4 Au    -0.085746    0.083454    8.495749    ( 0.0000,  0.0000,  0.0000)
+   5 Au     2.970745    0.083462    8.495741    ( 0.0000,  0.0000,  0.0000)
+   6 Au     1.442490    2.508555    8.347144    ( 0.0000,  0.0000,  0.0000)
+   7 Au     4.327489    2.575507    8.480730    ( 0.0000,  0.0000,  0.0000)
+   8 C      1.442494   -0.578192    9.729764    ( 0.0000,  0.0000,  0.0000)
+   9 O      1.442510   -0.876159   10.956760    ( 0.0000,  0.0000,  0.0000)
+
+Unit cell:
+           periodic     x           y           z      points  spacing
+  1. axis:    yes    5.769991    0.000000    0.000000    28     0.2061
+  2. axis:    yes    0.000000    4.996959    0.000000    24     0.2082
+  3. axis:    no     0.000000    0.000000   15.855589    80     0.1982
+
+  Lengths:   5.769991   4.996959  15.855589
+  Angles:   90.000000  90.000000  90.000000
+
+Effective grid spacing dv^(1/3) = 0.2041
+
+                     log10-error:    total        iterations:
+           time      wfs    density  energy       fermi  poisson
+iter:   1  14:46:39          +inf   -43.809258    4      68     
+iter:   2  14:46:43         -1.62   -42.592155    2      38     
+iter:   3  14:46:48         -1.87   -42.024931    4      58     
+iter:   4  14:46:52         -2.20   -41.967260    3      44     
+iter:   5  14:46:57         -2.28   -41.943010    3      53     
+iter:   6  14:47:00         -2.40   -41.920026    3      27     
+iter:   7  14:47:04         -2.55   -41.897040    3      25     
+iter:   8  14:47:06         -2.98   -41.897776    2      8      
+iter:   9  14:47:09         -3.17   -41.895681    2      7      
+iter:  10  14:47:12         -3.30   -41.896718    2      6      
+iter:  11  14:47:14         -3.38   -41.898750    2      5      
+iter:  12  14:47:17         -3.50   -41.898163    2      4      
+iter:  13  14:47:20         -3.60   -41.897391    2      10     
+iter:  14  14:47:22         -3.60   -41.897306    2      8      
+iter:  15  14:47:25         -4.04   -41.897136    2      3      
+
+Converged after 15 iterations.
+
+Dipole moment: (-0.285436, 4.488372, -0.136688) |e|*Ang
+
+Energy contributions relative to reference atoms: (reference = -4133555.294089)
+
+Kinetic:        -61.813368
+Potential:      +51.033614
+External:        +0.000000
+XC:             -32.211616
+Entropy (-ST):   -0.124366
+Local:           +1.156417
+--------------------------
+Free energy:    -41.959319
+Extrapolated:   -41.897136
+
+Fermi level: -5.64500
+
+Warning: Showing only first 2 kpts
+ Kpt  Band  Eigenvalues  Occupancy
+  0    47     -6.01790    0.21701
+  0    48     -5.04722    0.00056
+  0    49     -4.51786    0.00000
+  0    50     -4.32275    0.00000
+
+  1    47     -6.71089    0.44443
+  1    48     -5.74851    0.32796
+  1    49     -5.42113    0.04281
+  1    50     -3.93914    0.00000
+
+
+('Energy of the geometry evaluated (eV):', -41.89713568708304)
+
+Forces in eV/Ang:
+  0 Au   -0.25312   -0.07407   -0.15577
+  1 Au    0.25312   -0.07405   -0.15578
+  2 Au    0.00000    0.12889   -0.33231
+  3 Au    0.00000    0.11790    0.01191
+  4 Au   -0.09827    0.09399    0.02664
+  5 Au    0.09817    0.09393    0.02669
+  6 Au    0.00002    0.15013    0.35996
+  7 Au   -0.00000   -0.07122   -0.08751
+  8 C     0.00016   -1.91131    5.42130
+  9 O    -0.00012    1.45281   -5.20246
+
+('Forces of the geometry evaluated (eV/Angst):\n', array([[ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [-9.82736794e-02,  9.39948278e-02,  2.66390111e-02],
+       [ 9.81655629e-02,  9.39279783e-02,  2.66920387e-02],
+       [ 2.32172549e-05,  1.50132110e-01,  3.59958528e-01],
+       [-1.22496260e-06, -7.12185038e-02, -8.75115846e-02],
+       [ 1.57986887e-04, -1.91130791e+00,  5.42129611e+00],
+       [-1.18028978e-04,  1.45280649e+00, -5.20246054e+00]]))
+('Number of iterations:', 12)
+('Max. force of the last image evaluated (eV/Angstrom):', 5.748351888662083)
+('Energy of the last image evaluated (eV):', -41.89713568708304)
+('Converged:', False)
++----------+------------+-------------------+---------------------+--------------------+------------+
+|  Method  | Iterations | Func. evaluations |    Function value   |        fmax        | Converged? |
++----------+------------+-------------------+---------------------+--------------------+------------+
+|  Eval.   |     0      |         1         |  -38.49570406066559 | 14.132614947542113 |   False    |
+| CatLearn |     1      |         2         |  -38.91559301849234 | 6.657912598794426  |   False    |
+| CatLearn |     2      |         3         |  -40.06991202829284 | 3.2878957314928465 |   False    |
+| CatLearn |     3      |         4         |  -40.51078180268129 | 2.9370521727608514 |   False    |
+| CatLearn |     4      |         5         |  -40.5642561161567  | 4.5665787906107695 |   False    |
+| CatLearn |     5      |         6         |  -40.95409869138851 | 1.6293188880958767 |   False    |
+| CatLearn |     6      |         7         | -41.085667906267275 | 1.7128365315330853 |   False    |
+| CatLearn |     7      |         8         |  -41.29551622320998 | 3.4471171297468053 |   False    |
+| CatLearn |     8      |         9         |  -41.33337813393336 | 5.470749820261449  |   False    |
+| CatLearn |     9      |         10        |  -41.73024246166579 | 1.1669589826457716 |   False    |
+| CatLearn |     10     |         11        |  -41.85691448931581 | 1.1793203171685553 |   False    |
+| CatLearn |     11     |         12        |  -41.97376234462328 | 1.9021354681304017 |   False    |
+| CatLearn |     12     |         13        |  -41.89713568708304 | 5.748351888662083  |   False    |
++----------+------------+-------------------+---------------------+--------------------+------------+
+Training a ML process...
+('Number of training points:', 13)
+Hyperparameter optimization is switched on.
+('Optimized Hyperparameters: ',       fun: array([381.57263065])
+ hess_inv: <3x3 LbfgsInvHessProduct with dtype=float64>
+      jac: array([-1.55704868e+01,  3.97903932e-04, -6.82121026e-05])
+  message: 'CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH'
+     nfev: 52
+      nit: 8
+   status: 0
+  success: True
+        x: array([1.        , 0.28869401, 0.00472505]))
+('Log marginal likelihood: ', -381.57263065296536)
+ML process trained.
+Starting ML optimization...
+             Step     Time          Energy         fmax
+SciPyFminCG:    0 14:47:36       -3.464971        5.7335
+SciPyFminCG:    1 14:47:36       -3.685320        0.4151
+SciPyFminCG:    2 14:47:36       -3.698411        0.5618
+SciPyFminCG:    3 14:47:36       -3.706839        0.4119
+SciPyFminCG:    4 14:47:37       -3.707991        0.1586
+SciPyFminCG:    5 14:47:37       -3.708292        0.0496
+SciPyFminCG:    6 14:47:37       -3.708373        0.0544
+SciPyFminCG:    7 14:47:37       -3.708410        0.0379
+SciPyFminCG:    8 14:47:37       -3.708426        0.0191
+SciPyFminCG:    9 14:47:37       -3.708428        0.0121
+ML optimized.
+System changes: positions 
+
+Initializing position-dependent things.
+
+Density initialized from wave functions
+    .-------------.  
+   /|             |  
+  / |             |  
+ *  |             |  
+ |  |             |  
+ |  |             |  
+ |  |  O          |  
+ |  |             |  
+ |  |  C          |  
+ |  |             |  
+ |  | Au     Au   |  
+ |  |             |  
+ |  |  AAu    AAu |  
+ |  |             |  
+ |Au|    Au       |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  .-------------.  
+ | /             /   
+ |/             /    
+ *-------------*     
+
+Positions:
+   0 Au     0.000000    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   1 Au     2.884996    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   2 Au     1.442498    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   3 Au     4.327494    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   4 Au    -0.082850    0.086047    8.506663    ( 0.0000,  0.0000,  0.0000)
+   5 Au     2.967852    0.086053    8.506651    ( 0.0000,  0.0000,  0.0000)
+   6 Au     1.442489    2.513287    8.363765    ( 0.0000,  0.0000,  0.0000)
+   7 Au     4.327490    2.574695    8.475128    ( 0.0000,  0.0000,  0.0000)
+   8 C      1.442494   -0.639334    9.780784    ( 0.0000,  0.0000,  0.0000)
+   9 O      1.442510   -0.833248   10.948565    ( 0.0000,  0.0000,  0.0000)
+
+Unit cell:
+           periodic     x           y           z      points  spacing
+  1. axis:    yes    5.769991    0.000000    0.000000    28     0.2061
+  2. axis:    yes    0.000000    4.996959    0.000000    24     0.2082
+  3. axis:    no     0.000000    0.000000   15.855589    80     0.1982
+
+  Lengths:   5.769991   4.996959  15.855589
+  Angles:   90.000000  90.000000  90.000000
+
+Effective grid spacing dv^(1/3) = 0.2041
+
+                     log10-error:    total        iterations:
+           time      wfs    density  energy       fermi  poisson
+iter:   1  14:47:42          +inf   -42.596123    4      57     
+iter:   2  14:47:46         -2.03   -42.390975    3      29     
+iter:   3  14:47:50         -2.18   -42.219509    4      52     
+iter:   4  14:47:54         -2.47   -42.201711    4      38     
+iter:   5  14:47:58         -2.60   -42.200343    4      38     
+iter:   6  14:48:01         -2.68   -42.194891    3      19     
+iter:   7  14:48:04         -3.08   -42.194298    2      5      
+iter:   8  14:48:07         -3.13   -42.191999    2      6      
+iter:   9  14:48:09         -3.51   -42.191878    2      3      
+iter:  10  14:48:12         -3.54   -42.191191    2      6      
+iter:  11  14:48:15         -3.79   -42.192222    2      12     
+iter:  12  14:48:18         -3.51   -42.191847    2      9      
+iter:  13  14:48:20         -3.90   -42.192453    2      4      
+iter:  14  14:48:23         -4.04   -42.193414    2      4      
+
+Converged after 14 iterations.
+
+Dipole moment: (-0.452159, 4.057092, -0.039435) |e|*Ang
+
+Energy contributions relative to reference atoms: (reference = -4133555.294089)
+
+Kinetic:        -58.259952
+Potential:      +48.336959
+External:        +0.000000
+XC:             -33.372096
+Entropy (-ST):   -0.114969
+Local:           +1.159160
+--------------------------
+Free energy:    -42.250898
+Extrapolated:   -42.193414
+
+Fermi level: -5.48210
+
+Warning: Showing only first 2 kpts
+ Kpt  Band  Eigenvalues  Occupancy
+  0    47     -5.77164    0.21058
+  0    48     -4.90100    0.00066
+  0    49     -4.19392    0.00000
+  0    50     -4.07960    0.00000
+
+  1    47     -6.56705    0.44444
+  1    48     -5.58365    0.32626
+  1    49     -5.17115    0.01899
+  1    50     -3.76824    0.00000
+
+
+('Energy of the geometry evaluated (eV):', -42.193413539336525)
+
+Forces in eV/Ang:
+  0 Au   -0.23856   -0.08224   -0.10861
+  1 Au    0.23855   -0.08223   -0.10861
+  2 Au    0.00000    0.13197   -0.29879
+  3 Au    0.00000    0.13183    0.03064
+  4 Au    0.03288    0.05555    0.05945
+  5 Au   -0.03297    0.05549    0.05949
+  6 Au    0.00003    0.06152    0.33343
+  7 Au   -0.00001   -0.06181   -0.06155
+  8 C     0.00009   -0.40871    0.17530
+  9 O    -0.00003    0.19314   -0.12566
+
+('Forces of the geometry evaluated (eV/Angst):\n', array([[ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 3.28805292e-02,  5.55497915e-02,  5.94533475e-02],
+       [-3.29708638e-02,  5.54888303e-02,  5.94943076e-02],
+       [ 3.30833441e-05,  6.15156159e-02,  3.33426773e-01],
+       [-7.77621897e-06, -6.18119418e-02, -6.15463490e-02],
+       [ 9.09587254e-05, -4.08707918e-01,  1.75297263e-01],
+       [-3.19428791e-05,  1.93136203e-01, -1.25656609e-01]]))
+('Number of iterations:', 13)
+('Max. force of the last image evaluated (eV/Angstrom):', 0.44471485379852554)
+('Energy of the last image evaluated (eV):', -42.193413539336525)
+('Converged:', False)
++----------+------------+-------------------+---------------------+---------------------+------------+
+|  Method  | Iterations | Func. evaluations |    Function value   |         fmax        | Converged? |
++----------+------------+-------------------+---------------------+---------------------+------------+
+|  Eval.   |     0      |         1         |  -38.49570406066559 |  14.132614947542113 |   False    |
+| CatLearn |     1      |         2         |  -38.91559301849234 |  6.657912598794426  |   False    |
+| CatLearn |     2      |         3         |  -40.06991202829284 |  3.2878957314928465 |   False    |
+| CatLearn |     3      |         4         |  -40.51078180268129 |  2.9370521727608514 |   False    |
+| CatLearn |     4      |         5         |  -40.5642561161567  |  4.5665787906107695 |   False    |
+| CatLearn |     5      |         6         |  -40.95409869138851 |  1.6293188880958767 |   False    |
+| CatLearn |     6      |         7         | -41.085667906267275 |  1.7128365315330853 |   False    |
+| CatLearn |     7      |         8         |  -41.29551622320998 |  3.4471171297468053 |   False    |
+| CatLearn |     8      |         9         |  -41.33337813393336 |  5.470749820261449  |   False    |
+| CatLearn |     9      |         10        |  -41.73024246166579 |  1.1669589826457716 |   False    |
+| CatLearn |     10     |         11        |  -41.85691448931581 |  1.1793203171685553 |   False    |
+| CatLearn |     11     |         12        |  -41.97376234462328 |  1.9021354681304017 |   False    |
+| CatLearn |     12     |         13        |  -41.89713568708304 |  5.748351888662083  |   False    |
+| CatLearn |     13     |         14        | -42.193413539336525 | 0.44471485379852554 |   False    |
++----------+------------+-------------------+---------------------+---------------------+------------+
+Training a ML process...
+('Number of training points:', 14)
+Hyperparameter optimization is switched on.
+('Optimized Hyperparameters: ',       fun: array([393.6256748])
+ hess_inv: <3x3 LbfgsInvHessProduct with dtype=float64>
+      jac: array([-1.73458147e+01,  1.45519152e-03,  9.20863386e-04])
+  message: 'CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH'
+     nfev: 52
+      nit: 7
+   status: 0
+  success: True
+        x: array([1.        , 0.29353569, 0.00415214]))
+('Log marginal likelihood: ', -393.6256747986563)
+ML process trained.
+Starting ML optimization...
+             Step     Time          Energy         fmax
+SciPyFminCG:    0 14:48:34       -3.725051        0.4412
+SciPyFminCG:    1 14:48:34       -3.730175        0.6759
+SciPyFminCG:    2 14:48:34       -3.736742        0.3808
+SciPyFminCG:    3 14:48:34       -3.738929        0.2525
+SciPyFminCG:    4 14:48:34       -3.740362        0.2875
+SciPyFminCG:    5 14:48:34       -3.741745        0.1592
+SciPyFminCG:    6 14:48:34       -3.742186        0.1028
+SciPyFminCG:    7 14:48:34       -3.742404        0.0656
+SciPyFminCG:    8 14:48:35       -3.742598        0.0933
+SciPyFminCG:    9 14:48:35       -3.742715        0.0350
+SciPyFminCG:   10 14:48:35       -3.742734        0.0180
+SciPyFminCG:   11 14:48:35       -3.742737        0.0088
+ML optimized.
+System changes: positions 
+
+Initializing position-dependent things.
+
+Density initialized from wave functions
+    .-------------.  
+   /|             |  
+  / |             |  
+ *  |             |  
+ |  |             |  
+ |  |             |  
+ |  |  O          |  
+ |  |             |  
+ |  |  C          |  
+ |  |             |  
+ |  | Au     Au   |  
+ |  |             |  
+ |  |  AAu    AAu |  
+ |  |             |  
+ |Au|    Au       |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  .-------------.  
+ | /             /   
+ |/             /    
+ *-------------*     
+
+Positions:
+   0 Au     0.000000    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   1 Au     2.884996    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   2 Au     1.442498    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   3 Au     4.327494    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   4 Au    -0.079429    0.088608    8.515093    ( 0.0000,  0.0000,  0.0000)
+   5 Au     2.964431    0.088612    8.515080    ( 0.0000,  0.0000,  0.0000)
+   6 Au     1.442490    2.517268    8.381947    ( 0.0000,  0.0000,  0.0000)
+   7 Au     4.327490    2.572695    8.470746    ( 0.0000,  0.0000,  0.0000)
+   8 C      1.442496   -0.684331    9.790504    ( 0.0000,  0.0000,  0.0000)
+   9 O      1.442509   -0.802508   10.962513    ( 0.0000,  0.0000,  0.0000)
+
+Unit cell:
+           periodic     x           y           z      points  spacing
+  1. axis:    yes    5.769991    0.000000    0.000000    28     0.2061
+  2. axis:    yes    0.000000    4.996959    0.000000    24     0.2082
+  3. axis:    no     0.000000    0.000000   15.855589    80     0.1982
+
+  Lengths:   5.769991   4.996959  15.855589
+  Angles:   90.000000  90.000000  90.000000
+
+Effective grid spacing dv^(1/3) = 0.2041
+
+                     log10-error:    total        iterations:
+           time      wfs    density  energy       fermi  poisson
+iter:   1  14:48:38          +inf   -42.227921    3      16     
+iter:   2  14:48:41         -2.85   -42.224850    2      4      
+iter:   3  14:48:43         -2.90   -42.218624    3      11     
+iter:   4  14:48:46         -3.11   -42.219246    2      12     
+iter:   5  14:48:49         -3.36   -42.219626    2      8      
+iter:   6  14:48:52         -3.38   -42.218790    3      15     
+iter:   7  14:48:55         -3.38   -42.219107    2      4      
+iter:   8  14:48:57         -3.45   -42.218758    2      8      
+iter:   9  14:49:00         -3.72   -42.219104    2      8      
+iter:  10  14:49:03         -4.24   -42.219648    2      3      
+
+Converged after 10 iterations.
+
+Dipole moment: (-0.570646, 3.756780, -0.033906) |e|*Ang
+
+Energy contributions relative to reference atoms: (reference = -4133555.294089)
+
+Kinetic:        -59.578259
+Potential:      +49.566585
+External:        +0.000000
+XC:             -33.303714
+Entropy (-ST):   -0.111290
+Local:           +1.151385
+--------------------------
+Free energy:    -42.275293
+Extrapolated:   -42.219648
+
+Fermi level: -5.48594
+
+Warning: Showing only first 2 kpts
+ Kpt  Band  Eigenvalues  Occupancy
+  0    47     -5.73692    0.20552
+  0    48     -4.90954    0.00070
+  0    49     -4.18170    0.00000
+  0    50     -4.05582    0.00000
+
+  1    47     -6.56457    0.44444
+  1    48     -5.57792    0.31778
+  1    49     -5.14580    0.01433
+  1    50     -3.75170    0.00000
+
+
+('Energy of the geometry evaluated (eV):', -42.21964774006536)
+
+Forces in eV/Ang:
+  0 Au   -0.21212   -0.07860   -0.07710
+  1 Au    0.21212   -0.07859   -0.07710
+  2 Au   -0.00000    0.11949   -0.27636
+  3 Au    0.00001    0.13664    0.03708
+  4 Au    0.05522    0.05046    0.03658
+  5 Au   -0.05530    0.05041    0.03661
+  6 Au    0.00003    0.02329    0.31413
+  7 Au   -0.00001   -0.03986   -0.05474
+  8 C     0.00005   -0.19645   -0.41642
+  9 O     0.00001    0.06716    0.40346
+
+('Forces of the geometry evaluated (eV/Angst):\n', array([[ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 5.52242698e-02,  5.04589888e-02,  3.65768681e-02],
+       [-5.52998450e-02,  5.04100718e-02,  3.66135972e-02],
+       [ 3.08433761e-05,  2.32932721e-02,  3.14125001e-01],
+       [-5.27729191e-06, -3.98612898e-02, -5.47442601e-02],
+       [ 5.05218349e-05, -1.96454587e-01, -4.16421035e-01],
+       [ 5.97618689e-06,  6.71552355e-02,  4.03458687e-01]]))
+('Number of iterations:', 14)
+('Max. force of the last image evaluated (eV/Angstrom):', 0.4604355394492075)
+('Energy of the last image evaluated (eV):', -42.21964774006536)
+('Converged:', False)
++----------+------------+-------------------+---------------------+---------------------+------------+
+|  Method  | Iterations | Func. evaluations |    Function value   |         fmax        | Converged? |
++----------+------------+-------------------+---------------------+---------------------+------------+
+|  Eval.   |     0      |         1         |  -38.49570406066559 |  14.132614947542113 |   False    |
+| CatLearn |     1      |         2         |  -38.91559301849234 |  6.657912598794426  |   False    |
+| CatLearn |     2      |         3         |  -40.06991202829284 |  3.2878957314928465 |   False    |
+| CatLearn |     3      |         4         |  -40.51078180268129 |  2.9370521727608514 |   False    |
+| CatLearn |     4      |         5         |  -40.5642561161567  |  4.5665787906107695 |   False    |
+| CatLearn |     5      |         6         |  -40.95409869138851 |  1.6293188880958767 |   False    |
+| CatLearn |     6      |         7         | -41.085667906267275 |  1.7128365315330853 |   False    |
+| CatLearn |     7      |         8         |  -41.29551622320998 |  3.4471171297468053 |   False    |
+| CatLearn |     8      |         9         |  -41.33337813393336 |  5.470749820261449  |   False    |
+| CatLearn |     9      |         10        |  -41.73024246166579 |  1.1669589826457716 |   False    |
+| CatLearn |     10     |         11        |  -41.85691448931581 |  1.1793203171685553 |   False    |
+| CatLearn |     11     |         12        |  -41.97376234462328 |  1.9021354681304017 |   False    |
+| CatLearn |     12     |         13        |  -41.89713568708304 |  5.748351888662083  |   False    |
+| CatLearn |     13     |         14        | -42.193413539336525 | 0.44471485379852554 |   False    |
+| CatLearn |     14     |         15        |  -42.21964774006536 |  0.4604355394492075 |   False    |
++----------+------------+-------------------+---------------------+---------------------+------------+
+Training a ML process...
+('Number of training points:', 15)
+Hyperparameter optimization is switched on.
+('Optimized Hyperparameters: ',       fun: array([389.01302308])
+ hess_inv: <3x3 LbfgsInvHessProduct with dtype=float64>
+      jac: array([-1.81020482e+01,  6.19593266e-04,  2.40333975e-02])
+  message: 'CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH'
+     nfev: 52
+      nit: 6
+   status: 0
+  success: True
+        x: array([1.        , 0.29629359, 0.00384531]))
+('Log marginal likelihood: ', -389.01302308136206)
+ML process trained.
+Starting ML optimization...
+             Step     Time          Energy         fmax
+SciPyFminCG:    0 14:49:14       -3.737315        0.4365
+SciPyFminCG:    1 14:49:14       -3.740218        0.3676
+SciPyFminCG:    2 14:49:14       -3.746371        0.3299
+SciPyFminCG:    3 14:49:14       -3.749420        0.3798
+SciPyFminCG:    4 14:49:14       -3.750646        0.0482
+SciPyFminCG:    5 14:49:14       -3.750668        0.0517
+SciPyFminCG:    6 14:49:14       -3.750693        0.0196
+SciPyFminCG:    7 14:49:14       -3.750701        0.0089
+ML optimized.
+System changes: positions 
+
+Initializing position-dependent things.
+
+Density initialized from wave functions
+    .-------------.  
+   /|             |  
+  / |             |  
+ *  |             |  
+ |  |             |  
+ |  |             |  
+ |  |  O          |  
+ |  |             |  
+ |  |  C          |  
+ |  |             |  
+ |  | Au     Au   |  
+ |  |             |  
+ |  |  AAu    AAu |  
+ |  |             |  
+ |Au|    Au       |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  .-------------.  
+ | /             /   
+ |/             /    
+ *-------------*     
+
+Positions:
+   0 Au     0.000000    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   1 Au     2.884996    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   2 Au     1.442498    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   3 Au     4.327494    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   4 Au    -0.074992    0.092409    8.521553    ( 0.0000,  0.0000,  0.0000)
+   5 Au     2.959991    0.092410    8.521541    ( 0.0000,  0.0000,  0.0000)
+   6 Au     1.442491    2.520590    8.407092    ( 0.0000,  0.0000,  0.0000)
+   7 Au     4.327490    2.569801    8.465469    ( 0.0000,  0.0000,  0.0000)
+   8 C      1.442500   -0.724274    9.787996    ( 0.0000,  0.0000,  0.0000)
+   9 O      1.442509   -0.776514   10.977661    ( 0.0000,  0.0000,  0.0000)
+
+Unit cell:
+           periodic     x           y           z      points  spacing
+  1. axis:    yes    5.769991    0.000000    0.000000    28     0.2061
+  2. axis:    yes    0.000000    4.996959    0.000000    24     0.2082
+  3. axis:    no     0.000000    0.000000   15.855589    80     0.1982
+
+  Lengths:   5.769991   4.996959  15.855589
+  Angles:   90.000000  90.000000  90.000000
+
+Effective grid spacing dv^(1/3) = 0.2041
+
+                     log10-error:    total        iterations:
+           time      wfs    density  energy       fermi  poisson
+iter:   1  14:49:18          +inf   -42.270086    3      25     
+iter:   2  14:49:21         -2.54   -42.256692    3      16     
+iter:   3  14:49:25         -2.68   -42.242887    3      23     
+iter:   4  14:49:28         -2.93   -42.241663    3      20     
+iter:   5  14:49:31         -3.06   -42.240557    3      14     
+iter:   6  14:49:34         -3.19   -42.237565    2      11     
+iter:   7  14:49:37         -3.57   -42.239342    3      14     
+iter:   8  14:49:40         -3.21   -42.237354    2      14     
+iter:   9  14:49:42         -3.93   -42.237265    2      3      
+iter:  10  14:49:45         -3.97   -42.237095    2      4      
+iter:  11  14:49:47         -4.37   -42.237237    2      3      
+
+Converged after 11 iterations.
+
+Dipole moment: (-0.706102, 3.453649, -0.054568) |e|*Ang
+
+Energy contributions relative to reference atoms: (reference = -4133555.294089)
+
+Kinetic:        -62.306192
+Potential:      +51.880535
+External:        +0.000000
+XC:             -32.905686
+Entropy (-ST):   -0.108277
+Local:           +1.148244
+--------------------------
+Free energy:    -42.291375
+Extrapolated:   -42.237237
+
+Fermi level: -5.53144
+
+Warning: Showing only first 2 kpts
+ Kpt  Band  Eigenvalues  Occupancy
+  0    47     -5.75753    0.20124
+  0    48     -4.95590    0.00070
+  0    49     -4.25435    0.00000
+  0    50     -4.09183    0.00000
+
+  1    47     -6.59672    0.44443
+  1    48     -5.60895    0.30428
+  1    49     -5.17968    0.01281
+  1    50     -3.76848    0.00000
+
+
+('Energy of the geometry evaluated (eV):', -42.23723717610194)
+
+Forces in eV/Ang:
+  0 Au   -0.18098   -0.07107   -0.03506
+  1 Au    0.18097   -0.07106   -0.03506
+  2 Au   -0.00000    0.09831   -0.24897
+  3 Au    0.00001    0.14153    0.05642
+  4 Au    0.02697    0.04365    0.00704
+  5 Au   -0.02701    0.04363    0.00706
+  6 Au    0.00002   -0.02840    0.25130
+  7 Au    0.00000   -0.00980   -0.05264
+  8 C     0.00003   -0.14496    0.64165
+  9 O    -0.00008    0.05961   -0.63058
+
+('Forces of the geometry evaluated (eV/Angst):\n', array([[ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 2.69712112e-02,  4.36494563e-02,  7.04135488e-03],
+       [-2.70118834e-02,  4.36302787e-02,  7.06102975e-03],
+       [ 2.08892209e-05, -2.84009035e-02,  2.51300914e-01],
+       [ 1.27416829e-06, -9.80233863e-03, -5.26365527e-02],
+       [ 2.89169676e-05, -1.44956605e-01,  6.41653926e-01],
+       [-7.88580328e-05,  5.96115239e-02, -6.30584630e-01]]))
+('Number of iterations:', 15)
+('Max. force of the last image evaluated (eV/Angstrom):', 0.6578238203956093)
+('Energy of the last image evaluated (eV):', -42.23723717610194)
+('Converged:', False)
++----------+------------+-------------------+---------------------+---------------------+------------+
+|  Method  | Iterations | Func. evaluations |    Function value   |         fmax        | Converged? |
++----------+------------+-------------------+---------------------+---------------------+------------+
+|  Eval.   |     0      |         1         |  -38.49570406066559 |  14.132614947542113 |   False    |
+| CatLearn |     1      |         2         |  -38.91559301849234 |  6.657912598794426  |   False    |
+| CatLearn |     2      |         3         |  -40.06991202829284 |  3.2878957314928465 |   False    |
+| CatLearn |     3      |         4         |  -40.51078180268129 |  2.9370521727608514 |   False    |
+| CatLearn |     4      |         5         |  -40.5642561161567  |  4.5665787906107695 |   False    |
+| CatLearn |     5      |         6         |  -40.95409869138851 |  1.6293188880958767 |   False    |
+| CatLearn |     6      |         7         | -41.085667906267275 |  1.7128365315330853 |   False    |
+| CatLearn |     7      |         8         |  -41.29551622320998 |  3.4471171297468053 |   False    |
+| CatLearn |     8      |         9         |  -41.33337813393336 |  5.470749820261449  |   False    |
+| CatLearn |     9      |         10        |  -41.73024246166579 |  1.1669589826457716 |   False    |
+| CatLearn |     10     |         11        |  -41.85691448931581 |  1.1793203171685553 |   False    |
+| CatLearn |     11     |         12        |  -41.97376234462328 |  1.9021354681304017 |   False    |
+| CatLearn |     12     |         13        |  -41.89713568708304 |  5.748351888662083  |   False    |
+| CatLearn |     13     |         14        | -42.193413539336525 | 0.44471485379852554 |   False    |
+| CatLearn |     14     |         15        |  -42.21964774006536 |  0.4604355394492075 |   False    |
+| CatLearn |     15     |         16        |  -42.23723717610194 |  0.6578238203956093 |   False    |
++----------+------------+-------------------+---------------------+---------------------+------------+
+Training a ML process...
+('Number of training points:', 16)
+Hyperparameter optimization is switched on.
+('Optimized Hyperparameters: ',       fun: array([386.14052827])
+ hess_inv: <3x3 LbfgsInvHessProduct with dtype=float64>
+      jac: array([-2.21244761e+01, -3.46744855e-04,  2.16004992e-04])
+  message: 'CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH'
+     nfev: 52
+      nit: 7
+   status: 0
+  success: True
+        x: array([1.        , 0.29915581, 0.00420291]))
+('Log marginal likelihood: ', -386.1405282682373)
+ML process trained.
+Starting ML optimization...
+             Step     Time          Energy         fmax
+SciPyFminCG:    0 14:49:59       -3.755162        0.6046
+SciPyFminCG:    1 14:49:59       -3.758454        0.2191
+SciPyFminCG:    2 14:49:59       -3.760600        0.1643
+SciPyFminCG:    3 14:49:59       -3.762952        0.0992
+SciPyFminCG:    4 14:49:59       -3.763152        0.0581
+SciPyFminCG:    5 14:49:59       -3.763180        0.0098
+ML optimized.
+System changes: positions 
+
+Initializing position-dependent things.
+
+Density initialized from wave functions
+    .-------------.  
+   /|             |  
+  / |             |  
+ *  |             |  
+ |  |             |  
+ |  |             |  
+ |  |  O          |  
+ |  |             |  
+ |  |  C          |  
+ |  |             |  
+ |  | Au     Au   |  
+ |  |             |  
+ |  |  AAu    AAu |  
+ |  |             |  
+ |Au|    Au       |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  .-------------.  
+ | /             /   
+ |/             /    
+ *-------------*     
+
+Positions:
+   0 Au     0.000000    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   1 Au     2.884996    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   2 Au     1.442498    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   3 Au     4.327494    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   4 Au    -0.070848    0.096419    8.525803    ( 0.0000,  0.0000,  0.0000)
+   5 Au     2.955844    0.096417    8.525792    ( 0.0000,  0.0000,  0.0000)
+   6 Au     1.442493    2.521273    8.432413    ( 0.0000,  0.0000,  0.0000)
+   7 Au     4.327489    2.567715    8.460339    ( 0.0000,  0.0000,  0.0000)
+   8 C      1.442503   -0.750698    9.796264    ( 0.0000,  0.0000,  0.0000)
+   9 O      1.442507   -0.761310   10.977404    ( 0.0000,  0.0000,  0.0000)
+
+Unit cell:
+           periodic     x           y           z      points  spacing
+  1. axis:    yes    5.769991    0.000000    0.000000    28     0.2061
+  2. axis:    yes    0.000000    4.996959    0.000000    24     0.2082
+  3. axis:    no     0.000000    0.000000   15.855589    80     0.1982
+
+  Lengths:   5.769991   4.996959  15.855589
+  Angles:   90.000000  90.000000  90.000000
+
+Effective grid spacing dv^(1/3) = 0.2041
+
+                     log10-error:    total        iterations:
+           time      wfs    density  energy       fermi  poisson
+iter:   1  14:50:02          +inf   -42.256942    3      15     
+iter:   2  14:50:05         -2.86   -42.251926    2      10     
+iter:   3  14:50:08         -2.95   -42.246822    3      16     
+iter:   4  14:50:11         -3.14   -42.247689    3      16     
+iter:   5  14:50:14         -3.11   -42.246156    3      12     
+iter:   6  14:50:17         -3.27   -42.249172    2      18     
+iter:   7  14:50:20         -3.16   -42.248621    2      9      
+iter:   8  14:50:23         -3.32   -42.248349    2      4      
+iter:   9  14:50:25         -3.26   -42.247453    2      12     
+iter:  10  14:50:28         -3.87   -42.247012    2      8      
+iter:  11  14:50:31         -3.97   -42.246979    2      3      
+iter:  12  14:50:33         -4.12   -42.247176    2      5      
+
+Converged after 12 iterations.
+
+Dipole moment: (-0.852037, 3.202036, -0.036540) |e|*Ang
+
+Energy contributions relative to reference atoms: (reference = -4133555.294089)
+
+Kinetic:        -62.573014
+Potential:      +52.222773
+External:        +0.000000
+XC:             -32.996414
+Entropy (-ST):   -0.105406
+Local:           +1.152183
+--------------------------
+Free energy:    -42.299879
+Extrapolated:   -42.247176
+
+Fermi level: -5.51453
+
+Warning: Showing only first 2 kpts
+ Kpt  Band  Eigenvalues  Occupancy
+  0    47     -5.71631    0.19615
+  0    48     -4.93912    0.00070
+  0    49     -4.23031    0.00000
+  0    50     -4.05508    0.00000
+
+  1    47     -6.57668    0.44443
+  1    48     -5.58431    0.29676
+  1    49     -5.14418    0.01069
+  1    50     -3.73822    0.00000
+
+
+('Energy of the geometry evaluated (eV):', -42.247175920204384)
+
+Forces in eV/Ang:
+  0 Au   -0.15305   -0.06110   -0.01563
+  1 Au    0.15304   -0.06109   -0.01563
+  2 Au   -0.00001    0.07615   -0.22952
+  3 Au    0.00001    0.14306    0.06166
+  4 Au    0.01658    0.02939   -0.02288
+  5 Au   -0.01659    0.02940   -0.02288
+  6 Au    0.00001   -0.09444    0.14407
+  7 Au    0.00001    0.02255   -0.05022
+  8 C    -0.00000    0.03244   -0.23609
+  9 O     0.00001   -0.06112    0.28697
+
+('Forces of the geometry evaluated (eV/Angst):\n', array([[ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 1.65803686e-02,  2.93857794e-02, -2.28811022e-02],
+       [-1.65867708e-02,  2.93953513e-02, -2.28754108e-02],
+       [ 5.41661635e-06, -9.44419334e-02,  1.44065646e-01],
+       [ 9.53372526e-06,  2.25479201e-02, -5.02170430e-02],
+       [-4.38568327e-06,  3.24407854e-02, -2.36085876e-01],
+       [ 1.12339509e-05, -6.11178351e-02,  2.86974016e-01]]))
+('Number of iterations:', 16)
+('Max. force of the last image evaluated (eV/Angstrom):', 0.2934100809230324)
+('Energy of the last image evaluated (eV):', -42.247175920204384)
+('Converged:', False)
++----------+------------+-------------------+---------------------+---------------------+------------+
+|  Method  | Iterations | Func. evaluations |    Function value   |         fmax        | Converged? |
++----------+------------+-------------------+---------------------+---------------------+------------+
+|  Eval.   |     0      |         1         |  -38.49570406066559 |  14.132614947542113 |   False    |
+| CatLearn |     1      |         2         |  -38.91559301849234 |  6.657912598794426  |   False    |
+| CatLearn |     2      |         3         |  -40.06991202829284 |  3.2878957314928465 |   False    |
+| CatLearn |     3      |         4         |  -40.51078180268129 |  2.9370521727608514 |   False    |
+| CatLearn |     4      |         5         |  -40.5642561161567  |  4.5665787906107695 |   False    |
+| CatLearn |     5      |         6         |  -40.95409869138851 |  1.6293188880958767 |   False    |
+| CatLearn |     6      |         7         | -41.085667906267275 |  1.7128365315330853 |   False    |
+| CatLearn |     7      |         8         |  -41.29551622320998 |  3.4471171297468053 |   False    |
+| CatLearn |     8      |         9         |  -41.33337813393336 |  5.470749820261449  |   False    |
+| CatLearn |     9      |         10        |  -41.73024246166579 |  1.1669589826457716 |   False    |
+| CatLearn |     10     |         11        |  -41.85691448931581 |  1.1793203171685553 |   False    |
+| CatLearn |     11     |         12        |  -41.97376234462328 |  1.9021354681304017 |   False    |
+| CatLearn |     12     |         13        |  -41.89713568708304 |  5.748351888662083  |   False    |
+| CatLearn |     13     |         14        | -42.193413539336525 | 0.44471485379852554 |   False    |
+| CatLearn |     14     |         15        |  -42.21964774006536 |  0.4604355394492075 |   False    |
+| CatLearn |     15     |         16        |  -42.23723717610194 |  0.6578238203956093 |   False    |
+| CatLearn |     16     |         17        | -42.247175920204384 |  0.2934100809230324 |   False    |
++----------+------------+-------------------+---------------------+---------------------+------------+
+Training a ML process...
+('Number of training points:', 17)
+Hyperparameter optimization is switched on.
+('Optimized Hyperparameters: ',       fun: array([374.39881961])
+ hess_inv: <3x3 LbfgsInvHessProduct with dtype=float64>
+      jac: array([-2.51800543e+01,  2.56022759e-02,  1.36481049e-02])
+  message: 'CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH'
+     nfev: 52
+      nit: 6
+   status: 0
+  success: True
+        x: array([1.        , 0.30190753, 0.00359213]))
+('Log marginal likelihood: ', -374.39881960773226)
+ML process trained.
+Starting ML optimization...
+             Step     Time          Energy         fmax
+SciPyFminCG:    0 14:50:45       -3.768276        0.2614
+SciPyFminCG:    1 14:50:45       -3.768904        0.1206
+SciPyFminCG:    2 14:50:45       -3.769335        0.0424
+SciPyFminCG:    3 14:50:45       -3.769513        0.0447
+SciPyFminCG:    4 14:50:45       -3.769680        0.0087
+ML optimized.
+System changes: positions 
+
+Initializing position-dependent things.
+
+Density initialized from wave functions
+    .-------------.  
+   /|             |  
+  / |             |  
+ *  |             |  
+ |  |             |  
+ |  |             |  
+ |  |  O          |  
+ |  |             |  
+ |  |  C          |  
+ |  |             |  
+ |  | Au     Au   |  
+ |  |             |  
+ |  |  AAu    AAu |  
+ |  |             |  
+ |Au|    Au       |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  .-------------.  
+ | /             /   
+ |/             /    
+ *-------------*     
+
+Positions:
+   0 Au     0.000000    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   1 Au     2.884996    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   2 Au     1.442498    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   3 Au     4.327494    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   4 Au    -0.069213    0.098646    8.526094    ( 0.0000,  0.0000,  0.0000)
+   5 Au     2.954207    0.098643    8.526083    ( 0.0000,  0.0000,  0.0000)
+   6 Au     1.442494    2.518477    8.444888    ( 0.0000,  0.0000,  0.0000)
+   7 Au     4.327490    2.567713    8.457127    ( 0.0000,  0.0000,  0.0000)
+   8 C      1.442504   -0.758040    9.795760    ( 0.0000,  0.0000,  0.0000)
+   9 O      1.442506   -0.758359   10.981027    ( 0.0000,  0.0000,  0.0000)
+
+Unit cell:
+           periodic     x           y           z      points  spacing
+  1. axis:    yes    5.769991    0.000000    0.000000    28     0.2061
+  2. axis:    yes    0.000000    4.996959    0.000000    24     0.2082
+  3. axis:    no     0.000000    0.000000   15.855589    80     0.1982
+
+  Lengths:   5.769991   4.996959  15.855589
+  Angles:   90.000000  90.000000  90.000000
+
+Effective grid spacing dv^(1/3) = 0.2041
+
+                     log10-error:    total        iterations:
+           time      wfs    density  energy       fermi  poisson
+iter:   1  14:50:48          +inf   -42.250234    3      12     
+iter:   2  14:50:51         -3.28   -42.251875    2      4      
+iter:   3  14:50:54         -3.36   -42.252191    3      10     
+iter:   4  14:50:56         -3.56   -42.250562    2      4      
+iter:   5  14:50:59         -3.62   -42.252387    3      5      
+iter:   6  14:51:02         -3.91   -42.251221    2      7      
+iter:   7  14:51:04         -4.11   -42.251653    2      4      
+
+Converged after 7 iterations.
+
+Dipole moment: (-0.900643, 3.074658, -0.049021) |e|*Ang
+
+Energy contributions relative to reference atoms: (reference = -4133555.294089)
+
+Kinetic:        -63.492603
+Potential:      +53.018730
+External:        +0.000000
+XC:             -32.868859
+Entropy (-ST):   -0.104368
+Local:           +1.143263
+--------------------------
+Free energy:    -42.303837
+Extrapolated:   -42.251653
+
+Fermi level: -5.52476
+
+Warning: Showing only first 2 kpts
+ Kpt  Band  Eigenvalues  Occupancy
+  0    47     -5.71982    0.19456
+  0    48     -4.95212    0.00072
+  0    49     -4.24499    0.00000
+  0    50     -4.06685    0.00000
+
+  1    47     -6.58303    0.44443
+  1    48     -5.59071    0.29296
+  1    49     -5.14957    0.01019
+  1    50     -3.73885    0.00000
+
+
+('Energy of the geometry evaluated (eV):', -42.25165336877503)
+
+Forces in eV/Ang:
+  0 Au   -0.14001   -0.05570    0.00766
+  1 Au    0.14000   -0.05570    0.00765
+  2 Au   -0.00001    0.06207   -0.20291
+  3 Au    0.00001    0.14476    0.07893
+  4 Au    0.00294    0.00796    0.00066
+  5 Au   -0.00294    0.00798    0.00066
+  6 Au    0.00000   -0.07917    0.12634
+  7 Au    0.00001    0.03539   -0.03103
+  8 C    -0.00002    0.04795    0.12960
+  9 O     0.00002   -0.06873   -0.07358
+
+('Forces of the geometry evaluated (eV/Angst):\n', array([[ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 2.94441906e-03,  7.96153955e-03,  6.58470793e-04],
+       [-2.93921608e-03,  7.97916664e-03,  6.58324645e-04],
+       [ 8.13952556e-07, -7.91683798e-02,  1.26342906e-01],
+       [ 1.07215381e-05,  3.53938677e-02, -3.10257469e-02],
+       [-2.17926273e-05,  4.79505968e-02,  1.29604582e-01],
+       [ 1.95866170e-05, -6.87323791e-02, -7.35789691e-02]]))
+('Number of iterations:', 17)
+('Max. force of the last image evaluated (eV/Angstrom):', 0.14909782764419313)
+('Energy of the last image evaluated (eV):', -42.25165336877503)
+('Converged:', False)
++----------+------------+-------------------+---------------------+---------------------+------------+
+|  Method  | Iterations | Func. evaluations |    Function value   |         fmax        | Converged? |
++----------+------------+-------------------+---------------------+---------------------+------------+
+|  Eval.   |     0      |         1         |  -38.49570406066559 |  14.132614947542113 |   False    |
+| CatLearn |     1      |         2         |  -38.91559301849234 |  6.657912598794426  |   False    |
+| CatLearn |     2      |         3         |  -40.06991202829284 |  3.2878957314928465 |   False    |
+| CatLearn |     3      |         4         |  -40.51078180268129 |  2.9370521727608514 |   False    |
+| CatLearn |     4      |         5         |  -40.5642561161567  |  4.5665787906107695 |   False    |
+| CatLearn |     5      |         6         |  -40.95409869138851 |  1.6293188880958767 |   False    |
+| CatLearn |     6      |         7         | -41.085667906267275 |  1.7128365315330853 |   False    |
+| CatLearn |     7      |         8         |  -41.29551622320998 |  3.4471171297468053 |   False    |
+| CatLearn |     8      |         9         |  -41.33337813393336 |  5.470749820261449  |   False    |
+| CatLearn |     9      |         10        |  -41.73024246166579 |  1.1669589826457716 |   False    |
+| CatLearn |     10     |         11        |  -41.85691448931581 |  1.1793203171685553 |   False    |
+| CatLearn |     11     |         12        |  -41.97376234462328 |  1.9021354681304017 |   False    |
+| CatLearn |     12     |         13        |  -41.89713568708304 |  5.748351888662083  |   False    |
+| CatLearn |     13     |         14        | -42.193413539336525 | 0.44471485379852554 |   False    |
+| CatLearn |     14     |         15        |  -42.21964774006536 |  0.4604355394492075 |   False    |
+| CatLearn |     15     |         16        |  -42.23723717610194 |  0.6578238203956093 |   False    |
+| CatLearn |     16     |         17        | -42.247175920204384 |  0.2934100809230324 |   False    |
+| CatLearn |     17     |         18        |  -42.25165336877503 | 0.14909782764419313 |   False    |
++----------+------------+-------------------+---------------------+---------------------+------------+
+Training a ML process...
+('Number of training points:', 18)
+Hyperparameter optimization is switched on.
+('Optimized Hyperparameters: ',       fun: array([352.09125915])
+ hess_inv: <3x3 LbfgsInvHessProduct with dtype=float64>
+      jac: array([-2.65633389e+01,  9.28821464e-03, -1.70530257e-04])
+  message: 'CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH'
+     nfev: 60
+      nit: 6
+   status: 0
+  success: True
+        x: array([1.        , 0.30292522, 0.00282997]))
+('Log marginal likelihood: ', -352.09125914991)
+ML process trained.
+Starting ML optimization...
+             Step     Time          Energy         fmax
+SciPyFminCG:    0 14:51:16       -3.769309        0.1194
+SciPyFminCG:    1 14:51:16       -3.769604        0.1006
+SciPyFminCG:    2 14:51:16       -3.769959        0.1033
+SciPyFminCG:    3 14:51:16       -3.770100        0.0287
+SciPyFminCG:    4 14:51:16       -3.770146        0.0398
+SciPyFminCG:    5 14:51:16       -3.770166        0.0315
+SciPyFminCG:    6 14:51:16       -3.770213        0.0211
+SciPyFminCG:    7 14:51:16       -3.770222        0.0149
+ML optimized.
+System changes: positions 
+
+Initializing position-dependent things.
+
+Density initialized from wave functions
+    .-------------.  
+   /|             |  
+  / |             |  
+ *  |             |  
+ |  |             |  
+ |  |             |  
+ |  |  O          |  
+ |  |             |  
+ |  |  C          |  
+ |  |             |  
+ |  | Au     Au   |  
+ |  |             |  
+ |  |  AAu    AAu |  
+ |  |             |  
+ |Au|    Au       |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  .-------------.  
+ | /             /   
+ |/             /    
+ *-------------*     
+
+Positions:
+   0 Au     0.000000    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   1 Au     2.884996    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   2 Au     1.442498    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   3 Au     4.327494    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   4 Au    -0.068194    0.100031    8.526342    ( 0.0000,  0.0000,  0.0000)
+   5 Au     2.953187    0.100028    8.526332    ( 0.0000,  0.0000,  0.0000)
+   6 Au     1.442494    2.514397    8.455821    ( 0.0000,  0.0000,  0.0000)
+   7 Au     4.327490    2.568923    8.454509    ( 0.0000,  0.0000,  0.0000)
+   8 C      1.442503   -0.759386    9.798109    ( 0.0000,  0.0000,  0.0000)
+   9 O      1.442507   -0.759872   10.981904    ( 0.0000,  0.0000,  0.0000)
+
+Unit cell:
+           periodic     x           y           z      points  spacing
+  1. axis:    yes    5.769991    0.000000    0.000000    28     0.2061
+  2. axis:    yes    0.000000    4.996959    0.000000    24     0.2082
+  3. axis:    no     0.000000    0.000000   15.855589    80     0.1982
+
+  Lengths:   5.769991   4.996959  15.855589
+  Angles:   90.000000  90.000000  90.000000
+
+Effective grid spacing dv^(1/3) = 0.2041
+
+                     log10-error:    total        iterations:
+           time      wfs    density  energy       fermi  poisson
+iter:   1  14:51:19          +inf   -42.254148    3      15     
+iter:   2  14:51:22         -3.28   -42.253664    2      6      
+iter:   3  14:51:25         -3.40   -42.252374    2      13     
+iter:   4  14:51:27         -3.75   -42.252236    2      3      
+iter:   5  14:51:30         -3.84   -42.252058    2      9      
+iter:   6  14:51:33         -3.93   -42.252282    2      2      
+iter:   7  14:51:35         -3.99   -42.252461    2      5      
+iter:   8  14:51:38         -4.61   -42.252232    1      2      
+
+Converged after 8 iterations.
+
+Dipole moment: (-0.935616, 2.996846, -0.041990) |e|*Ang
+
+Energy contributions relative to reference atoms: (reference = -4133555.294089)
+
+Kinetic:        -63.441401
+Potential:      +52.962669
+External:        +0.000000
+XC:             -32.874990
+Entropy (-ST):   -0.103116
+Local:           +1.153049
+--------------------------
+Free energy:    -42.303790
+Extrapolated:   -42.252232
+
+Fermi level: -5.52738
+
+Warning: Showing only first 2 kpts
+ Kpt  Band  Eigenvalues  Occupancy
+  0    47     -5.72023    0.19402
+  0    48     -4.95228    0.00070
+  0    49     -4.25272    0.00000
+  0    50     -4.06645    0.00000
+
+  1    47     -6.58388    0.44443
+  1    48     -5.59360    0.29322
+  1    49     -5.15002    0.00998
+  1    50     -3.72999    0.00000
+
+
+('Energy of the geometry evaluated (eV):', -42.2522320332721)
+
+Forces in eV/Ang:
+  0 Au   -0.13519   -0.05147    0.00088
+  1 Au    0.13519   -0.05146    0.00087
+  2 Au   -0.00001    0.05091   -0.19796
+  3 Au    0.00001    0.14544    0.07175
+  4 Au   -0.00854   -0.01104   -0.01676
+  5 Au    0.00855   -0.01102   -0.01676
+  6 Au   -0.00000   -0.04985    0.07328
+  7 Au    0.00001    0.04064   -0.03105
+  8 C    -0.00002    0.02045    0.00548
+  9 O     0.00001   -0.06461    0.07255
+
+('Forces of the geometry evaluated (eV/Angst):\n', array([[ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [-8.54217144e-03, -1.10357695e-02, -1.67558004e-02],
+       [ 8.55052961e-03, -1.10192019e-02, -1.67575153e-02],
+       [-1.52218836e-07, -4.98501627e-02,  7.32772990e-02],
+       [ 8.35287976e-06,  4.06353422e-02, -3.10534638e-02],
+       [-2.11360028e-05,  2.04469701e-02,  5.48218618e-03],
+       [ 1.46489009e-05, -6.46087472e-02,  7.25525807e-02]]))
+('Number of iterations:', 18)
+('Max. force of the last image evaluated (eV/Angstrom):', 0.09715023104188238)
+('Energy of the last image evaluated (eV):', -42.2522320332721)
+('Converged:', False)
++----------+------------+-------------------+---------------------+---------------------+------------+
+|  Method  | Iterations | Func. evaluations |    Function value   |         fmax        | Converged? |
++----------+------------+-------------------+---------------------+---------------------+------------+
+|  Eval.   |     0      |         1         |  -38.49570406066559 |  14.132614947542113 |   False    |
+| CatLearn |     1      |         2         |  -38.91559301849234 |  6.657912598794426  |   False    |
+| CatLearn |     2      |         3         |  -40.06991202829284 |  3.2878957314928465 |   False    |
+| CatLearn |     3      |         4         |  -40.51078180268129 |  2.9370521727608514 |   False    |
+| CatLearn |     4      |         5         |  -40.5642561161567  |  4.5665787906107695 |   False    |
+| CatLearn |     5      |         6         |  -40.95409869138851 |  1.6293188880958767 |   False    |
+| CatLearn |     6      |         7         | -41.085667906267275 |  1.7128365315330853 |   False    |
+| CatLearn |     7      |         8         |  -41.29551622320998 |  3.4471171297468053 |   False    |
+| CatLearn |     8      |         9         |  -41.33337813393336 |  5.470749820261449  |   False    |
+| CatLearn |     9      |         10        |  -41.73024246166579 |  1.1669589826457716 |   False    |
+| CatLearn |     10     |         11        |  -41.85691448931581 |  1.1793203171685553 |   False    |
+| CatLearn |     11     |         12        |  -41.97376234462328 |  1.9021354681304017 |   False    |
+| CatLearn |     12     |         13        |  -41.89713568708304 |  5.748351888662083  |   False    |
+| CatLearn |     13     |         14        | -42.193413539336525 | 0.44471485379852554 |   False    |
+| CatLearn |     14     |         15        |  -42.21964774006536 |  0.4604355394492075 |   False    |
+| CatLearn |     15     |         16        |  -42.23723717610194 |  0.6578238203956093 |   False    |
+| CatLearn |     16     |         17        | -42.247175920204384 |  0.2934100809230324 |   False    |
+| CatLearn |     17     |         18        |  -42.25165336877503 | 0.14909782764419313 |   False    |
+| CatLearn |     18     |         19        |  -42.2522320332721  | 0.09715023104188238 |   False    |
++----------+------------+-------------------+---------------------+---------------------+------------+
+Training a ML process...
+('Number of training points:', 19)
+Hyperparameter optimization is switched on.
+('Optimized Hyperparameters: ',       fun: array([326.96004597])
+ hess_inv: <3x3 LbfgsInvHessProduct with dtype=float64>
+      jac: array([-2.79945482e+01,  1.81898940e-03,  6.04018169e-02])
+  message: 'CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH'
+     nfev: 60
+      nit: 7
+   status: 0
+  success: True
+        x: array([1.        , 0.3039599 , 0.00222961]))
+('Log marginal likelihood: ', -326.9600459713303)
+ML process trained.
+Starting ML optimization...
+             Step     Time          Energy         fmax
+SciPyFminCG:    0 14:51:49       -3.769572        0.0770
+SciPyFminCG:    1 14:51:50       -3.769876        0.1263
+SciPyFminCG:    2 14:51:50       -3.770142        0.0439
+SciPyFminCG:    3 14:51:50       -3.770250        0.0265
+SciPyFminCG:    4 14:51:50       -3.770265        0.0300
+SciPyFminCG:    5 14:51:50       -3.770304        0.0317
+SciPyFminCG:    6 14:51:50       -3.770323        0.0161
+ML optimized.
+System changes: positions 
+
+Initializing position-dependent things.
+
+Density initialized from wave functions
+    .-------------.  
+   /|             |  
+  / |             |  
+ *  |             |  
+ |  |             |  
+ |  |             |  
+ |  |  O          |  
+ |  |             |  
+ |  |  C          |  
+ |  |             |  
+ |  | Au     Au   |  
+ |  |             |  
+ |  |  AAu    AAu |  
+ |  |             |  
+ |Au|    Au       |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  .-------------.  
+ | /             /   
+ |/             /    
+ *-------------*     
+
+Positions:
+   0 Au     0.000000    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   1 Au     2.884996    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   2 Au     1.442498    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   3 Au     4.327494    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   4 Au    -0.067875    0.100576    8.525347    ( 0.0000,  0.0000,  0.0000)
+   5 Au     2.952868    0.100575    8.525338    ( 0.0000,  0.0000,  0.0000)
+   6 Au     1.442495    2.509405    8.466893    ( 0.0000,  0.0000,  0.0000)
+   7 Au     4.327491    2.571507    8.451161    ( 0.0000,  0.0000,  0.0000)
+   8 C      1.442502   -0.759246    9.800743    ( 0.0000,  0.0000,  0.0000)
+   9 O      1.442507   -0.764159   10.984325    ( 0.0000,  0.0000,  0.0000)
+
+Unit cell:
+           periodic     x           y           z      points  spacing
+  1. axis:    yes    5.769991    0.000000    0.000000    28     0.2061
+  2. axis:    yes    0.000000    4.996959    0.000000    24     0.2082
+  3. axis:    no     0.000000    0.000000   15.855589    80     0.1982
+
+  Lengths:   5.769991   4.996959  15.855589
+  Angles:   90.000000  90.000000  90.000000
+
+Effective grid spacing dv^(1/3) = 0.2041
+
+                     log10-error:    total        iterations:
+           time      wfs    density  energy       fermi  poisson
+iter:   1  14:51:53          +inf   -42.254057    2      11     
+iter:   2  14:51:55         -3.66   -42.254000    2      3      
+iter:   3  14:51:58         -3.73   -42.254256    2      9      
+iter:   4  14:52:01         -3.83   -42.254482    2      5      
+iter:   5  14:52:03         -3.69   -42.254233    2      9      
+iter:   6  14:52:06         -4.14   -42.254172    2      3      
+
+Converged after 6 iterations.
+
+Dipole moment: (-0.945459, 2.951286, -0.041911) |e|*Ang
+
+Energy contributions relative to reference atoms: (reference = -4133555.294089)
+
+Kinetic:        -63.646674
+Potential:      +53.140526
+External:        +0.000000
+XC:             -32.845496
+Entropy (-ST):   -0.102135
+Local:           +1.148540
+--------------------------
+Free energy:    -42.305240
+Extrapolated:   -42.254172
+
+Fermi level: -5.52846
+
+Warning: Showing only first 2 kpts
+ Kpt  Band  Eigenvalues  Occupancy
+  0    47     -5.71781    0.19315
+  0    48     -4.95396    0.00071
+  0    49     -4.25348    0.00000
+  0    50     -4.06867    0.00000
+
+  1    47     -6.58325    0.44443
+  1    48     -5.59579    0.29433
+  1    49     -5.14643    0.00953
+  1    50     -3.72157    0.00000
+
+
+('Energy of the geometry evaluated (eV):', -42.25417203391389)
+
+Forces in eV/Ang:
+  0 Au   -0.12631   -0.04649    0.00923
+  1 Au    0.12631   -0.04649    0.00923
+  2 Au   -0.00000    0.03745   -0.17938
+  3 Au    0.00000    0.14781    0.07347
+  4 Au   -0.00337   -0.02699   -0.00256
+  5 Au    0.00338   -0.02698   -0.00256
+  6 Au    0.00000   -0.01523    0.04202
+  7 Au    0.00000    0.03089   -0.01737
+  8 C    -0.00001   -0.00562   -0.02359
+  9 O    -0.00001   -0.03028    0.06758
+
+('Forces of the geometry evaluated (eV/Angst):\n', array([[ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [-3.37038841e-03, -2.69861106e-02, -2.55648168e-03],
+       [ 3.37750864e-03, -2.69752892e-02, -2.55742139e-03],
+       [ 1.98874414e-06, -1.52286121e-02,  4.20214732e-02],
+       [ 3.12209435e-06,  3.08884400e-02, -1.73657538e-02],
+       [-9.81027509e-06, -5.61781974e-03, -2.35939991e-02],
+       [-6.81664936e-06, -3.02764141e-02,  6.75831514e-02]]))
+('Number of iterations:', 19)
+('Max. force of the last image evaluated (eV/Angstrom):', 0.07405500419867092)
+('Energy of the last image evaluated (eV):', -42.25417203391389)
+('Converged:', False)
++----------+------------+-------------------+---------------------+---------------------+------------+
+|  Method  | Iterations | Func. evaluations |    Function value   |         fmax        | Converged? |
++----------+------------+-------------------+---------------------+---------------------+------------+
+|  Eval.   |     0      |         1         |  -38.49570406066559 |  14.132614947542113 |   False    |
+| CatLearn |     1      |         2         |  -38.91559301849234 |  6.657912598794426  |   False    |
+| CatLearn |     2      |         3         |  -40.06991202829284 |  3.2878957314928465 |   False    |
+| CatLearn |     3      |         4         |  -40.51078180268129 |  2.9370521727608514 |   False    |
+| CatLearn |     4      |         5         |  -40.5642561161567  |  4.5665787906107695 |   False    |
+| CatLearn |     5      |         6         |  -40.95409869138851 |  1.6293188880958767 |   False    |
+| CatLearn |     6      |         7         | -41.085667906267275 |  1.7128365315330853 |   False    |
+| CatLearn |     7      |         8         |  -41.29551622320998 |  3.4471171297468053 |   False    |
+| CatLearn |     8      |         9         |  -41.33337813393336 |  5.470749820261449  |   False    |
+| CatLearn |     9      |         10        |  -41.73024246166579 |  1.1669589826457716 |   False    |
+| CatLearn |     10     |         11        |  -41.85691448931581 |  1.1793203171685553 |   False    |
+| CatLearn |     11     |         12        |  -41.97376234462328 |  1.9021354681304017 |   False    |
+| CatLearn |     12     |         13        |  -41.89713568708304 |  5.748351888662083  |   False    |
+| CatLearn |     13     |         14        | -42.193413539336525 | 0.44471485379852554 |   False    |
+| CatLearn |     14     |         15        |  -42.21964774006536 |  0.4604355394492075 |   False    |
+| CatLearn |     15     |         16        |  -42.23723717610194 |  0.6578238203956093 |   False    |
+| CatLearn |     16     |         17        | -42.247175920204384 |  0.2934100809230324 |   False    |
+| CatLearn |     17     |         18        |  -42.25165336877503 | 0.14909782764419313 |   False    |
+| CatLearn |     18     |         19        |  -42.2522320332721  | 0.09715023104188238 |   False    |
+| CatLearn |     19     |         20        |  -42.25417203391389 | 0.07405500419867092 |   False    |
++----------+------------+-------------------+---------------------+---------------------+------------+
+Training a ML process...
+('Number of training points:', 20)
+Hyperparameter optimization is switched on.
+('Optimized Hyperparameters: ',       fun: array([299.89915035])
+ hess_inv: <3x3 LbfgsInvHessProduct with dtype=float64>
+      jac: array([-2.90866183e+01,  4.92264007e-03,  2.16118679e-02])
+  message: 'CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH'
+     nfev: 76
+      nit: 8
+   status: 0
+  success: True
+        x: array([1.        , 0.30438383, 0.00175805]))
+('Log marginal likelihood: ', -299.89915034918613)
+ML process trained.
+Starting ML optimization...
+             Step     Time          Energy         fmax
+SciPyFminCG:    0 14:52:18       -3.769547        0.0573
+SciPyFminCG:    1 14:52:18       -3.769603        0.0473
+SciPyFminCG:    2 14:52:18       -3.769706        0.0361
+SciPyFminCG:    3 14:52:18       -3.769753        0.0279
+SciPyFminCG:    4 14:52:18       -3.769808        0.0176
+SciPyFminCG:    5 14:52:18       -3.769838        0.0341
+SciPyFminCG:    6 14:52:18       -3.769853        0.0222
+SciPyFminCG:    7 14:52:18       -3.769865        0.0057
+ML optimized.
+System changes: positions 
+
+Initializing position-dependent things.
+
+Density initialized from wave functions
+    .-------------.  
+   /|             |  
+  / |             |  
+ *  |             |  
+ |  |             |  
+ |  |             |  
+ |  |  O          |  
+ |  |             |  
+ |  |  C          |  
+ |  |             |  
+ |  | Au     Au   |  
+ |  |             |  
+ |  |  AAu    AAu |  
+ |  |             |  
+ |Au|    Au       |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  .-------------.  
+ | /             /   
+ |/             /    
+ *-------------*     
+
+Positions:
+   0 Au     0.000000    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   1 Au     2.884996    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   2 Au     1.442498    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   3 Au     4.327494    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   4 Au    -0.067487    0.100428    8.525103    ( 0.0000,  0.0000,  0.0000)
+   5 Au     2.952479    0.100426    8.525094    ( 0.0000,  0.0000,  0.0000)
+   6 Au     1.442495    2.505970    8.476272    ( 0.0000,  0.0000,  0.0000)
+   7 Au     4.327491    2.573711    8.448446    ( 0.0000,  0.0000,  0.0000)
+   8 C      1.442502   -0.760897    9.802688    ( 0.0000,  0.0000,  0.0000)
+   9 O      1.442507   -0.766451   10.986790    ( 0.0000,  0.0000,  0.0000)
+
+Unit cell:
+           periodic     x           y           z      points  spacing
+  1. axis:    yes    5.769991    0.000000    0.000000    28     0.2061
+  2. axis:    yes    0.000000    4.996959    0.000000    24     0.2082
+  3. axis:    no     0.000000    0.000000   15.855589    80     0.1982
+
+  Lengths:   5.769991   4.996959  15.855589
+  Angles:   90.000000  90.000000  90.000000
+
+Effective grid spacing dv^(1/3) = 0.2041
+
+                     log10-error:    total        iterations:
+           time      wfs    density  energy       fermi  poisson
+iter:   1  14:52:21          +inf   -42.255528    2      12     
+iter:   2  14:52:24         -3.53   -42.255828    2      3      
+iter:   3  14:52:27         -3.61   -42.255451    2      11     
+iter:   4  14:52:29         -3.81   -42.255201    2      2      
+iter:   5  14:52:32         -3.86   -42.255797    2      12     
+iter:   6  14:52:34         -3.55   -42.255819    2      1      
+iter:   7  14:52:37         -3.55   -42.255173    2      12     
+iter:   8  14:52:40         -3.92   -42.255323    2      2      
+iter:   9  14:52:42         -4.00   -42.255353    2      1      
+
+Converged after 9 iterations.
+
+Dipole moment: (-0.957498, 2.938434, -0.044138) |e|*Ang
+
+Energy contributions relative to reference atoms: (reference = -4133555.294089)
+
+Kinetic:        -64.014018
+Potential:      +53.462527
+External:        +0.000000
+XC:             -32.800464
+Entropy (-ST):   -0.101382
+Local:           +1.147294
+--------------------------
+Free energy:    -42.306044
+Extrapolated:   -42.255353
+
+Fermi level: -5.53128
+
+Warning: Showing only first 2 kpts
+ Kpt  Band  Eigenvalues  Occupancy
+  0    47     -5.71712    0.19225
+  0    48     -4.95772    0.00072
+  0    49     -4.25683    0.00000
+  0    50     -4.07205    0.00000
+
+  1    47     -6.58440    0.44443
+  1    48     -5.59927    0.29499
+  1    49     -5.14543    0.00918
+  1    50     -3.71689    0.00000
+
+
+('Energy of the geometry evaluated (eV):', -42.255352642281196)
+
+Forces in eV/Ang:
+  0 Au   -0.12152   -0.04536    0.02262
+  1 Au    0.12152   -0.04536    0.02261
+  2 Au   -0.00000    0.03052   -0.16416
+  3 Au    0.00000    0.15109    0.07876
+  4 Au   -0.00033   -0.02551    0.01255
+  5 Au    0.00034   -0.02550    0.01255
+  6 Au    0.00000   -0.01087    0.02313
+  7 Au    0.00000    0.01520   -0.00316
+  8 C    -0.00001   -0.00076    0.01414
+  9 O    -0.00000    0.00226    0.00290
+
+('Forces of the geometry evaluated (eV/Angst):\n', array([[ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [-3.31513565e-04, -2.55091153e-02,  1.25542799e-02],
+       [ 3.37784369e-04, -2.55016051e-02,  1.25535663e-02],
+       [ 2.06369204e-06, -1.08716999e-02,  2.31299889e-02],
+       [ 2.76404974e-06,  1.52002500e-02, -3.15714272e-03],
+       [-8.14692658e-06, -7.64779510e-04,  1.41408705e-02],
+       [-4.32935123e-06,  2.25540143e-03,  2.90315869e-03]]))
+('Number of iterations:', 20)
+('Max. force of the last image evaluated (eV/Angstrom):', 0.028432987971138534)
+('Energy of the last image evaluated (eV):', -42.255352642281196)
+('Converged:', False)
++----------+------------+-------------------+---------------------+----------------------+------------+
+|  Method  | Iterations | Func. evaluations |    Function value   |         fmax         | Converged? |
++----------+------------+-------------------+---------------------+----------------------+------------+
+|  Eval.   |     0      |         1         |  -38.49570406066559 |  14.132614947542113  |   False    |
+| CatLearn |     1      |         2         |  -38.91559301849234 |  6.657912598794426   |   False    |
+| CatLearn |     2      |         3         |  -40.06991202829284 |  3.2878957314928465  |   False    |
+| CatLearn |     3      |         4         |  -40.51078180268129 |  2.9370521727608514  |   False    |
+| CatLearn |     4      |         5         |  -40.5642561161567  |  4.5665787906107695  |   False    |
+| CatLearn |     5      |         6         |  -40.95409869138851 |  1.6293188880958767  |   False    |
+| CatLearn |     6      |         7         | -41.085667906267275 |  1.7128365315330853  |   False    |
+| CatLearn |     7      |         8         |  -41.29551622320998 |  3.4471171297468053  |   False    |
+| CatLearn |     8      |         9         |  -41.33337813393336 |  5.470749820261449   |   False    |
+| CatLearn |     9      |         10        |  -41.73024246166579 |  1.1669589826457716  |   False    |
+| CatLearn |     10     |         11        |  -41.85691448931581 |  1.1793203171685553  |   False    |
+| CatLearn |     11     |         12        |  -41.97376234462328 |  1.9021354681304017  |   False    |
+| CatLearn |     12     |         13        |  -41.89713568708304 |  5.748351888662083   |   False    |
+| CatLearn |     13     |         14        | -42.193413539336525 | 0.44471485379852554  |   False    |
+| CatLearn |     14     |         15        |  -42.21964774006536 |  0.4604355394492075  |   False    |
+| CatLearn |     15     |         16        |  -42.23723717610194 |  0.6578238203956093  |   False    |
+| CatLearn |     16     |         17        | -42.247175920204384 |  0.2934100809230324  |   False    |
+| CatLearn |     17     |         18        |  -42.25165336877503 | 0.14909782764419313  |   False    |
+| CatLearn |     18     |         19        |  -42.2522320332721  | 0.09715023104188238  |   False    |
+| CatLearn |     19     |         20        |  -42.25417203391389 | 0.07405500419867092  |   False    |
+| CatLearn |     20     |         21        | -42.255352642281196 | 0.028432987971138534 |   False    |
++----------+------------+-------------------+---------------------+----------------------+------------+
+Training a ML process...
+('Number of training points:', 21)
+Hyperparameter optimization is switched on.
+('Optimized Hyperparameters: ',       fun: array([266.5457228])
+ hess_inv: <3x3 LbfgsInvHessProduct with dtype=float64>
+      jac: array([-2.97906752e+01, -1.88151716e-03, -2.31239028e-02])
+  message: 'CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH'
+     nfev: 64
+      nit: 7
+   status: 0
+  success: True
+        x: array([1.        , 0.30407268, 0.00136908]))
+('Log marginal likelihood: ', -266.5457227972012)
+ML process trained.
+Starting ML optimization...
+             Step     Time          Energy         fmax
+SciPyFminCG:    0 14:52:54       -3.769055        0.0198
+SciPyFminCG:    1 14:52:54       -3.769079        0.0235
+SciPyFminCG:    2 14:52:54       -3.769086        0.0160
+ML optimized.
+System changes: positions 
+
+Initializing position-dependent things.
+
+Density initialized from wave functions
+    .-------------.  
+   /|             |  
+  / |             |  
+ *  |             |  
+ |  |             |  
+ |  |             |  
+ |  |  O          |  
+ |  |             |  
+ |  |  C          |  
+ |  |             |  
+ |  | Au     Au   |  
+ |  |             |  
+ |  |  AAu    AAu |  
+ |  |             |  
+ |Au|    Au       |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  .-------------.  
+ | /             /   
+ |/             /    
+ *-------------*     
+
+Positions:
+   0 Au     0.000000    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   1 Au     2.884996    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   2 Au     1.442498    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   3 Au     4.327494    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   4 Au    -0.067496    0.099677    8.525445    ( 0.0000,  0.0000,  0.0000)
+   5 Au     2.952489    0.099676    8.525435    ( 0.0000,  0.0000,  0.0000)
+   6 Au     1.442495    2.505557    8.477221    ( 0.0000,  0.0000,  0.0000)
+   7 Au     4.327491    2.574236    8.448262    ( 0.0000,  0.0000,  0.0000)
+   8 C      1.442501   -0.760972    9.802961    ( 0.0000,  0.0000,  0.0000)
+   9 O      1.442507   -0.766498   10.987206    ( 0.0000,  0.0000,  0.0000)
+
+Unit cell:
+           periodic     x           y           z      points  spacing
+  1. axis:    yes    5.769991    0.000000    0.000000    28     0.2061
+  2. axis:    yes    0.000000    4.996959    0.000000    24     0.2082
+  3. axis:    no     0.000000    0.000000   15.855589    80     0.1982
+
+  Lengths:   5.769991   4.996959  15.855589
+  Angles:   90.000000  90.000000  90.000000
+
+Effective grid spacing dv^(1/3) = 0.2041
+
+                     log10-error:    total        iterations:
+           time      wfs    density  energy       fermi  poisson
+iter:   1  14:52:57          +inf   -42.257402    3      15     
+iter:   2  14:53:00         -3.21   -42.256690    2      8      
+iter:   3  14:53:03         -3.37   -42.255216    2      14     
+iter:   4  14:53:06         -3.97   -42.255036    2      5      
+iter:   5  14:53:08         -4.58   -42.254941    2      2      
+
+Converged after 5 iterations.
+
+Dipole moment: (-0.957683, 2.972154, -0.039781) |e|*Ang
+
+Energy contributions relative to reference atoms: (reference = -4133555.294089)
+
+Kinetic:        -64.047131
+Potential:      +53.487832
+External:        +0.000000
+XC:             -32.793091
+Entropy (-ST):   -0.101186
+Local:           +1.148042
+--------------------------
+Free energy:    -42.305534
+Extrapolated:   -42.254941
+
+Fermi level: -5.53337
+
+Warning: Showing only first 2 kpts
+ Kpt  Band  Eigenvalues  Occupancy
+  0    47     -5.72082    0.19266
+  0    48     -4.95783    0.00070
+  0    49     -4.26352    0.00000
+  0    50     -4.07259    0.00000
+
+  1    47     -6.58592    0.44443
+  1    48     -5.60216    0.29578
+  1    49     -5.14951    0.00936
+  1    50     -3.71621    0.00000
+
+
+('Energy of the geometry evaluated (eV):', -42.25494088396861)
+
+Forces in eV/Ang:
+  0 Au   -0.12557   -0.04713    0.00576
+  1 Au    0.12557   -0.04712    0.00575
+  2 Au   -0.00000    0.03291   -0.18064
+  3 Au    0.00000    0.15155    0.06339
+  4 Au   -0.00124   -0.01848   -0.00425
+  5 Au    0.00125   -0.01848   -0.00425
+  6 Au   -0.00000   -0.01701    0.00761
+  7 Au    0.00000    0.00825   -0.01580
+  8 C    -0.00001   -0.00114    0.03544
+  9 O    -0.00001    0.00796   -0.00180
+
+('Forces of the geometry evaluated (eV/Angst):\n', array([[ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [-1.24300909e-03, -1.84823881e-02, -4.25399252e-03],
+       [ 1.24846912e-03, -1.84754998e-02, -4.25448338e-03],
+       [-8.44408126e-07, -1.70055457e-02,  7.61174496e-03],
+       [ 2.29513504e-06,  8.25103699e-03, -1.57985391e-02],
+       [-1.16142863e-05, -1.13643983e-03,  3.54437672e-02],
+       [-7.08973181e-06,  7.96274896e-03, -1.79716624e-03]]))
+('Number of iterations:', 21)
+('Max. force of the last image evaluated (eV/Angstrom):', 0.03546198336509673)
+('Energy of the last image evaluated (eV):', -42.25494088396861)
+('Converged:', False)
++----------+------------+-------------------+---------------------+----------------------+------------+
+|  Method  | Iterations | Func. evaluations |    Function value   |         fmax         | Converged? |
++----------+------------+-------------------+---------------------+----------------------+------------+
+|  Eval.   |     0      |         1         |  -38.49570406066559 |  14.132614947542113  |   False    |
+| CatLearn |     1      |         2         |  -38.91559301849234 |  6.657912598794426   |   False    |
+| CatLearn |     2      |         3         |  -40.06991202829284 |  3.2878957314928465  |   False    |
+| CatLearn |     3      |         4         |  -40.51078180268129 |  2.9370521727608514  |   False    |
+| CatLearn |     4      |         5         |  -40.5642561161567  |  4.5665787906107695  |   False    |
+| CatLearn |     5      |         6         |  -40.95409869138851 |  1.6293188880958767  |   False    |
+| CatLearn |     6      |         7         | -41.085667906267275 |  1.7128365315330853  |   False    |
+| CatLearn |     7      |         8         |  -41.29551622320998 |  3.4471171297468053  |   False    |
+| CatLearn |     8      |         9         |  -41.33337813393336 |  5.470749820261449   |   False    |
+| CatLearn |     9      |         10        |  -41.73024246166579 |  1.1669589826457716  |   False    |
+| CatLearn |     10     |         11        |  -41.85691448931581 |  1.1793203171685553  |   False    |
+| CatLearn |     11     |         12        |  -41.97376234462328 |  1.9021354681304017  |   False    |
+| CatLearn |     12     |         13        |  -41.89713568708304 |  5.748351888662083   |   False    |
+| CatLearn |     13     |         14        | -42.193413539336525 | 0.44471485379852554  |   False    |
+| CatLearn |     14     |         15        |  -42.21964774006536 |  0.4604355394492075  |   False    |
+| CatLearn |     15     |         16        |  -42.23723717610194 |  0.6578238203956093  |   False    |
+| CatLearn |     16     |         17        | -42.247175920204384 |  0.2934100809230324  |   False    |
+| CatLearn |     17     |         18        |  -42.25165336877503 | 0.14909782764419313  |   False    |
+| CatLearn |     18     |         19        |  -42.2522320332721  | 0.09715023104188238  |   False    |
+| CatLearn |     19     |         20        |  -42.25417203391389 | 0.07405500419867092  |   False    |
+| CatLearn |     20     |         21        | -42.255352642281196 | 0.028432987971138534 |   False    |
+| CatLearn |     21     |         22        |  -42.25494088396861 | 0.03546198336509673  |   False    |
++----------+------------+-------------------+---------------------+----------------------+------------+
+Training a ML process...
+('Number of training points:', 22)
+Hyperparameter optimization is switched on.
+('Optimized Hyperparameters: ',       fun: array([226.86803841])
+ hess_inv: <3x3 LbfgsInvHessProduct with dtype=float64>
+      jac: array([-3.01125255e+01,  1.97530881e-03, -1.38064138e-01])
+  message: 'CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH'
+     nfev: 80
+      nit: 8
+   status: 0
+  success: True
+        x: array([1.        , 0.30282832, 0.00105621]))
+('Log marginal likelihood: ', -226.86803840712003)
+ML process trained.
+Starting ML optimization...
+             Step     Time          Energy         fmax
+SciPyFminCG:    0 14:53:20       -3.767946        0.0257
+SciPyFminCG:    1 14:53:20       -3.767955        0.0240
+SciPyFminCG:    2 14:53:20       -3.767973        0.0173
+SciPyFminCG:    3 14:53:20       -3.767989        0.0258
+SciPyFminCG:    4 14:53:20       -3.767998        0.0115
+ML optimized.
+System changes: positions 
+
+Initializing position-dependent things.
+
+Density initialized from wave functions
+    .-------------.  
+   /|             |  
+  / |             |  
+ *  |             |  
+ |  |             |  
+ |  |             |  
+ |  |  O          |  
+ |  |             |  
+ |  |  C          |  
+ |  |             |  
+ |  | Au     Au   |  
+ |  |             |  
+ |  |  AAu    AAu |  
+ |  |             |  
+ |Au|    Au       |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  .-------------.  
+ | /             /   
+ |/             /    
+ *-------------*     
+
+Positions:
+   0 Au     0.000000    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   1 Au     2.884996    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   2 Au     1.442498    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   3 Au     4.327494    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   4 Au    -0.067478    0.098980    8.525386    ( 0.0000,  0.0000,  0.0000)
+   5 Au     2.952471    0.098979    8.525377    ( 0.0000,  0.0000,  0.0000)
+   6 Au     1.442495    2.503949    8.480734    ( 0.0000,  0.0000,  0.0000)
+   7 Au     4.327492    2.575397    8.447004    ( 0.0000,  0.0000,  0.0000)
+   8 C      1.442501   -0.761568    9.804283    ( 0.0000,  0.0000,  0.0000)
+   9 O      1.442507   -0.767257   10.988469    ( 0.0000,  0.0000,  0.0000)
+
+Unit cell:
+           periodic     x           y           z      points  spacing
+  1. axis:    yes    5.769991    0.000000    0.000000    28     0.2061
+  2. axis:    yes    0.000000    4.996959    0.000000    24     0.2082
+  3. axis:    no     0.000000    0.000000   15.855589    80     0.1982
+
+  Lengths:   5.769991   4.996959  15.855589
+  Angles:   90.000000  90.000000  90.000000
+
+Effective grid spacing dv^(1/3) = 0.2041
+
+                     log10-error:    total        iterations:
+           time      wfs    density  energy       fermi  poisson
+iter:   1  14:53:23          +inf   -42.255420    2      9      
+iter:   2  14:53:26         -3.85   -42.255313    2      2      
+iter:   3  14:53:29         -3.93   -42.255459    2      8      
+iter:   4  14:53:31         -4.05   -42.255616    2      2      
+
+Converged after 4 iterations.
+
+Dipole moment: (-0.958421, 2.997233, -0.039090) |e|*Ang
+
+Energy contributions relative to reference atoms: (reference = -4133555.294089)
+
+Kinetic:        -64.061345
+Potential:      +53.491974
+External:        +0.000000
+XC:             -32.783068
+Entropy (-ST):   -0.100806
+Local:           +1.147225
+--------------------------
+Free energy:    -42.306019
+Extrapolated:   -42.255616
+
+Fermi level: -5.53361
+
+Warning: Showing only first 2 kpts
+ Kpt  Band  Eigenvalues  Occupancy
+  0    47     -5.72062    0.19255
+  0    48     -4.95753    0.00070
+  0    49     -4.26584    0.00000
+  0    50     -4.07194    0.00000
+
+  1    47     -6.58549    0.44443
+  1    48     -5.60335    0.29671
+  1    49     -5.14923    0.00932
+  1    50     -3.71316    0.00000
+
+
+('Energy of the geometry evaluated (eV):', -42.255616398322516)
+
+Forces in eV/Ang:
+  0 Au   -0.12436   -0.04639    0.00239
+  1 Au    0.12436   -0.04639    0.00238
+  2 Au   -0.00000    0.02999   -0.18238
+  3 Au    0.00000    0.15320    0.05856
+  4 Au   -0.00152   -0.01477   -0.01011
+  5 Au    0.00153   -0.01477   -0.01011
+  6 Au   -0.00000   -0.01653   -0.00803
+  7 Au    0.00000   -0.00514   -0.02052
+  8 C    -0.00001    0.00326    0.03750
+  9 O    -0.00000    0.02624   -0.00784
+
+('Forces of the geometry evaluated (eV/Angst):\n', array([[ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [-1.51971843e-03, -1.47726753e-02, -1.01083641e-02],
+       [ 1.52531491e-03, -1.47678783e-02, -1.01080839e-02],
+       [-1.33738479e-07, -1.65340275e-02, -8.02524165e-03],
+       [ 1.63100133e-06, -5.14265244e-03, -2.05187847e-02],
+       [-7.42726449e-06,  3.26290096e-03,  3.74983597e-02],
+       [-1.37913469e-06,  2.62376047e-02, -7.83659463e-03]]))
+('Number of iterations:', 22)
+('Max. force of the last image evaluated (eV/Angstrom):', 0.03764005256096438)
+('Energy of the last image evaluated (eV):', -42.255616398322516)
+('Converged:', False)
++----------+------------+-------------------+---------------------+----------------------+------------+
+|  Method  | Iterations | Func. evaluations |    Function value   |         fmax         | Converged? |
++----------+------------+-------------------+---------------------+----------------------+------------+
+|  Eval.   |     0      |         1         |  -38.49570406066559 |  14.132614947542113  |   False    |
+| CatLearn |     1      |         2         |  -38.91559301849234 |  6.657912598794426   |   False    |
+| CatLearn |     2      |         3         |  -40.06991202829284 |  3.2878957314928465  |   False    |
+| CatLearn |     3      |         4         |  -40.51078180268129 |  2.9370521727608514  |   False    |
+| CatLearn |     4      |         5         |  -40.5642561161567  |  4.5665787906107695  |   False    |
+| CatLearn |     5      |         6         |  -40.95409869138851 |  1.6293188880958767  |   False    |
+| CatLearn |     6      |         7         | -41.085667906267275 |  1.7128365315330853  |   False    |
+| CatLearn |     7      |         8         |  -41.29551622320998 |  3.4471171297468053  |   False    |
+| CatLearn |     8      |         9         |  -41.33337813393336 |  5.470749820261449   |   False    |
+| CatLearn |     9      |         10        |  -41.73024246166579 |  1.1669589826457716  |   False    |
+| CatLearn |     10     |         11        |  -41.85691448931581 |  1.1793203171685553  |   False    |
+| CatLearn |     11     |         12        |  -41.97376234462328 |  1.9021354681304017  |   False    |
+| CatLearn |     12     |         13        |  -41.89713568708304 |  5.748351888662083   |   False    |
+| CatLearn |     13     |         14        | -42.193413539336525 | 0.44471485379852554  |   False    |
+| CatLearn |     14     |         15        |  -42.21964774006536 |  0.4604355394492075  |   False    |
+| CatLearn |     15     |         16        |  -42.23723717610194 |  0.6578238203956093  |   False    |
+| CatLearn |     16     |         17        | -42.247175920204384 |  0.2934100809230324  |   False    |
+| CatLearn |     17     |         18        |  -42.25165336877503 | 0.14909782764419313  |   False    |
+| CatLearn |     18     |         19        |  -42.2522320332721  | 0.09715023104188238  |   False    |
+| CatLearn |     19     |         20        |  -42.25417203391389 | 0.07405500419867092  |   False    |
+| CatLearn |     20     |         21        | -42.255352642281196 | 0.028432987971138534 |   False    |
+| CatLearn |     21     |         22        |  -42.25494088396861 | 0.03546198336509673  |   False    |
+| CatLearn |     22     |         23        | -42.255616398322516 | 0.03764005256096438  |   False    |
++----------+------------+-------------------+---------------------+----------------------+------------+
+Training a ML process...
+('Number of training points:', 23)
+Hyperparameter optimization is switched on.
+('Optimized Hyperparameters: ',       fun: array([185.54652831])
+ hess_inv: <3x3 LbfgsInvHessProduct with dtype=float64>
+      jac: array([-2.98907281e+01, -2.87798230e-02,  5.35231948e-01])
+  message: 'CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH'
+     nfev: 76
+      nit: 8
+   status: 0
+  success: True
+        x: array([1.00000000e+00, 3.00554275e-01, 8.09692415e-04]))
+('Log marginal likelihood: ', -185.54652831157807)
+ML process trained.
+Starting ML optimization...
+             Step     Time          Energy         fmax
+SciPyFminCG:    0 14:53:43       -3.766694        0.0204
+SciPyFminCG:    1 14:53:43       -3.766701        0.0222
+SciPyFminCG:    2 14:53:43       -3.766707        0.0047
+ML optimized.
+System changes: positions 
+
+Initializing position-dependent things.
+
+Density initialized from wave functions
+    .-------------.  
+   /|             |  
+  / |             |  
+ *  |             |  
+ |  |             |  
+ |  |             |  
+ |  |  O          |  
+ |  |             |  
+ |  |  C          |  
+ |  |             |  
+ |  | Au     Au   |  
+ |  |             |  
+ |  |  AAu    AAu |  
+ |  |             |  
+ |Au|    Au       |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  |             |  
+ |  .-------------.  
+ | /             /   
+ |/             /    
+ *-------------*     
+
+Positions:
+   0 Au     0.000000    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   1 Au     2.884996    1.665653    6.000000    ( 0.0000,  0.0000,  0.0000)
+   2 Au     1.442498    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   3 Au     4.327494    4.164133    6.000000    ( 0.0000,  0.0000,  0.0000)
+   4 Au    -0.067451    0.098768    8.525218    ( 0.0000,  0.0000,  0.0000)
+   5 Au     2.952444    0.098767    8.525208    ( 0.0000,  0.0000,  0.0000)
+   6 Au     1.442495    2.503650    8.480756    ( 0.0000,  0.0000,  0.0000)
+   7 Au     4.327492    2.575267    8.446614    ( 0.0000,  0.0000,  0.0000)
+   8 C      1.442501   -0.761582    9.804609    ( 0.0000,  0.0000,  0.0000)
+   9 O      1.442507   -0.766741   10.988605    ( 0.0000,  0.0000,  0.0000)
+
+Unit cell:
+           periodic     x           y           z      points  spacing
+  1. axis:    yes    5.769991    0.000000    0.000000    28     0.2061
+  2. axis:    yes    0.000000    4.996959    0.000000    24     0.2082
+  3. axis:    no     0.000000    0.000000   15.855589    80     0.1982
+
+  Lengths:   5.769991   4.996959  15.855589
+  Angles:   90.000000  90.000000  90.000000
+
+Effective grid spacing dv^(1/3) = 0.2041
+
+                     log10-error:    total        iterations:
+           time      wfs    density  energy       fermi  poisson
+iter:   1  14:53:46          +inf   -42.255862    2      13     
+iter:   2  14:53:49         -3.38   -42.255385    2      5      
+iter:   3  14:53:52         -3.51   -42.255802    2      13     
+iter:   4  14:53:55         -3.86   -42.255943    2      5      
+iter:   5  14:53:57         -4.48   -42.255763    2      3      
+
+Converged after 5 iterations.
+
+Dipole moment: (-0.959009, 3.009692, -0.041631) |e|*Ang
+
+Energy contributions relative to reference atoms: (reference = -4133555.294089)
+
+Kinetic:        -64.128548
+Potential:      +53.556357
+External:        +0.000000
+XC:             -32.783556
+Entropy (-ST):   -0.100872
+Local:           +1.150419
+--------------------------
+Free energy:    -42.306199
+Extrapolated:   -42.255763
+
+Fermi level: -5.53263
+
+Warning: Showing only first 2 kpts
+ Kpt  Band  Eigenvalues  Occupancy
+  0    47     -5.71858    0.19227
+  0    48     -4.95772    0.00071
+  0    49     -4.26169    0.00000
+  0    50     -4.07180    0.00000
+
+  1    47     -6.58463    0.44443
+  1    48     -5.60227    0.29661
+  1    49     -5.14688    0.00919
+  1    50     -3.71350    0.00000
+
+
+('Energy of the geometry evaluated (eV):', -42.25576331413046)
+
+Forces in eV/Ang:
+  0 Au   -0.12200   -0.04655    0.01154
+  1 Au    0.12200   -0.04655    0.01153
+  2 Au   -0.00000    0.02905   -0.17414
+  3 Au    0.00000    0.15339    0.06279
+  4 Au    0.00085   -0.01418    0.00011
+  5 Au   -0.00085   -0.01418    0.00011
+  6 Au    0.00000   -0.01360    0.00070
+  7 Au    0.00000   -0.00491   -0.00901
+  8 C    -0.00000   -0.00355    0.01308
+  9 O    -0.00000    0.01458    0.00766
+
+('Forces of the geometry evaluated (eV/Angst):\n', array([[ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [ 8.52260499e-04, -1.41801074e-02,  1.11643461e-04],
+       [-8.50832839e-04, -1.41788249e-02,  1.14016602e-04],
+       [ 1.04909237e-06, -1.36029432e-02,  7.04529231e-04],
+       [ 1.44713375e-06, -4.91158180e-03, -9.00760341e-03],
+       [-4.20988551e-06, -3.55460482e-03,  1.30827911e-02],
+       [-9.04163020e-07,  1.45774015e-02,  7.66194155e-03]]))
+('Number of iterations:', 23)
+('Max. force of the last image evaluated (eV/Angstrom):', 0.016468332750248563)
+('Energy of the last image evaluated (eV):', -42.25576331413046)
+('Converged:', True)
++----------+------------+-------------------+---------------------+----------------------+------------+
+|  Method  | Iterations | Func. evaluations |    Function value   |         fmax         | Converged? |
++----------+------------+-------------------+---------------------+----------------------+------------+
+|  Eval.   |     0      |         1         |  -38.49570406066559 |  14.132614947542113  |   False    |
+| CatLearn |     1      |         2         |  -38.91559301849234 |  6.657912598794426   |   False    |
+| CatLearn |     2      |         3         |  -40.06991202829284 |  3.2878957314928465  |   False    |
+| CatLearn |     3      |         4         |  -40.51078180268129 |  2.9370521727608514  |   False    |
+| CatLearn |     4      |         5         |  -40.5642561161567  |  4.5665787906107695  |   False    |
+| CatLearn |     5      |         6         |  -40.95409869138851 |  1.6293188880958767  |   False    |
+| CatLearn |     6      |         7         | -41.085667906267275 |  1.7128365315330853  |   False    |
+| CatLearn |     7      |         8         |  -41.29551622320998 |  3.4471171297468053  |   False    |
+| CatLearn |     8      |         9         |  -41.33337813393336 |  5.470749820261449   |   False    |
+| CatLearn |     9      |         10        |  -41.73024246166579 |  1.1669589826457716  |   False    |
+| CatLearn |     10     |         11        |  -41.85691448931581 |  1.1793203171685553  |   False    |
+| CatLearn |     11     |         12        |  -41.97376234462328 |  1.9021354681304017  |   False    |
+| CatLearn |     12     |         13        |  -41.89713568708304 |  5.748351888662083   |   False    |
+| CatLearn |     13     |         14        | -42.193413539336525 | 0.44471485379852554  |   False    |
+| CatLearn |     14     |         15        |  -42.21964774006536 |  0.4604355394492075  |   False    |
+| CatLearn |     15     |         16        |  -42.23723717610194 |  0.6578238203956093  |   False    |
+| CatLearn |     16     |         17        | -42.247175920204384 |  0.2934100809230324  |   False    |
+| CatLearn |     17     |         18        |  -42.25165336877503 | 0.14909782764419313  |   False    |
+| CatLearn |     18     |         19        |  -42.2522320332721  | 0.09715023104188238  |   False    |
+| CatLearn |     19     |         20        |  -42.25417203391389 | 0.07405500419867092  |   False    |
+| CatLearn |     20     |         21        | -42.255352642281196 | 0.028432987971138534 |   False    |
+| CatLearn |     21     |         22        |  -42.25494088396861 | 0.03546198336509673  |   False    |
+| CatLearn |     22     |         23        | -42.255616398322516 | 0.03764005256096438  |   False    |
+| CatLearn |     23     |         24        |  -42.25576331413046 | 0.016468332750248563 |    True    |
++----------+------------+-------------------+---------------------+----------------------+------------+
+Timing:                                       incl.     excl.
+--------------------------------------------------------------------
+Basic WFS set positions:                      0.044     0.007   0.0% |
+ Redistribute:                                0.037     0.037   0.0% |
+Basis functions set positions:                0.576     0.576   0.0% |
+Forces:                                     279.626     3.248   0.3% |
+ LCAO forces:                               276.379     0.093   0.0% |
+  Atomic Hamiltonian force:                   1.195     1.195   0.1% |
+  Initial:                                    0.228     0.000   0.0% |
+   Get density matrix:                        0.228     0.228   0.0% |
+  Paw correction:                             1.068     1.068   0.1% |
+  Potential:                                258.603   258.603  21.3% |--------|
+  TCI derivative:                            15.191    15.191   1.3% ||
+  Wait for sum:                               0.000     0.000   0.0% |
+LCAO WFS Initialize:                         88.278     0.036   0.0% |
+ Density initialized from wave functions:    38.663     0.387   0.0% |
+  Calculate density matrix:                   0.089     0.089   0.0% |
+  Construct density:                         38.187    38.187   3.2% ||
+  Symmetrize density:                         0.000     0.000   0.0% |
+ Hamiltonian:                                49.579     0.002   0.0% |
+  Atomic:                                     4.289     0.027   0.0% |
+   XC Correction:                             4.262     4.262   0.4% |
+  Calculate atomic Hamiltonians:              0.174     0.174   0.0% |
+  Communicate:                                0.000     0.000   0.0% |
+  Hartree integrate/restrict:                 0.129     0.129   0.0% |
+  Initialize Hamiltonian:                     0.000     0.000   0.0% |
+  Poisson:                                   43.304    43.304   3.6% ||
+  XC 3D grid:                                 1.664     1.664   0.1% |
+  vbar:                                       0.016     0.016   0.0% |
+Redistribute:                                 0.003     0.003   0.0% |
+SCF-cycle:                                  827.703     0.379   0.0% |
+ Density:                                   447.400     0.006   0.0% |
+  Atomic density matrices:                    0.703     0.703   0.1% |
+  Mix:                                        3.969     3.969   0.3% |
+  Multipole moments:                          0.069     0.069   0.0% |
+  Normalize:                                  0.019     0.019   0.0% |
+  Pseudo density:                           442.633     0.074   0.0% |
+   Calculate density matrix:                  1.005     1.005   0.1% |
+   Construct density:                       441.550   441.550  36.4% |--------------|
+   Symmetrize density:                        0.005     0.005   0.0% |
+ Hamiltonian:                               249.887     0.022   0.0% |
+  Atomic:                                    47.297     0.299   0.0% |
+   XC Correction:                            46.997    46.997   3.9% |-|
+  Calculate atomic Hamiltonians:              1.822     1.822   0.2% |
+  Communicate:                                0.002     0.002   0.0% |
+  Hartree integrate/restrict:                 0.951     0.951   0.1% |
+  Poisson:                                  181.707   181.707  15.0% |-----|
+  XC 3D grid:                                17.926    17.926   1.5% ||
+  vbar:                                       0.161     0.161   0.0% |
+ LCAO eigensolver:                          130.036     0.123   0.0% |
+  Calculate projections:                      1.763     1.763   0.1% |
+  DenseAtomicCorrection:                      3.705     3.705   0.3% |
+  Distribute overlap matrix:                  0.123     0.123   0.0% |
+  Orbital Layouts:                           16.204    16.204   1.3% ||
+  Potential matrix:                         106.774   106.774   8.8% |---|
+  Sum over cells:                             1.343     1.343   0.1% |
+Set symmetry:                                 0.001     0.001   0.0% |
+TCI: Calculate S, T, P:                       5.541     5.541   0.5% |
+TCI: Evaluate splines:                        0.533     0.533   0.0% |
+Other:                                        9.564     9.564   0.8% |
+--------------------------------------------------------------------
+Total:                                               1211.869 100.0%
+
+Memory usage: 251.43 MiB
+Date: Tue Aug 21 14:54:09 2018
