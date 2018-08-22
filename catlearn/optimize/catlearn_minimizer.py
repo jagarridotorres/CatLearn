@@ -1,9 +1,6 @@
 import numpy as np
-import re
 from catlearn.optimize.functions import *
-from catlearn.optimize.constraints import *
-from catlearn.optimize.initialize import *
-from catlearn.optimize.catlearn_ase_calc import CatLearn_ASE
+from catlearn.optimize.catlearn_ase_calc import CatLearnASE
 from catlearn.optimize.optimize_ml import *
 from catlearn.optimize.convergence import *
 from catlearn.optimize.warnings import *
@@ -12,11 +9,14 @@ from ase.data import covalent_radii
 from ase.io.trajectory import TrajectoryReader
 from ase.io import Trajectory, read, write
 from ase.optimize.sciopt import *
+from ase.optimize import *
+import re
 
-class CatLearnOptimizer(object):
 
-    def __init__(self, x0=None, ml_calc=None, ase_calc=None, f=None, jac=True,
-    acq_fun=None, mode='min', filename='results'):
+class CatLearnMinimizer(object):
+
+    def __init__(self, x0, ml_calc=None, ase_calc=None, f=None, jac=True,
+                 mode='min', filename='results'):
 
         """Optimization setup.
 
@@ -32,9 +32,7 @@ class CatLearnOptimizer(object):
             Objective function to be optimized.
         jac : boolean
             Evaluate the Jacobian (first derivatives) of the function.
-        acq_fun : string
-            Acquisition function (UCB, EI, PI).
-            Default is None (greedy, minimum of the predicted value).
+
         mode: string ('min' or 'max')
             User must chose if it is a minimization or maximization problem.
             Default is 'min' (Minimization).
@@ -43,7 +41,6 @@ class CatLearnOptimizer(object):
         """
 
         self.jac = jac
-        self.acq_fun = acq_fun
         self.mode = mode
         self.ase = False
         self.filename = filename
@@ -51,36 +48,19 @@ class CatLearnOptimizer(object):
         self.ml_calc = ml_calc
 
         if self.ml_calc is None:
-            self.kdict = {'k1': {'type': 'gaussian', 'scaling': 1.0, 'width':
-                          0.5, 'dimension':'single'}, 'k2': {'type':
+            kdict = {'k1': {'type': 'gaussian',
+                            'scaling': 1.0, 'scaling_bounds': ((1.0, 1.0), ),
+                            'width': 0.5, 'dimension':'single', 'bounds': ((
+                            0.01, 1.0),
+                          ),}, 'k2': {'type':
                           'constant',
                           'const': 0.0}}
-            self.guess_hyper = 'constant'
-            self.ml_calc = GPCalculator(kernel_dict=self.kdict,
-                                        calc_uncertainty=True,
-                                        guess_hyper=self.guess_hyper)
-            if self.acq_fun is None:
-                self.ml_calc = GPCalculator(kernel_dict=self.kdict,
-                                            calc_uncertainty=False,
-                                            guess_hyper=self.guess_hyper)
+            self.ml_calc = GPCalculator(kernel_dict=kdict,
+                                        calc_uncertainty=False,
+                                        guess_hyper='constant')
             warning_kernel()
 
         # Restart variables each run:
-        self.constraints = None
-        self.list_fmax = None
-        self.fmax = None
-        self.iter = None
-        self.feval = None
-        self.max_step = None
-        self.min_step = None
-        self.i_step = None
-        self.e_max = None
-        self.min_iter = None
-        self.i_ase_step = None
-        self.trained_process = None
-        self.interesting_point = None
-        self.interesting_point_pred_energy = None
-        self.ind_mask_constr = None
         self.ase_calc = ase_calc
 
         backup_old_calcs(self.filename)
@@ -167,8 +147,9 @@ class CatLearnOptimizer(object):
 
 
     def run(self, fmax=1e-2, e_max=1e-15, max_iter=1000, min_iter=None,
-            max_step=0.2, min_step=None, i_step=None, i_ase_step=None,
-            ml_algo='CG', max_memory=50):
+            max_step=None, min_step=None, i_step=None,
+            i_ase_step='SciPyFminCG',
+            ml_algo='Powell', max_memory=50):
 
         """Executing run will start the optimization process.
 
@@ -180,9 +161,9 @@ class CatLearnOptimizer(object):
             trajectory files (ASE) the convergence criterion is set to the
             max absolute force of each dimension.
         e_max : float
-            The convergence criterion is that the energies between the last
+            Convergence is achieved when the energies between the last
             step and the previous step is less than e_max.
-            This convergence criterion exclusively applies when the forces
+            This criterion exclusively applies when the forces
             are not evaluated.
         max_iter : float
             Maximum number of iterations before breaking the optimization
@@ -208,8 +189,8 @@ class CatLearnOptimizer(object):
             performed using an ASE optimizer.
             Implemented: 'FIRE', 'BFGS', 'LBFGS' or 'MDMin'.
         ml_algo : string
-            Algorithm for the optimization of the predicted mean or
-            acquisition function. Implemented: 'L-BFGS-B', 'BFGS', 'CG',
+            Algorithm for the optimization of the predicted mean.
+            Implemented: 'L-BFGS-B', 'BFGS', 'CG',
             'Nelder-Mead', 'Powell'. Also the user can pick some algorithms
             included in ASE for atoms structure optimization, such as
             'LBFGS_ASE', 'BFGS_ASE', 'FIRE_ASE', 'MDMin_ASE' (these only apply
@@ -236,13 +217,13 @@ class CatLearnOptimizer(object):
         self.min_iter = min_iter
         self.i_ase_step = i_ase_step
         self.ml_algo = ml_algo
-        self.max_memory = max_memory
+        max_memory = max_memory
         self.max_iter = max_iter
 
-        if self.max_memory is None:
-            self.max_memory = 100
-            if self.num_atoms > 30:
-                self.max_memory = 50
+        if max_memory is None:
+            max_memory = 100
+            if len(self.ind_mask_constr) > 100:
+                max_memory = 50
 
         if self.i_step is None:
             self.i_step = 1e-4
@@ -265,7 +246,8 @@ class CatLearnOptimizer(object):
             list_radii = []
             for i in atomic_numbers:
                 list_radii.append(covalent_radii[i])
-            self.max_step = np.min(list_radii) / 4.0
+            self.max_step = np.min(list_radii)
+
             warning_max_step_radii(max_step=self.max_step)
 
         if self.max_step is None:
@@ -292,12 +274,12 @@ class CatLearnOptimizer(object):
                                            list_to_mask=self.list_gradients,
                                            mask_index= self.ind_mask_constr)
 
-            ############ WIP: Memory ################################
-            if len(self.list_train) >= self.max_memory:
-                self.list_train = self.list_train[-self.max_memory:]
-                self.list_targets = self.list_targets[-self.max_memory:]
-                self.list_gradients = self.list_gradients[-self.max_memory:]
-            ############ WIP: Memory ################################
+            ############ Memory ################################
+            if len(self.list_train) >= max_memory:
+                self.list_train = self.list_train[-max_memory:]
+                self.list_targets = self.list_targets[-max_memory:]
+                self.list_gradients = self.list_gradients[-max_memory:]
+            ############ Memory ################################
 
 
             # 1) Train a new process:
@@ -320,18 +302,12 @@ class CatLearnOptimizer(object):
                     trained_process=self.trained_process,
                     train_data=self.list_train, target_data=self.list_targets)
 
-            ########## UNDER TESTING #####################################
-            ########## UNDER TESTING #####################################
-            ########## UNDER TESTING #####################################
-            ########## UNDER TESTING #####################################
-            # if self.list_fmax[-1] <= 2 * fmax:
-            #     self.ml_calc.__dict__['opt_hyperparam'] = True
-            # if self.list_fmax[-1] > 2 * fmax:
-            #     self.ml_calc.__dict__['opt_hyperparam'] = False
-            ########## UNDER TESTING #####################################
-            ########## UNDER TESTING #####################################
-            ########## UNDER TESTING #####################################
-            ########## UNDER TESTING #####################################
+            ########## UNDER TEST #####################################
+            if self.list_fmax[-1] <= 0.10:
+                self.ml_calc.__dict__['opt_hyperparam'] = True
+            if self.list_fmax[-1] > 0.10:
+                self.ml_calc.__dict__['opt_hyperparam'] = False
+            ########## UNDER TEST #####################################
 
 
             if self.ml_calc.__dict__['opt_hyperparam']:
@@ -341,7 +317,8 @@ class CatLearnOptimizer(object):
 
             test0 = self.list_train[np.argmin(self.list_targets)]
 
-            self.ase_optimizers = ['BFGS_ASE', 'LBFGS_ASE', 'FIRE_ASE', 'MDMin_ASE']
+            self.ase_optimizers = ['BFGS_ASE', 'LBFGS_ASE', 'FIRE_ASE',
+            'MDMin_ASE']
             self.scipy_optimizers = ['Powell', 'L-BFGS-B', 'BFGS', 'Nelder-Mead',
                                 'CG']
 
@@ -365,9 +342,13 @@ class CatLearnOptimizer(object):
                 max_ml_steps = 1000 # Hard-coded.
                 ml_algo_i = re.sub('\_ASE$', '', self.ml_algo)
                 warning_ml_algo(self)
-                ml_ase_calc = CatLearn_ASE(
-                trained_process=self.trained_process,
-                    finite_step=5e-5) # Hard-coded.
+                ml_ase_calc = CatLearnASE(
+                                          trained_process=self.trained_process,
+                                          ml_calc=self.ml_calc,
+                                          index_constraints=self.ind_mask_constr,
+                                          list_train=self.list_train,
+                                          max_step=self.max_step,
+                                          finite_step=1e-4)
                 start_guess_ml = array_to_ase(input_array=(unmask_geometry(
                     org_list=org_train, masked_geom=test0,
                     mask_index=self.ind_mask_constr)),
@@ -428,3 +409,65 @@ class CatLearnOptimizer(object):
             self.feval = len(self.list_targets)
             print_info(self)
             store_results(self)
+
+
+def initialize(self):
+    """Evaluates the "real" function for a given initial guess and then it
+    will obtain the function value of a second guessed
+    point originated using CG theory. This function is exclusively
+    called when the optimization is initialized and the user has not
+    provided any trained data.
+    """
+
+    if len(self.list_targets) == 1:
+
+        if self.jac is False:
+            alpha = np.random.normal(loc=0.0, scale=self.i_step,
+                                     size=np.shape(self.list_train[0]))
+            ini_train = [self.list_train[-1] - alpha]
+
+        if self.jac is True:
+            alpha = self.i_step + np.zeros_like(self.list_train[0])
+            ini_train = [self.list_train[-1] - alpha *
+            self.list_gradients[-1]]
+
+        if self.i_ase_step:
+            opt = eval(self.i_ase_step)(self.ase_ini).run(fmax=self.fmax,
+                                                          steps=1)
+            ini_train = [self.ase_ini.get_positions().flatten()]
+
+        self.list_train = np.append(self.list_train, ini_train, axis=0)
+        self.list_targets = np.append(self.list_targets,
+                                      get_energy_catlearn(self))
+        self.list_targets = np.reshape(self.list_targets,
+                                  (len(self.list_targets), 1))
+        if self.jac is True:
+            self.list_gradients = np.append(
+                                        self.list_gradients,
+                                        -get_forces_catlearn(self).flatten())
+            self.list_gradients = np.reshape(self.list_gradients,
+                                             (len(self.list_targets),
+                                             np.shape(self.list_train)[1])
+                                             )
+        self.feval = len(self.list_targets)
+
+        if self.ase:
+            molec_writer = TrajectoryWriter('./' + str(self.filename) +
+                                                '_catlearn.traj', mode='a')
+            molec_writer.write(self.ase_ini)
+        converged(self)
+        print_info(self)
+
+    if len(self.list_targets) == 0:
+        self.list_targets = [np.append(self.list_targets,
+                             get_energy_catlearn(self))]
+        if self.jac is True:
+            self.list_gradients = [np.append(self.list_gradients,
+                                   -get_forces_catlearn(self).flatten())]
+        self.feval = len(self.list_targets)
+        if self.ase:
+            molec_writer = TrajectoryWriter('./' + str(self.filename) +
+                                                '_catlearn.traj', mode='a')
+            molec_writer.write(self.ase_ini)
+        converged(self)
+        print_info(self)

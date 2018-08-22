@@ -1,19 +1,17 @@
 import numpy as np
 # from catlearn.regression.acquisition_functions import AcquisitionFunctions
-from catlearn.utilities.penalty_functions import PenaltyFunctions
+from catlearn.optimize.penalty_atoms import PenaltyFunctions
 from scipy.optimize import *
 from catlearn.optimize.io import *
 from catlearn.optimize.penalty_atoms import *
 
 
 def predicted_energy_test(test, ml_calc, trained_process, min_step, max_step,
-    acq_fun, mode, list_train, list_targets, ase):
+    mode, list_train, ase):
 
         """Function that returns the value of the predicted mean for a given
         test point. This function can be penalised w.r.t. to the distance of
-        the test and the previously trained points (optional). If an
-        acquisition function was set (optional), this function will
-        return the score of the acquisition function.
+        the test and the previously trained points (optional).
 
         Parameters
         ----------
@@ -28,8 +26,7 @@ def predicted_energy_test(test, ml_calc, trained_process, min_step, max_step,
         Returns
         -------
         pred_value : float
-            The prediction (or score, when using acquisition functions) for
-            the test data.
+            The prediction for the test data.
 
         """
         predictions = 0
@@ -42,9 +39,7 @@ def predicted_energy_test(test, ml_calc, trained_process, min_step, max_step,
         test_data=test)
         pred_mean = predictions['pred_mean']
 
-        if acq_fun is not None:
-            print('Work in progress.'), exit()
-            # uncertainty = predictions['uncertainty']
+
 
         pred_value = pred_mean
 
@@ -72,16 +67,6 @@ def predicted_energy_test(test, ml_calc, trained_process, min_step, max_step,
                                                       d_min_crit=min_step)
             pred_value = pred_mean.copy() + penalty_too_close
 
-        # Pass data to the acquisition function (optional):
-
-        if acq_fun is not None:
-            print('Work in progress.'), exit()
-            # acq = AcquisitionFunctions(objective=mode, kappa=2.5)
-            # pred_value = -acq.rank(predictions=pred_value,
-            #                        uncertainty=uncertainty,
-            #                        targets=list_targets
-            #                        )[acq_fun]
-
         if mode == 'min':
             return pred_value[0][0]  # For minimization problems.
 
@@ -92,8 +77,7 @@ def predicted_energy_test(test, ml_calc, trained_process, min_step, max_step,
 def optimize_ml_using_scipy(self, x0):
 
     args = (self.ml_calc, self.trained_process, self.min_step, self.max_step,
-            self.acq_fun, self.mode, self.list_train, self.list_targets,
-            self.ase)
+            self.mode, self.list_train, self.ase)
 
     if self.ml_algo == 'Powell':
         result_min = fmin_powell(func=predicted_energy_test, x0=x0,

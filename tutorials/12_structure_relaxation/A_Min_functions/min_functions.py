@@ -1,4 +1,4 @@
-from catlearn.optimize.catlearn_optimizer import CatLearnOptimizer
+from catlearn.optimize.catlearn_minimizer import CatLearnMinimizer
 from catlearn.optimize.functions_calc import Himmelblau, NoiseHimmelblau, \
 GoldsteinPrice, Rosenbrock, MullerBrown
 from ase import Atoms
@@ -14,11 +14,11 @@ import numpy as np
 """
 
 # 0. Set calculator.
-ase_calculator = MullerBrown()
+ase_calculator = Rosenbrock()
 
 # 1. Set common initial structure.
-common_initial = Atoms('C', positions=[(-1.0, -1.0, 0.0)])
-common_initial.rattle(stdev=0.2, seed=0)
+common_initial = Atoms('H', positions=[(-1.0, -1.0, 0.0)])
+common_initial.rattle(stdev=0.0, seed=0)
 
 # 2.A. Optimize structure using ASE.
 initial_ase = copy.deepcopy(common_initial)
@@ -32,7 +32,7 @@ ase_opt.run(fmax=0.01, steps=500)
 initial_catlearn = copy.deepcopy(common_initial)
 initial_catlearn.set_calculator(copy.deepcopy(ase_calculator))
 
-catlearn_opt = CatLearnOptimizer(initial_catlearn, filename='results')
+catlearn_opt = CatLearnMinimizer(initial_catlearn, filename='results')
 catlearn_opt.run(fmax=0.01)
 
 # 3. Summary of the results:

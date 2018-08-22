@@ -1,4 +1,4 @@
-from catlearn.optimize.catlearn_optimizer import CatLearnOptimizer
+from catlearn.optimize.catlearn_minimizer import CatLearnMinimizer
 from ase.calculators.emt import EMT
 from ase.io import read
 from ase.optimize import BFGS
@@ -19,7 +19,7 @@ ase_calculator = EMT()
 # 1.1. Structures:
 
 common_initial = read('./A_structure/POSCAR')
-common_initial.rattle(stdev=0.1, seed=0)
+common_initial.rattle(stdev=0.0, seed=0)
 
 # 2.A. Optimize structure using ASE.
 initial_ase = copy.deepcopy(common_initial)
@@ -37,7 +37,7 @@ ase_opt.run(fmax=0.01)
 initial_catlearn = copy.deepcopy(common_initial)
 initial_catlearn.set_calculator(copy.deepcopy(ase_calculator))
 
-catlearn_opt = CatLearnOptimizer(initial_catlearn, filename='results')
+catlearn_opt = CatLearnMinimizer(initial_catlearn, filename='results')
 catlearn_opt.run(fmax=0.01)
 
 # 3. Summary of the results:

@@ -31,8 +31,8 @@ mol.rattle(seed=0, stdev=0.1)
 initial_ase = mol.copy()
 initial_ase.set_calculator(calc)
 
-ase_opt = SciPyFminCG(initial_ase, trajectory='ase_optimization.traj')
-ase_opt.run(fmax=0.05)
+# ase_opt = SciPyFminCG(initial_ase, trajectory='ase_optimization.traj')
+# ase_opt.run(fmax=0.05)
 
 # 2.B. Optimize structure using CatLearn:
 initial_catlearn = mol.copy()
