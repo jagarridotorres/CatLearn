@@ -7,7 +7,7 @@ class GPCalculator(object):
 
     def __init__(self, kernel_dict=None,
                  regularization=1e-5,
-                 regularization_bounds=(1e-5, 1e-5),
+                 regularization_bounds=(1e-6, 1e-2),
                  algo_opt_hyperparamters='L-BFGS-B',
                  global_optimization=False,
                  scale_data=False,

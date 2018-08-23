@@ -151,9 +151,9 @@ class CatLearnMinimizer(object):
 
 
     def run(self, fmax=1e-2, e_max=1e-15, max_iter=1000, min_iter=None,
-            max_step=None, min_step=None, i_step=None,
+            max_step=0.2, min_step=None, i_step=None,
             i_ase_step='SciPyFminCG',
-            ml_algo='SciPyFminCG', max_memory=50):
+            ml_algo='CG', max_memory=50):
 
         """Executing run will start the optimization process.
 
@@ -306,10 +306,10 @@ class CatLearnMinimizer(object):
                     trained_process=self.trained_process)
 
             ########## UNDER TEST #####################################
-            # if self.list_fmax[-1] <= 0.10:
-            #     self.ml_calc.__dict__['opt_hyperparam'] = True
-            # if self.list_fmax[-1] > 0.10:
-            #     self.ml_calc.__dict__['opt_hyperparam'] = False
+            if self.list_fmax[-1] <= 0.10:
+                self.ml_calc.__dict__['opt_hyperparam'] = True
+            if self.list_fmax[-1] > 0.10:
+                self.ml_calc.__dict__['opt_hyperparam'] = False
             ########## UNDER TEST #####################################
 
 
