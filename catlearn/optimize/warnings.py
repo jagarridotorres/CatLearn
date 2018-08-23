@@ -55,23 +55,13 @@ def warning_max_step():
 def warning_max_step_radii(max_step):
     msg = "WARNING: You have not set a minimum step size and is using " \
         "Atoms objects. In order to stabilize the optimization the default " \
-        "maximum step size is 1/2 of the smallest covalent radii " \
+        "maximum step size is 1/4 of the smallest covalent radii " \
         "found for the system. For this optimization the maximum step is set " \
         "to " + \
         str(max_step)+" Angstrom."
     print(msg)
     store_warnings_and_errors(msg)
 
-
-def warning_max_step_radii_neb(max_step):
-    msg = "WARNING: You have not set a minimum step size and is using " \
-        "Atoms objects. In order to stabilize the optimization the default " \
-        "maximum step size is 1/10 of the smallest covalent radii " \
-        "found for the system. For this optimization the maximum step is set " \
-        "to " + \
-        str(max_step)+" Angstrom."
-    print(msg)
-    store_warnings_and_errors(msg)
 
 def warning_spring_default(spring):
     msg = "WARNING: You have not set an spring constant. The default spring " \

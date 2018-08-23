@@ -14,7 +14,7 @@ import numpy as np
 """
 
 # 0. Set calculator.
-ase_calculator = Rosenbrock()
+ase_calculator = Himmelblau()
 
 # 1. Set common initial structure.
 common_initial = Atoms('H', positions=[(-1.0, -1.0, 0.0)])

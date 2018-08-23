@@ -48,22 +48,6 @@ class CatLearnMinimizer(object):
 
         self.ml_calc = ml_calc
 
-        if self.ml_calc is None:
-            kdict = {'k1':
-                         {'type': 'gaussian',
-                          'scaling': 1.0, 'scaling_bounds': ((1.0, 1.0), ),
-                          'width': 0.5, 'dimension':'single',
-                          'bounds': ((0.01, 1.0),),},
-                     'k2':
-                         {'type':
-                          'constant',
-                          'const': 0.0}
-                     }
-            self.ml_calc = GPCalculator(kernel_dict=kdict,
-                                        calc_uncertainty=False,
-                                        guess_hyper='constant')
-            warning_kernel()
-
         # Restart variables each run:
         self.ase_calc = ase_calc
 
@@ -149,9 +133,26 @@ class CatLearnMinimizer(object):
                 self.ind_mask_constr = create_mask_ase_constraints(
                 self.ase_ini, self.constraints)
 
+        if self.ml_calc is None:
+            kdict = {'k1':
+                         {'type': 'gaussian',
+                          'scaling': 1.0, 'scaling_bounds': ((1.0, 1.0), ),
+                          'width': 0.4, 'dimension':'single',
+                          'bounds': ((0.01, 1.0),) ,},
+                     'k2':
+                         {'type':
+                          'constant',
+                          'const': 0.0}
+                     }
+            self.ml_calc = GPCalculator(kernel_dict=kdict,
+                                        calc_uncertainty=False,
+                                        guess_hyper='constant')
+            warning_kernel()
+
+
 
     def run(self, fmax=1e-2, e_max=1e-15, max_iter=1000, min_iter=None,
-            max_step=0.2, min_step=None, i_step=None,
+            max_step=0.05, min_step=None, i_step=None,
             i_ase_step='SciPyFminCG',
             ml_algo='CG', max_memory=50):
 
@@ -250,7 +251,7 @@ class CatLearnMinimizer(object):
             list_radii = []
             for i in atomic_numbers:
                 list_radii.append(covalent_radii[i])
-            self.max_step = np.min(list_radii)/2.0
+            self.max_step = np.min(list_radii)/5.0
 
             warning_max_step_radii(max_step=self.max_step)
 
