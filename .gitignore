@@ -9,3 +9,5 @@ docs/_*
 
 .idea/
 .ipynb_checkpoints/
+tutorials/12_structure_relaxation/C_Heptamer_Island/results_ASE_opt
+tutorials/12_structure_relaxation/D_N2_Cu111/results_ASE_opt

@@ -1,6 +1,5 @@
 import numpy as np
 from ase import Atoms
-from ase.io.trajectory import TrajectoryWriter
 from ase.io.trajectory import Trajectory
 
 from ase.io import write

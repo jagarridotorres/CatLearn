@@ -1,5 +1,4 @@
-from catlearn.optimize.io import *
-
+from catlearn.optimize.io import backup_old_calcs
 
 def warning_using_ase():
     msg = "Atoms have been detected. Using ASE..."
@@ -13,7 +12,7 @@ def warning_first_step_ase(self):
         "points of this optimization " \
         "using " + str(self.i_ase_step) + " as implemented in ASE. If the " \
         "user don't set the 'i_ase_step' flag the default algorithm is " \
-        "ASE_BFGS for atomistic systems.)"
+        "SciPyFminCG for atomistic systems.)"
     print(msg)
     store_warnings_and_errors(msg)
 
@@ -27,14 +26,14 @@ def warning_prev_data_intro():
 
 
 def warning_ml_algo(self):
-    msg = 'Using ASE (' + self.ml_algo + ') for the optimization of ' \
+    msg = 'Using CatLearn (+' + self.ml_algo + ') for the optimization of ' \
                 'the ML predicted function.'
     print(msg)
     store_warnings_and_errors(msg)
 
 
 def warning_traj_detected():
-    msg = 'Trajectory file has been detected. Using ASE...'
+    msg = 'Trajectory file has been detected. Using CatLearn+ASE...'
     print(msg)
     store_warnings_and_errors(msg)
 
@@ -56,7 +55,7 @@ def warning_max_step():
 def warning_max_step_radii(max_step):
     msg = "WARNING: You have not set a minimum step size and is using " \
         "Atoms objects. In order to stabilize the optimization the default " \
-        "maximum step size is 1/4 of the smallest covalent radii " \
+        "maximum step size is 1/2 of the smallest covalent radii " \
         "found for the system. For this optimization the maximum step is set " \
         "to " + \
         str(max_step)+" Angstrom."

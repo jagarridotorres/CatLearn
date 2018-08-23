@@ -1,9 +1,6 @@
 import numpy as np
-# from catlearn.regression.acquisition_functions import AcquisitionFunctions
-from catlearn.optimize.penalty_atoms import PenaltyFunctions
 from scipy.optimize import *
-from catlearn.optimize.io import *
-from catlearn.optimize.penalty_atoms import *
+from catlearn.optimize.penalty import *
 
 
 def predicted_energy_test(test, ml_calc, trained_process, min_step, max_step,
@@ -38,20 +35,16 @@ def predicted_energy_test(test, ml_calc, trained_process, min_step, max_step,
         predictions = ml_calc.get_predictions(trained_process,
         test_data=test)
         pred_mean = predictions['pred_mean']
-
-
-
         pred_value = pred_mean
 
         # Penalize the predicted function (optional):
 
-        if max_step or min_step is not None:
-            penalty = PenaltyFunctions(train_features=list_train,
-                                       test_features=[test])
         if max_step is not None:
             if ase is False:
-                penalty_too_far = penalty.penalty_far(c_max_crit=1e2,
-                d_max_crit=max_step)
+                penalty_too_far = PenaltyFunctions(
+                                        train_features=list_train,
+                                        test_features=[test]).penalty_far()
+
             if ase is True:
                 if (len(test) % 3) == 0:
                     penalty_too_far = penalty_too_far_atoms_v2(

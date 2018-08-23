@@ -1,17 +1,19 @@
 import numpy as np
-from catlearn.optimize.functions import *
-from catlearn.optimize.catlearn_ase_calc import CatLearnASE
-from catlearn.optimize.optimize_ml import *
-from catlearn.optimize.convergence import *
-from catlearn.optimize.warnings import *
 from catlearn.optimize.gp_calculator import GPCalculator
+from catlearn.optimize.warnings import *
+from catlearn.optimize.constraints import create_mask_ase_constraints, \
+                                          apply_mask_ase_constraints, unmask_geometry
+from catlearn.optimize.get_real_values import get_energy_catlearn, get_forces_catlearn
 from ase.data import covalent_radii
-from ase.io.trajectory import TrajectoryReader
-from ase.io import Trajectory, read, write
-from ase.optimize.sciopt import *
 from ase.optimize import *
+from ase.optimize.sciopt import *
+from catlearn.optimize.optimize_ml import optimize_ml_using_scipy
+from catlearn.optimize.catlearn_ase_calc import CatLearnASE
+from catlearn.optimize.convergence import converged
 import re
-
+from ase.atoms import Atoms
+from ase.io.trajectory import TrajectoryWriter
+from catlearn.optimize.io import print_info, print_info_ml, store_results, array_to_ase
 
 class CatLearnMinimizer(object):
 
@@ -28,11 +30,10 @@ class CatLearnMinimizer(object):
             Machine Learning calculator (e.g. Gaussian Processes).
         ase_calc: ASE calculator object
             When using ASE the user must pass an ASE calculator.
-        f : class (see functions.py)
+        f : (Optional) class (see functions.py)
             Objective function to be optimized.
         jac : boolean
             Evaluate the Jacobian (first derivatives) of the function.
-
         mode: string ('min' or 'max')
             User must chose if it is a minimization or maximization problem.
             Default is 'min' (Minimization).
@@ -48,13 +49,16 @@ class CatLearnMinimizer(object):
         self.ml_calc = ml_calc
 
         if self.ml_calc is None:
-            kdict = {'k1': {'type': 'gaussian',
-                            'scaling': 1.0, 'scaling_bounds': ((1.0, 1.0), ),
-                            'width': 0.5, 'dimension':'single', 'bounds': ((
-                            0.01, 1.0),
-                          ),}, 'k2': {'type':
+            kdict = {'k1':
+                         {'type': 'gaussian',
+                          'scaling': 1.0, 'scaling_bounds': ((1.0, 1.0), ),
+                          'width': 0.5, 'dimension':'single',
+                          'bounds': ((0.01, 1.0),),},
+                     'k2':
+                         {'type':
                           'constant',
-                          'const': 0.0}}
+                          'const': 0.0}
+                     }
             self.ml_calc = GPCalculator(kernel_dict=kdict,
                                         calc_uncertainty=False,
                                         guess_hyper='constant')
@@ -90,9 +94,9 @@ class CatLearnMinimizer(object):
                 self.list_gradients = np.array(x0['gradients'])
                 assert len(self.list_gradients) > 1, err_gradients_data()
                 assert len(self.list_gradients) == len(self.list_train), \
-                err_diff_data_size()
+                           err_diff_data_size()
             assert len(self.list_targets) == len(self.list_train), \
-            err_diff_data_size()
+                      err_diff_data_size()
             self.fun_avail = implemented_functions()
             assert f, err_not_real_func(self)
             assert f in self.fun_avail, err_not_real_func_2(self)
@@ -149,7 +153,7 @@ class CatLearnMinimizer(object):
     def run(self, fmax=1e-2, e_max=1e-15, max_iter=1000, min_iter=None,
             max_step=None, min_step=None, i_step=None,
             i_ase_step='SciPyFminCG',
-            ml_algo='Powell', max_memory=50):
+            ml_algo='SciPyFminCG', max_memory=50):
 
         """Executing run will start the optimization process.
 
@@ -246,7 +250,7 @@ class CatLearnMinimizer(object):
             list_radii = []
             for i in atomic_numbers:
                 list_radii.append(covalent_radii[i])
-            self.max_step = np.min(list_radii)
+            self.max_step = np.min(list_radii)/2.0
 
             warning_max_step_radii(max_step=self.max_step)
 
@@ -299,14 +303,13 @@ class CatLearnMinimizer(object):
 
             if self.ml_calc.__dict__['guess_hyper'] is not None:
                 self.trained_process = self.ml_calc.update_hyperparameters(
-                    trained_process=self.trained_process,
-                    train_data=self.list_train, target_data=self.list_targets)
+                    trained_process=self.trained_process)
 
             ########## UNDER TEST #####################################
-            if self.list_fmax[-1] <= 0.10:
-                self.ml_calc.__dict__['opt_hyperparam'] = True
-            if self.list_fmax[-1] > 0.10:
-                self.ml_calc.__dict__['opt_hyperparam'] = False
+            # if self.list_fmax[-1] <= 0.10:
+            #     self.ml_calc.__dict__['opt_hyperparam'] = True
+            # if self.list_fmax[-1] > 0.10:
+            #     self.ml_calc.__dict__['opt_hyperparam'] = False
             ########## UNDER TEST #####################################
 
 
@@ -318,17 +321,15 @@ class CatLearnMinimizer(object):
             test0 = self.list_train[np.argmin(self.list_targets)]
 
             self.ase_optimizers = ['BFGS_ASE', 'LBFGS_ASE', 'FIRE_ASE',
-            'MDMin_ASE']
+                                   'MDMin_ASE', 'SciPyFminCG']
             self.scipy_optimizers = ['Powell', 'L-BFGS-B', 'BFGS', 'Nelder-Mead',
-                                'CG']
+                                     'CG']
 
             assert self.ml_algo in self.scipy_optimizers or \
             self.ml_algo in self.ase_optimizers, err_not_ml_algo(self)
 
             if self.ml_algo in self.scipy_optimizers:
                 warning_ml_algo(self)
-                if self.iter == 0:
-                    table_results_ml = None
                 self.interesting_point = optimize_ml_using_scipy(self, x0=test0)
 
                 if self.constraints is not None:

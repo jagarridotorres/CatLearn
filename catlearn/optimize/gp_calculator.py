@@ -1,6 +1,5 @@
 import numpy as np
 from catlearn.regression import GaussianProcess
-from scipy.spatial import distance
 from catlearn.optimize.warnings import *
 
 
@@ -92,13 +91,7 @@ class GPCalculator(object):
                'uncertainty_with_reg':uncertainty_with_reg}
         return res
 
-    def update_hyperparameters(self, trained_process, train_data, target_data):
-        # if 'width' in self.guess_hyper:
-        #     new_width = distance.pdist(train_data)
-        #     new_width = np.average(new_width)
-        #     trained_process.kernel_dict['k1']['width'] = 0.5*new_width * \
-        #     np.ones_like(trained_process.kernel_dict['k1']['width'])
-        #     print('Guessed width parameter', new_width)
+    def update_hyperparameters(self, trained_process):
         if 'constant' in self.guess_hyper:
             new_constant = np.std(self.target_calc)
             trained_process.kernel_dict['k2']['const'] = new_constant
