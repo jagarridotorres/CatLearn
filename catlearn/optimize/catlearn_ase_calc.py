@@ -1,6 +1,6 @@
 import numpy as np
 from catlearn.optimize.constraints import apply_mask_ase_constraints
-from catlearn.optimize.penalty_atoms import penalty_too_far_atoms_v2
+from catlearn.optimize.penalty import penalty_too_far_atoms_v2
 from ase.calculators.calculator import Calculator, all_changes
 import copy
 
