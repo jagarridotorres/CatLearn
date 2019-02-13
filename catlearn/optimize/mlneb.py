@@ -250,8 +250,8 @@ class MLNEB(object):
 
     def run(self, fmax=0.05, unc_convergence=0.050, steps=200,
             trajectory='ML_NEB_catlearn.traj', acquisition='acq_5',
-            dt=0.025, ml_steps=750, max_step=0.2, sequential=False,
-            full_output=False):
+            dt=0.025, ml_steps=750, max_step=0.25, sequential=False,
+            max_memory=75, full_output=True):
 
         """Executing run will start the NEB optimization process.
 
@@ -290,6 +290,7 @@ class MLNEB(object):
         """
         self.acq = acquisition
         self.fullout = full_output
+        self.max_memory = max_memory
 
         # Calculate a third point if only known initial & final structures.
 
@@ -335,7 +336,7 @@ class MLNEB(object):
                 if ml_cycles == 0:
                     sp = '0:' + str(self.n_images)
                     if self.fullout is True:
-                        print('Using initial path.')
+                        print('Using last predicted path.')
                     starting_path = read('./all_predicted_paths.traj', sp)
 
                 if ml_cycles == 1:
@@ -385,15 +386,6 @@ class MLNEB(object):
                     neb_opt.run(fmax=(fmax * 0.85), steps=1)
                     get_results_predicted_path(self)
                     unc_ml = np.max(self.uncertainty_path[1:-1])
-                    e_ml = np.max(self.e_path[1:-1])
-
-                    if e_ml >= self.max_target + 0.2:
-                        for i in range(0, self.n_images):
-                            self.images[i].positions = prev_save_positions[i]
-                        if self.fullout is True:
-                            print('Pred. energy above max. energy. '
-                                  'Early stop.')
-                        ml_converged = True
 
                     if unc_ml >= max_step:
                         for i in range(0, self.n_images):
@@ -407,6 +399,13 @@ class MLNEB(object):
                     n_steps_performed = neb_opt.__dict__['nsteps']
 
                     if np.isnan(ml_neb.emax):
+                        sp = '0' + ':' + str(self.n_images)
+                        self.images = read('./all_predicted_paths.traj', sp)
+                        for i in self.images:
+                            i.get_potential_energy()
+                        n_steps_performed = 10000
+
+                    if np.any(np.isnan(self.uncertainty_path[1:-1])):
                         sp = str(-self.n_images) + ':'
                         self.images = read('./all_predicted_paths.traj', sp)
                         for i in self.images:
@@ -687,11 +686,30 @@ def train_gp_model(self):
 
     train = self.list_train.copy()
     gradients = self.list_gradients.copy()
+
     if self.index_mask is not None:
         train = apply_mask(list_to_mask=self.list_train,
                            mask_index=self.index_mask)[1]
         gradients = apply_mask(list_to_mask=self.list_gradients,
                                mask_index=self.index_mask)[1]
+
+    # Memory:
+    if len(scaled_targets) > self.max_memory:
+        if self.max_memory < self.n_images:
+            if self.fullout:
+                print('Max. memory is smaller than the number of images.')
+            self.max_memory = self.n_images * 2
+        if self.max_memory < len(self.index_mask):
+            if self.fullout:
+                print('Max. memory is smaller than the number of degrees of '
+                      'freedom.')
+            self.max_memory = len(self.index_mask)
+        scaled_targets = scaled_targets[-self.max_memory:]
+        gradients = gradients[-self.max_memory:]
+        train = train[-self.max_memory:]
+    if self.fullout:
+        print('Max. Memory', self.max_memory)
+
     print('\n')
     print('Training a GP process...')
     print('Number of training points:', len(scaled_targets))
